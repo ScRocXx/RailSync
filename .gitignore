@@ -4,4 +4,5 @@ node_modules/
 dist/
 .vite/
 *.js.map
-*.tsbuildinfo
+*.db
+SIMULATOR/data/live_*.json

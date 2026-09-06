@@ -3,20 +3,45 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RailSync — Delhi Division Section Control Desk</title>
+<title>RailSync-ABPS — Northern Railway (Delhi Division) | Government of India</title>
 </head>
 <body>
 
-<!-- ================================ DIVISION MASTER SCADA BANNER -->
+<!-- ================================ TOP TRICOLOR ACCENT RIBBON (3px) -->
+<div id="tricolor-ribbon"></div>
+
+<!-- ================================ OFFICIAL GOVERNMENT / MINISTRY OF RAILWAYS HEADER -->
 <header id="banner">
-  <div class="brand">
-    <div class="brand-mark">RS</div>
-    <div class="brand-txt">
-      <b>RailSync Command Desk</b>
-      <span id="brand-div">Delhi Division · Northern Railway</span>
+  <!-- Official Government of India & Ministry of Railways Identity -->
+  <div class="gov-brand">
+    <div class="emblem-box" title="State Emblem of India (Ashoka Lion Capital)">
+      <svg class="ashoka-emblem" viewBox="0 0 100 120" width="34" height="42" fill="currentColor">
+        <!-- Ashoka Lion Capital Stylized Silhouette -->
+        <path d="M50 5 C45 5 40 8 38 14 C36 12 32 12 30 15 C28 14 25 15 24 18 C22 17 18 19 18 24 C18 28 20 31 23 33 C21 36 21 40 23 43 C24 46 27 48 30 49 C28 53 30 57 33 60 C36 62 40 63 44 63 C44 67 41 71 36 73 C30 75 22 79 22 86 L78 86 C78 79 70 75 64 73 C59 71 56 67 56 63 C60 63 64 62 67 60 C70 57 72 53 70 49 C73 48 76 46 77 43 C79 40 79 36 77 33 C80 31 82 28 82 24 C82 19 78 17 76 18 C75 15 72 14 70 15 C68 12 64 12 62 14 C60 8 55 5 50 5 Z" fill="#f8fafc"/>
+        <!-- Central Ashoka Chakra on Abacus -->
+        <circle cx="50" cy="95" r="7" fill="none" stroke="#f8fafc" stroke-width="1.8"/>
+        <circle cx="50" cy="95" r="2" fill="#f8fafc"/>
+        <line x1="50" y1="88" x2="50" y2="102" stroke="#f8fafc" stroke-width="1"/>
+        <line x1="43" y1="95" x2="57" y2="95" stroke="#f8fafc" stroke-width="1"/>
+        <line x1="45" y1="90" x2="55" y2="100" stroke="#f8fafc" stroke-width="1"/>
+        <line x1="55" y1="90" x2="45" y2="100" stroke="#f8fafc" stroke-width="1"/>
+        <!-- Pedestal Base with Satyameva Jayate Indicator -->
+        <rect x="24" y="89" width="52" height="12" rx="1" fill="none" stroke="#f8fafc" stroke-width="1.2"/>
+        <rect x="18" y="103" width="64" height="4" fill="#f8fafc"/>
+        <rect x="22" y="109" width="56" height="3" fill="#f8fafc"/>
+      </svg>
+    </div>
+    <div class="gov-titles">
+      <div class="gov-line-1">भारत सरकार | रेल मंत्रालय | GOVERNMENT OF INDIA | MINISTRY OF RAILWAYS</div>
+      <div class="gov-line-2">उत्तर रेलवे (दिल्ली मंडल) | NORTHERN RAILWAY (DELHI DIVISION)</div>
+      <div class="gov-line-3">
+        <b>RailSync-ABPS</b>
+        <span class="sub-portal-tag">Automatic Block Planning System</span>
+      </div>
     </div>
   </div>
 
+  <!-- Master Division Clock & Shift Selector -->
   <div class="stat clock-box">
     <div class="stat-k">Division Master Clock (GPS)</div>
     <div class="clock-row">
@@ -35,6 +60,7 @@
     </div>
   </div>
 
+  <!-- High-Contrast Institutional Metrics -->
   <div class="stat">
     <div class="stat-k">Punctuality Index</div>
     <div class="stat-v" id="s-punct">--</div>
@@ -67,14 +93,16 @@
 
   <div class="banner-spacer"></div>
 
-  <div class="tsr-chip" id="tsr-chip" title="Active TSR / Caution Orders">
+  <!-- Active Caution Orders (TSR) Badge -->
+  <div class="tsr-chip" id="tsr-chip" title="Active TSR / Caution Orders Register">
     <span class="dot"></span>
     <div>
-      <div class="stat-k" style="color:#f87171">Active TSR</div>
-      <div class="mono" style="font-size:15px;font-weight:700" id="s-tsr">--</div>
+      <div class="stat-k" style="color:#fca5a5">Active TSR</div>
+      <div class="mono" style="font-size:14px;font-weight:700" id="s-tsr">--</div>
     </div>
   </div>
 
+  <!-- Live Terminal Simulators Link -->
   <div class="scada-chip" id="scada-telemetry-chip" title="Active Terminal Simulators Link">
     <span class="live-dot" id="sim-live-dot"></span>
     <div>
@@ -84,19 +112,19 @@
   </div>
 </header>
 
-<!-- ================================ 6 DEDICATED WORKSPACE TABS -->
+<!-- ================================ FORMAL INSTITUTIONAL NAVIGATION BAR -->
 <nav id="ws-nav-bar" class="command-bar">
   <button class="ws-nav-btn" data-ws="marey" id="nav-marey">
     <span class="ws-num">1</span>
-    <span class="ws-name">TIME-DISTANCE STRING (Marey)</span>
+    <span class="ws-name">TIME-DISTANCE STRING (Marey Graph)</span>
   </button>
   <button class="ws-nav-btn" data-ws="ctc" id="nav-ctc">
     <span class="ws-num">2</span>
-    <span class="ws-name">CTC TRACK MIMIC (Schematic)</span>
+    <span class="ws-name">CTC TRACK MIMIC (Schematic Panel)</span>
   </button>
   <button class="ws-nav-btn on" data-ws="planner" id="nav-planner">
     <span class="ws-num">3</span>
-    <span class="ws-name">BLOCK PLANNER (CORE)</span>
+    <span class="ws-name">BLOCK PLANNER (Core AI Desk)</span>
   </button>
   <button class="ws-nav-btn" data-ws="fleet" id="nav-fleet">
     <span class="ws-num">4</span>
@@ -104,35 +132,35 @@
   </button>
   <button class="ws-nav-btn" data-ws="reports" id="nav-reports">
     <span class="ws-num">5</span>
-    <span class="ws-name">REPORTS &amp; CHARTS (GRAPHS)</span>
+    <span class="ws-name">REPORTS &amp; ANALYTICS (SVG Charts)</span>
   </button>
   <button class="ws-nav-btn" data-ws="audit" id="nav-audit">
     <span class="ws-num">6</span>
-    <span class="ws-name">AUDIT LOGS (PN)</span>
+    <span class="ws-name">AUDIT LOGS &amp; MEMOS (PN Register)</span>
   </button>
 </nav>
 
-<!-- ================================ 6 FULL-SCREEN WORKSPACES -->
+<!-- ================================ 6 FULL-SCREEN WORKSPACES (CRISP LIGHT THEME) -->
 <main id="main">
 
-  <!-- 1. TIME-DISTANCE STRING (MAREY) -->
+  <!-- 1. TIME-DISTANCE STRING (MAREY GRAPH PAPER) -->
   <section class="ws-pane" id="ws-marey">
     <div class="ws-toolbar">
       <div class="seg" id="corr-tabs"></div>
       <div class="toolbar-sep"></div>
       <div class="seg" id="span-tabs">
-        <button data-sp="1440">24h</button>
-        <button data-sp="480" class="on">8h Window</button>
-        <button data-sp="240">4h Window</button>
+        <button data-sp="1440">24h Working Time Table</button>
+        <button data-sp="480" class="on">8h Operational Window</button>
+        <button data-sp="240">4h Peak Window</button>
       </div>
       <div class="grow"></div>
       <span class="ws-meta" id="marey-sub">&mdash;</span>
       <div class="legend">
-        <i><b style="background:var(--t-premium)"></b>Premium (VB/Raj)</i>
-        <i><b style="background:var(--t-express)"></b>Mail/Express</i>
+        <i><b style="background:var(--t-premium)"></b>Vande Bharat / Rajdhani</i>
+        <i><b style="background:var(--t-express)"></b>Mail / Express</i>
         <i><b style="background:var(--t-suburban)"></b>Suburban EMU</i>
-        <i><b style="background:var(--t-freight);border-top:1px dashed #cbd5e1;height:1px"></b>Freight</i>
-        <i><b style="background:var(--amber)"></b>Block Slot</i>
+        <i><b style="background:var(--t-freight);border-top:1px dashed #64748b;height:1px"></b>Freight Rake</i>
+        <i><b style="background:var(--amber)"></b>Block Possession Slot</i>
       </div>
     </div>
     <div class="ws-canvas-host">
@@ -146,7 +174,7 @@
       <div class="seg" id="ctc-corr-tabs"></div>
       <div class="grow"></div>
       <div class="legend">
-        <i><b style="background:#22c55e"></b>Track Clear</i>
+        <i><b style="background:#16a34a"></b>Track Clear</i>
         <i><b style="background:var(--red)"></b>Track Occupied</i>
         <i><b style="background:var(--amber)"></b>Possession Block</i>
         <i><b style="background:var(--blue)"></b>Platform Loop (P1–P4)</i>
@@ -159,7 +187,7 @@
         <div id="net-wrap"><svg id="net-svg"></svg></div>
       </div>
       <div class="ctc-yard-matrix-wrap">
-        <div class="matrix-hd">STATION INTERLOCKING &amp; YARD STATUS REGISTER</div>
+        <div class="matrix-hd">STATION INTERLOCKING &amp; YARD STATUS REGISTER (CRIS CTC STANDARD)</div>
         <div class="ctc-yard-matrix" id="ctc-yard-matrix"></div>
       </div>
     </div>
@@ -172,7 +200,7 @@
       <!-- LEFT DESK: RAW INGESTION FEED & TELEMETRY TABLE -->
       <div class="planner-left">
         <div class="desk-hd">
-          <div class="desk-title">RAW TELEMETRY INGESTION BACKLOG</div>
+          <div class="desk-title">DEPARTMENTAL MAINTENANCE BACKLOG (TELEMETRY REGISTER)</div>
           <span class="desk-sub" id="q-count">-- demands</span>
           <div class="grow"></div>
           <span class="scroll-hint">&#x2194; Full 7-column SCADA telemetry matrix</span>
@@ -182,13 +210,13 @@
           <table class="grid" id="q-table">
             <thead>
               <tr>
-                <th style="min-width:130px">Requisition</th>
-                <th style="min-width:70px">Dept</th>
-                <th style="min-width:130px">Section / Line</th>
+                <th style="min-width:130px">Requisition ID</th>
+                <th style="min-width:75px">Dept</th>
+                <th style="min-width:135px">Section / Line</th>
                 <th style="min-width:145px">Chainage</th>
                 <th style="min-width:165px">Raw Telemetry</th>
-                <th style="min-width:65px;text-align:right">O/D</th>
-                <th style="min-width:115px">Urgency (0–100)</th>
+                <th style="min-width:65px;text-align:right">Overdue</th>
+                <th style="min-width:120px">Urgency Score</th>
               </tr>
             </thead>
             <tbody id="q-body"></tbody>
@@ -199,7 +227,7 @@
       <!-- RIGHT DESK: AI BLOCK PROPOSALS & DECISION ENGINE -->
       <div class="planner-right">
         <div class="desk-hd">
-          <div class="desk-title">AI BLOCK RECOMMENDATION SHORTLIST</div>
+          <div class="desk-title">OPTIMISED BLOCK PROPOSALS &amp; SHADOW BUNDLES</div>
           <span class="desk-sub" id="prop-sub">&mdash;</span>
           <div class="grow"></div>
           <span class="chip urg" id="prop-pending">&mdash;</span>
@@ -212,11 +240,11 @@
             <span class="mono bb-v" id="bb-val">+0 MIN BUFFER</span>
           </div>
           <div class="bb-controls">
-            <button class="bb-btn on" data-bb="0">+0m (Zero Buffer)</button>
+            <button class="bb-btn on" data-bb="0">+0m (Nominal Window)</button>
             <button class="bb-btn" data-bb="15">+15m Buffer</button>
             <button class="bb-btn" data-bb="30">+30m Buffer</button>
           </div>
-          <div class="bb-desc" id="bb-desc">Zero buffer selected: evaluating nominal handback window.</div>
+          <div class="bb-desc" id="bb-desc">Evaluating nominal window without extra contingency buffer.</div>
         </div>
 
         <div class="proposals-container" id="prop-list"></div>
@@ -231,7 +259,7 @@
       <div class="desk-title">HEAVY TRACK MACHINE FLEET &amp; STATUTORY HOER CREW REGISTER</div>
       <div class="grow"></div>
       <div class="legend">
-        <i><b style="background:#22c55e"></b>FIT for Traffic Block</i>
+        <i><b style="background:#16a34a"></b>FIT for Traffic Block</i>
         <i><b style="background:var(--red)"></b>Maintenance / Relief Required</i>
         <i><b style="background:var(--amber)"></b>Approaching 9h Statutory Limit</i>
       </div>
@@ -244,7 +272,7 @@
   <!-- 5. REPORTS & CHARTS (GRAPHS) -->
   <section class="ws-pane" id="ws-reports">
     <div class="ws-toolbar">
-      <div class="desk-title">DIVISIONAL SCADA TELEMETRY &amp; ANALYTICAL CHARTS</div>
+      <div class="desk-title">DIVISIONAL SCADA TELEMETRY &amp; ANALYTICAL CHARTS (COA METRICS)</div>
       <div class="grow"></div>
       <span class="ws-meta">Updated live from RTIS, CRT probes, and TMS databases</span>
     </div>
@@ -267,6 +295,75 @@
 
 </main>
 
+<!-- ================================ CLASSIC 3-EMBLEM INSTITUTIONAL TRUST FOOTER -->
+<footer id="site-footer">
+  <div class="footer-emblems-row">
+    
+    <!-- 1. Indian Railways Circular Roundel -->
+    <div class="trust-badge">
+      <svg class="trust-icon" viewBox="0 0 100 100" width="36" height="36">
+        <circle cx="50" cy="50" r="46" fill="none" stroke="#002b49" stroke-width="4"/>
+        <circle cx="50" cy="50" r="40" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="4,2"/>
+        <circle cx="50" cy="50" r="28" fill="#002b49"/>
+        <!-- Locomotive shape -->
+        <rect x="36" y="38" width="28" height="18" fill="#ffffff" rx="2"/>
+        <rect x="32" y="56" width="36" height="4" fill="#d97706"/>
+        <circle cx="40" cy="64" r="5" fill="#002b49" stroke="#ffffff" stroke-width="2"/>
+        <circle cx="50" cy="64" r="5" fill="#002b49" stroke="#ffffff" stroke-width="2"/>
+        <circle cx="60" cy="64" r="5" fill="#002b49" stroke="#ffffff" stroke-width="2"/>
+        <rect x="54" y="32" width="6" height="6" fill="#ffffff"/>
+      </svg>
+      <div class="trust-text">
+        <b>INDIAN RAILWAYS</b>
+        <span>भारतीय रेल · Lifeline of the Nation</span>
+      </div>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <!-- 2. Swachh Bharat Gandhi Specs -->
+    <div class="trust-badge">
+      <svg class="trust-icon" viewBox="0 0 120 60" width="48" height="26">
+        <!-- Gandhi Glasses -->
+        <circle cx="35" cy="30" r="20" fill="none" stroke="#16a34a" stroke-width="3"/>
+        <circle cx="85" cy="30" r="20" fill="none" stroke="#16a34a" stroke-width="3"/>
+        <path d="M55 26 Q70 18 65 26" fill="none" stroke="#16a34a" stroke-width="3"/>
+        <line x1="15" y1="24" x2="2" y2="18" stroke="#16a34a" stroke-width="2.5"/>
+        <line x1="105" y1="24" x2="118" y2="18" stroke="#16a34a" stroke-width="2.5"/>
+        <!-- Hindi Text in lenses -->
+        <text x="35" y="34" font-family="sans-serif" font-size="10" font-weight="bold" fill="#16a34a" text-anchor="middle">स्वच्छ</text>
+        <text x="85" y="34" font-family="sans-serif" font-size="10" font-weight="bold" fill="#16a34a" text-anchor="middle">भारत</text>
+      </svg>
+      <div class="trust-text">
+        <b>एक कदम स्वच्छता की ओर</b>
+        <span>SWACHH BHARAT MISSION</span>
+      </div>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <!-- 3. Digital India / CRIS Logo -->
+    <div class="trust-badge">
+      <svg class="trust-icon" viewBox="0 0 100 80" width="40" height="32">
+        <polygon points="50,6 88,28 88,72 50,94 12,72 12,28" fill="none" stroke="#003366" stroke-width="3"/>
+        <circle cx="50" cy="50" r="14" fill="#0284c7"/>
+        <path d="M50 20 L50 40 M35 45 L50 50 M65 45 L50 50" stroke="#d97706" stroke-width="3"/>
+      </svg>
+      <div class="trust-text">
+        <b>DIGITAL INDIA · CRIS</b>
+        <span>Centre for Railway Information Systems</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-meta-bar">
+    <span>RailSync-ABPS v2.4 (Enterprise Edition) · Delhi Division Section Control Desk · Northern Railway</span>
+    <span class="grow"></span>
+    <span>Node: NR-DLI-SCADA-01 · CRIS Secured Intranet · Official Use Only</span>
+  </div>
+</footer>
+
 <!-- ================================ OFFICIAL CONTROL ORDER (PN) MODAL -->
 <div id="memo-modal" class="modal-overlay">
   <div class="modal-box modal-box-lg">
@@ -274,7 +371,7 @@
       <div class="row">
         <div>
           <div class="modal-inst">NORTHERN RAILWAY · DELHI DIVISION CONTROL OFFICE</div>
-          <h2 id="memo-order-id">CONTROL ORDER — MAINTENANCE BLOCK</h2>
+          <h2 id="memo-order-id">CONTROL ORDER — ENGINEERING BLOCK AUTHORISATION</h2>
         </div>
         <div class="grow"></div>
         <span class="chip rout" id="memo-status">APPROVED</span>
@@ -326,7 +423,7 @@
       <div class="modal-sub" id="reject-prop-sub">&mdash;</div>
     </div>
     <div class="modal-bd">
-      <p style="color:var(--text-mute);margin-top:0">Select the official CRIS reason code for refusing or deferring this maintenance possession window:</p>
+      <p style="color:var(--text-dim);margin-top:0;font-size:12px">Select the official CRIS reason code for refusing or deferring this maintenance possession window:</p>
       
       <div class="reason-options" id="reject-reasons">
         <label class="reason-opt">
@@ -367,7 +464,7 @@
       </div>
 
       <div style="margin-top:12px">
-        <label style="display:block;font-size:11px;color:var(--text-mute);margin-bottom:4px">Controller Additional Remarks / Justification:</label>
+        <label style="display:block;font-size:11px;font-weight:700;color:var(--text-dim);margin-bottom:4px">Controller Additional Remarks / Justification:</label>
         <textarea id="reject-note" class="scada-textarea" rows="2" placeholder="e.g. Advised P-Way AEN to reschedule for 02:30 night window."></textarea>
       </div>
     </div>
@@ -427,7 +524,7 @@
   </div>
 </div>
 
-<!-- Legacy drawer element kept hidden to preserve any DOM references safely -->
+<!-- Hidden drawer element to prevent any missing reference errors -->
 <aside id="drawer" style="display:none"></aside>
 
 <div id="tip"></div>

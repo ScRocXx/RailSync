@@ -80,9 +80,9 @@ export function render(): void {
     id: 'mk-hatch', width: 8, height: 8,
     patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(45)',
   });
-  hatch.appendChild(svgEl('rect', { width: 8, height: 8, fill: 'rgba(251,191,36,.12)' }));
+  hatch.appendChild(svgEl('rect', { width: 8, height: 8, fill: '#fef3c7' }));
   hatch.appendChild(svgEl('line', {
-    x1: 0, y1: 0, x2: 0, y2: 8, stroke: 'rgba(251,191,36,.55)', 'stroke-width': 2.6,
+    x1: 0, y1: 0, x2: 0, y2: 8, stroke: '#d97706', 'stroke-width': 2.2,
   }));
   defs.appendChild(hatch);
   root.appendChild(defs);
@@ -257,7 +257,7 @@ export function render(): void {
   root.appendChild(needleHead);
 
   root.appendChild(svgEl('rect', {
-    x: M.l, y: M.t, width: iw, height: ih, fill: 'none', stroke: '#1e2638', 'stroke-width': 1,
+    x: M.l, y: M.t, width: iw, height: ih, fill: 'none', stroke: '#cbd5e1', 'stroke-width': 1,
   }));
 
   const sub = byId('marey-sub') || byId('mk-sub');

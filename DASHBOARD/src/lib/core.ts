@@ -62,13 +62,13 @@ export function esc(s: unknown): string {
 }
 
 export function scoreColor(v: number): string {
-  if (v >= 75) return '#ff4d4f';
-  if (v >= 55) return '#f5b942';
-  return '#2ecc71';
+  if (v >= 75) return '#dc2626';
+  if (v >= 55) return '#d97706';
+  return '#16a34a';
 }
 
 export const CLS_COLOR: Record<TrainClass, string> = {
-  PREMIUM: '#f5c542', EXPRESS: '#4a9eff', SUBURBAN: '#35c46a', FREIGHT: '#9c8468',
+  PREMIUM: '#b91c1c', EXPRESS: '#1d4ed8', SUBURBAN: '#047857', FREIGHT: '#475569',
 };
 
 /* ---- Geometry ---- */

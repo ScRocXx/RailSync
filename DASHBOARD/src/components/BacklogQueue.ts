@@ -275,7 +275,7 @@ export function renderProposals(): void {
     const barWrap = el('div');
     barWrap.style.cssText = 'margin:4px 0;';
     const bar = el('div');
-    bar.style.cssText = 'display:flex;height:6px;background:#1e2638;overflow:hidden;gap:1px;';
+    bar.style.cssText = 'display:flex;height:6px;background:#e2e8f0;overflow:hidden;gap:1px;';
 
     const segs: [number, string, string][] = [];
     if (w.protectionMin) segs.push([w.protectionMin / 2, '#f59e0b', 'Protection ' + (w.protectionMin / 2) + 'm']);

@@ -58,7 +58,7 @@ function createPunctualityDonut(pct: number, onTime: number, total: number): HTM
   // Background ring
   const bg = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
   bg.setAttribute('cx', '80'); bg.setAttribute('cy', '80'); bg.setAttribute('r', String(r));
-  bg.setAttribute('fill', 'none'); bg.setAttribute('stroke', '#1e2638');
+  bg.setAttribute('fill', 'none'); bg.setAttribute('stroke', '#e2e8f0');
   bg.setAttribute('stroke-width', '16');
   svg.appendChild(bg);
 
@@ -82,7 +82,7 @@ function createPunctualityDonut(pct: number, onTime: number, total: number): HTM
   // Center text
   const valText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
   valText.setAttribute('x', '80'); valText.setAttribute('y', '76');
-  valText.setAttribute('text-anchor', 'middle'); valText.setAttribute('fill', '#f1f5f9');
+  valText.setAttribute('text-anchor', 'middle'); valText.setAttribute('fill', '#0f172a');
   valText.setAttribute('font-family', 'var(--mono)'); valText.setAttribute('font-size', '22px');
   valText.setAttribute('font-weight', '800');
   valText.textContent = pct.toFixed(1) + '%';
@@ -90,7 +90,7 @@ function createPunctualityDonut(pct: number, onTime: number, total: number): HTM
 
   const subText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
   subText.setAttribute('x', '80'); subText.setAttribute('y', '94');
-  subText.setAttribute('text-anchor', 'middle'); subText.setAttribute('fill', '#94a3b8');
+  subText.setAttribute('text-anchor', 'middle'); subText.setAttribute('fill', '#64748b');
   subText.setAttribute('font-family', 'var(--mono)'); subText.setAttribute('font-size', '10px');
   subText.setAttribute('letter-spacing', '0.08em');
   subText.textContent = 'ON-TIME RTIS';
@@ -102,7 +102,7 @@ function createPunctualityDonut(pct: number, onTime: number, total: number): HTM
   const legend = el('div');
   legend.style.cssText = 'display:flex;flex-direction:column;gap:8px;font-family:var(--mono);';
   legend.innerHTML = `
-    <div style="font-size:11px;color:#94a3b8;font-weight:700">TRAFFIC ADHERENCE</div>
+    <div style="font-size:11px;color:#64748b;font-weight:700">TRAFFIC ADHERENCE</div>
     <div style="display:flex;align-items:center;gap:8px;font-size:12px">
       <span style="width:10px;height:10px;background:#22c55e;display:inline-block"></span>
       <span>Right Time: <b>${onTime}</b> trains (${pct.toFixed(1)}%)</span>
@@ -193,7 +193,7 @@ function createDiurnalTempChart(clockMin: number): HTMLElement {
     const gl = document.createElementNS('http://www.w3.org/2000/svg', 'line');
     gl.setAttribute('x1', String(padL)); gl.setAttribute('y1', String(y));
     gl.setAttribute('x2', String(padL + pw)); gl.setAttribute('y2', String(y));
-    gl.setAttribute('stroke', '#1e2638'); gl.setAttribute('stroke-width', '1');
+    gl.setAttribute('stroke', '#e2e8f0'); gl.setAttribute('stroke-width', '1');
     svg.appendChild(gl);
 
     const txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
@@ -246,7 +246,7 @@ function createDiurnalTempChart(clockMin: number): HTMLElement {
   const needle = document.createElementNS('http://www.w3.org/2000/svg', 'line');
   needle.setAttribute('x1', String(nx)); needle.setAttribute('y1', String(padT));
   needle.setAttribute('x2', String(nx)); needle.setAttribute('y2', String(padT + ph));
-  needle.setAttribute('stroke', '#f8fafc'); needle.setAttribute('stroke-width', '1.8');
+  needle.setAttribute('stroke', '#0f172a'); needle.setAttribute('stroke-width', '1.8');
   needle.setAttribute('stroke-dasharray', '3,2');
   svg.appendChild(needle);
 
@@ -271,7 +271,7 @@ function createDiurnalTempChart(clockMin: number): HTMLElement {
 
   // Sub-bar legend
   const foot = el('div');
-  foot.style.cssText = 'display:flex;justify-content:space-between;padding:6px 8px 0;font-size:11px;font-family:var(--mono);color:#94a3b8;border-top:1px solid #1e2638;';
+  foot.style.cssText = 'display:flex;justify-content:space-between;padding:6px 8px 0;font-size:11px;font-family:var(--mono);color:#64748b;border-top:1px solid #e2e8f0;';
   foot.innerHTML = `
     <div style="display:flex;gap:12px">
       <span><b style="color:#f59e0b">―</b> Rail Temp Tr</span>
@@ -312,7 +312,7 @@ function createBacklogDonut(): HTMLElement {
   // Background
   const bg = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
   bg.setAttribute('cx', '80'); bg.setAttribute('cy', '80'); bg.setAttribute('r', String(r));
-  bg.setAttribute('fill', 'none'); bg.setAttribute('stroke', '#1e2638');
+  bg.setAttribute('fill', 'none'); bg.setAttribute('stroke', '#e2e8f0');
   bg.setAttribute('stroke-width', '16');
   svg.appendChild(bg);
 
@@ -348,7 +348,7 @@ function createBacklogDonut(): HTMLElement {
   // Center text
   const valText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
   valText.setAttribute('x', '80'); valText.setAttribute('y', '76');
-  valText.setAttribute('text-anchor', 'middle'); valText.setAttribute('fill', '#f1f5f9');
+  valText.setAttribute('text-anchor', 'middle'); valText.setAttribute('fill', '#0f172a');
   valText.setAttribute('font-family', 'var(--mono)'); valText.setAttribute('font-size', '22px');
   valText.setAttribute('font-weight', '800');
   valText.textContent = String(q.length);
@@ -356,7 +356,7 @@ function createBacklogDonut(): HTMLElement {
 
   const subText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
   subText.setAttribute('x', '80'); subText.setAttribute('y', '94');
-  subText.setAttribute('text-anchor', 'middle'); subText.setAttribute('fill', '#94a3b8');
+  subText.setAttribute('text-anchor', 'middle'); subText.setAttribute('fill', '#64748b');
   subText.setAttribute('font-family', 'var(--mono)'); subText.setAttribute('font-size', '10px');
   subText.setAttribute('letter-spacing', '0.08em');
   subText.textContent = 'REQUISITIONS';
@@ -368,7 +368,7 @@ function createBacklogDonut(): HTMLElement {
   const legend = el('div');
   legend.style.cssText = 'display:flex;flex-direction:column;gap:6px;font-family:var(--mono);';
   legend.innerHTML = `
-    <div style="font-size:11px;color:#94a3b8;font-weight:700">DEPARTMENTAL SPLIT</div>
+    <div style="font-size:11px;color:#64748b;font-weight:700">DEPARTMENTAL SPLIT</div>
     <div style="display:flex;align-items:center;gap:8px;font-size:12px">
       <span style="width:10px;height:10px;background:#22c55e;display:inline-block"></span>
       <span>TMS (P-Way): <b>${tms}</b> (${(100 * tms / total).toFixed(0)}%)</span>
@@ -409,7 +409,7 @@ function createTsrImpactChart(): HTMLElement {
     row.appendChild(lbl);
 
     const barWrap = el('div');
-    barWrap.style.cssText = 'flex:1;background:#1e2638;height:16px;position:relative;display:flex;align-items:center;';
+    barWrap.style.cssText = 'flex:1;background:#e2e8f0;height:16px;position:relative;display:flex;align-items:center;';
     const bar = el('div');
     const widthPct = (t.lossMin / maxLoss) * 100;
     bar.style.cssText = `height:100%;width:${widthPct.toFixed(1)}%;background:${t.lossMin > 10 ? '#ef4444' : '#f59e0b'};transition:width 0.3s;`;
@@ -417,7 +417,7 @@ function createTsrImpactChart(): HTMLElement {
     row.appendChild(barWrap);
 
     const val = el('div');
-    val.style.cssText = 'width:80px;text-align:right;font-weight:700;color:#f1f5f9;';
+    val.style.cssText = 'width:80px;text-align:right;font-weight:700;color:#0f172a;';
     val.textContent = `+${t.lossMin.toFixed(1)} min`;
     row.appendChild(val);
 
@@ -494,7 +494,7 @@ export function renderLogs(): void {
     approved.forEach((p) => {
       const dur = totalDuration(p);
       const card = el('div', 'prop-card');
-      card.style.cssText = 'background:#111622;border:1px solid #1e2638;padding:12px;margin-bottom:8px;';
+      card.style.cssText = 'background:#ffffff;border:1px solid #cbd5e1;padding:12px;margin-bottom:8px;';
 
       const hd = el('div', 'prop-card-hd');
       hd.innerHTML = `
@@ -537,7 +537,7 @@ export function renderLogs(): void {
 
     rejected.forEach((p) => {
       const card = el('div', 'prop-card');
-      card.style.cssText = 'background:#111622;border:1px solid #7f1d1d;padding:12px;margin-bottom:8px;';
+      card.style.cssText = 'background:#fff5f5;border:1px solid #fecaca;padding:12px;margin-bottom:8px;';
 
       const hd = el('div', 'prop-card-hd');
       hd.innerHTML = `
@@ -550,8 +550,8 @@ export function renderLogs(): void {
       const body = el('div', 'prop-card-sub');
       body.innerHTML = `
         <div><b>Reason:</b> ${p.rejectedFor?.label ?? 'Operational constraint'}</div>
-        <div style="color:#cbd5e1;margin-top:2px">${p.rejectedFor?.detail ?? 'No additional remarks'}</div>
-        <div style="color:#f59e0b;margin-top:4px">${p.items.length + p.added.length} demands returned to backlog</div>
+        <div style="color:#475569;margin-top:2px">${p.rejectedFor?.detail ?? 'No additional remarks'}</div>
+        <div style="color:#b45309;margin-top:4px">${p.items.length + p.added.length} demands returned to backlog</div>
       `;
       card.appendChild(body);
 

@@ -98,8 +98,8 @@ export function render(): void {
     id: 'nw-hatch', width: 8, height: 8,
     patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(45)',
   });
-  hatch.appendChild(svgEl('rect', { width: 8, height: 8, fill: '#111622' }));
-  hatch.appendChild(svgEl('line', { x1: 0, y1: 0, x2: 0, y2: 8, stroke: '#f59e0b', 'stroke-width': 3 }));
+  hatch.appendChild(svgEl('rect', { width: 8, height: 8, fill: '#fef3c7' }));
+  hatch.appendChild(svgEl('line', { x1: 0, y1: 0, x2: 0, y2: 8, stroke: '#d97706', 'stroke-width': 3 }));
   defs.appendChild(hatch);
   root.appendChild(defs);
 
@@ -248,7 +248,7 @@ export function render(): void {
   corr.stations.forEach((st) => {
     const x = X(st.km);
     root.appendChild(svgEl('line', {
-      x1: x, y1: yTop, x2: x, y2: yBot - 4, stroke: '#1e2638', 'stroke-width': 1,
+      x1: x, y1: yTop, x2: x, y2: yBot - 4, stroke: '#e2e8f0', 'stroke-width': 1,
     }));
 
     const c = svgEl('circle', {
@@ -344,7 +344,7 @@ function renderStationInterlockingMatrix(
 
     // 1. Station
     const c1 = el('td', 'mono');
-    c1.innerHTML = `<b>${st.code}</b> · <span style="color:#94a3b8">${st.name}</span>`;
+    c1.innerHTML = `<b>${st.code}</b> · <span style="color:#64748b">${st.name}</span>`;
     tr.appendChild(c1);
 
     // 2. KM
