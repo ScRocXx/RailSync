@@ -1267,17 +1267,17 @@ def main():
         fh.write(";\n")
 
     print("Wrote %s (%.1f KB)" % (OUT, len(payload) / 1024.0))
-    print("  corridors  : %d" % len(corridors))
+    print("  corridors  : %d" % len(bundle["corridors"]))
     print("  trains     : %d passenger + %d freight"
-          % (len([t for t in trains if t["kind"] == "PASSENGER"]),
-             len([t for t in trains if t["kind"] == "FREIGHT"])))
+          % (len([t for t in bundle["trains"] if t["kind"] == "PASSENGER"]),
+             len([t for t in bundle["trains"] if t["kind"] == "FREIGHT"])))
     print("  demands    : %d  (critical %d)"
-          % (len(queue), len([q for q in queue if q["band"] == "CRITICAL"])))
-    print("  proposals  : %d" % len(proposals))
-    zero = len([p for p in proposals if p["impact"]["paxDelayMin"] == 0])
-    print("  zero-delay : %d / %d" % (zero, len(proposals)))
-    print("  punctuality: %.1f%%" % metrics["punctuality"])
-    print("  TSR active : %d" % len(tsr))
+          % (len(bundle["queue"]), len([q for q in bundle["queue"] if q["band"] == "CRITICAL"])))
+    print("  proposals  : %d" % len(bundle["proposals"]))
+    zero = len([p for p in bundle["proposals"] if p["impact"]["paxDelayMin"] == 0])
+    print("  zero-delay : %d / %d" % (zero, len(bundle["proposals"])))
+    print("  punctuality: %.1f%%" % bundle["metrics"]["punctuality"])
+    print("  TSR active : %d" % len(bundle["tsr"]))
 
 
 if __name__ == "__main__":

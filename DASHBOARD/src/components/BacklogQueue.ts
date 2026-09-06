@@ -5,11 +5,11 @@
 import { store } from '../store/useRailSyncStore.ts';
 import {
   D, S, hhmm, shortCorr, esc, scoreColor, CLS_COLOR,
-  totalDuration,
-  byId, clear, el, tip, tipOff, tipRows,
+  totalDuration, issueOrder, scoreWindow, mergeImpact,
+  byId, clear, el, tip, tipOff, tipRows, toast, logEvent,
 } from '../lib/core.ts';
 import type {
-  Dept, Band, Demand, LiveProposal, BlockStatus, ProposalItem,
+  Dept, Band, Demand, LiveProposal, BlockStatus, ProposalItem, WindowScore,
 } from '../types/index.ts';
 
 /* ---- Filters ---- */
@@ -83,8 +83,12 @@ export function renderQueue(): void {
 
   const s = store.getState();
   const rows = filtered();
+  const total = D().queue.length;
+
   const count = byId('q-count');
-  if (count) count.textContent = rows.length + ' / ' + D().queue.length + ' demands';
+  if (count) count.textContent = rows.length + ' / ' + total + ' demands';
+  const tabCnt = byId('tab-cnt-feed');
+  if (tabCnt) tabCnt.textContent = String(total);
 
   if (!rows.length) {
     const tr0 = el('tr');
@@ -99,36 +103,58 @@ export function renderQueue(): void {
     const tr = el('tr');
     if (s.selDemand === q.id) tr.className = 'sel';
 
+    // 1. Requisition ID
     const c1 = el('td');
-    c1.appendChild(el('span', 'mono', q.id));
+    c1.style.minWidth = '120px';
     c1.style.whiteSpace = 'nowrap';
+    const s1 = el('span', 'mono', q.id);
+    s1.style.fontSize = '12px';
+    s1.style.fontWeight = '600';
+    c1.appendChild(s1);
     tr.appendChild(c1);
 
+    // 2. Dept tag
     const c2 = el('td');
+    c2.style.minWidth = '70px';
+    c2.style.whiteSpace = 'nowrap';
     c2.appendChild(el('span', 'dept-tag dept-' + q.dept, q.dept));
     tr.appendChild(c2);
 
-    const c3 = el('td', null, shortCorr(q.corridor));
+    // 3. Section / Track
+    const c3 = el('td');
+    c3.style.minWidth = '130px';
+    c3.style.whiteSpace = 'nowrap';
+    const c3Text = el('div', null, shortCorr(q.corridor));
+    c3Text.style.fontWeight = '600';
+    c3.appendChild(c3Text);
     const ln = el('div', 'mono', q.line);
-    ln.style.cssText = 'font-size:9.5px;color:var(--text-mute)';
+    ln.style.cssText = 'font-size:12px;color:var(--text-mute)';
     c3.appendChild(ln);
     tr.appendChild(c3);
 
+    // 4. Chainage
     const c4 = el('td', 'mono', q.chainage);
-    c4.style.cssText = 'font-size:10.5px;white-space:nowrap';
+    c4.style.cssText = 'min-width:140px;font-size:12px;white-space:nowrap;font-variant-numeric:tabular-nums;';
     tr.appendChild(c4);
 
+    // 5. Telemetry
     const c5 = el('td', 'mono', q.telemetry);
-    c5.style.cssText = 'font-size:10.5px;white-space:nowrap';
+    c5.style.cssText = 'min-width:140px;font-size:12px;white-space:nowrap;font-variant-numeric:tabular-nums;';
     tr.appendChild(c5);
 
+    // 6. Overdue days
     const c6 = el('td');
+    c6.style.minWidth = '70px';
     c6.style.textAlign = 'right';
+    c6.style.whiteSpace = 'nowrap';
     const odc = q.overdueDays >= 10 ? 'od-hi' : q.overdueDays >= 4 ? 'od-md' : 'od-lo';
     c6.appendChild(el('span', 'od-pill ' + odc, q.overdueDays ? q.overdueDays + 'd' : '—'));
     tr.appendChild(c6);
 
+    // 7. Urgency Score
     const c7 = el('td');
+    c7.style.minWidth = '110px';
+    c7.style.whiteSpace = 'nowrap';
     const sc = el('div', 'score-cell');
     const bar = el('div', 'score-bar');
     const fill = el('div', 'score-fill');
@@ -168,11 +194,11 @@ function demandTip(q: Demand): string {
     ['Section', shortCorr(q.corridor) + ' · ' + q.line],
     ['Est. work time', q.durationMin + ' min'],
   ];
-  const drivers = '<div class="tt-why">Why this score?</div>' +
+  const drivers = '<div class="tt-why" style="font-size:12px;font-weight:700;margin:6px 0 3px;color:#cbd5e1">Score Breakdown</div>' +
     q.drivers.map((d) => {
       const sign = d.pts > 0 ? '+' + d.pts.toFixed(1) : '—';
       return '<div class="tt-r tt-drv"><span>' + esc(d.k) + '</span>' +
-        '<span><b>' + esc(d.v) + '</b><i class="tt-pts pt-' + d.part + '">' +
+        '<span><b>' + esc(d.v) + '</b> <i class="tt-pts pt-' + d.part + '" style="font-style:normal;font-weight:700;color:var(--amber)">' +
         sign + '</i></span></div>';
     }).join('');
   const p = q.parts;
@@ -181,14 +207,14 @@ function demandTip(q: Demand): string {
     '<div class="tt-r tt-sub"><span>overdue</span><span>' + p.overdue + ' / 25</span></div>' +
     '<div class="tt-r tt-sub"><span>safety</span><span>' + p.safety + ' / 20</span></div>' +
     '<div class="tt-r tt-sub"><span>exposure</span><span>' + p.exposure + ' / 15</span></div>' +
-    '<div class="tt-r tt-total"><span>Urgency score</span><span style="color:' +
+    '<div class="tt-r tt-total" style="font-weight:700;margin-top:4px;border-top:1px solid #334155;padding-top:3px"><span>Urgency score</span><span style="color:' +
     scoreColor(q.score) + '">' + q.score.toFixed(1) + '  ' + q.band + '</span></div>';
   return head + tipRows(rows) +
     '<div class="tt-sec">' + drivers + '</div>' +
     '<div class="tt-sec">' + totals + '</div>';
 }
 
-/* ---- Proposals shortlist ---- */
+/* ---- Proposals shortlist (Spacious SCADA Cards) ---- */
 
 export function renderProposals(): void {
   const box = byId('prop-list');
@@ -207,61 +233,109 @@ export function renderProposals(): void {
   const pp = byId('prop-pending');
   if (pp) pp.textContent = pending + ' pending';
   const ps = byId('prop-sub');
-  if (ps) ps.textContent = s.proposals.length + ' generated · ' + approved + ' approved';
+  if (ps) ps.textContent = s.proposals.length + ' proposed · ' + approved + ' approved';
+
+  const tabCnt = byId('tab-cnt-blocks');
+  if (tabCnt) tabCnt.textContent = String(s.proposals.length);
 
   list.forEach((p) => {
     const dur = totalDuration(p);
     const im = p.impact;
-    const row = el('div', 'log-item');
-    row.style.cursor = 'pointer';
-    if (s.selProposal === p.id) row.style.background = 'rgba(245,158,11,.10)';
 
-    const dot = el('div', 'log-dot');
-    dot.style.background = p.status === 'APPROVED' ? 'var(--green)'
-      : p.status === 'REJECTED' ? 'var(--text-mute)' : scoreColor(p.score);
-    row.appendChild(dot);
+    const card = el('div', 'prop-card' + (s.selProposal === p.id ? ' sel' : ''));
 
-    const b = el('div', 'log-body');
-    const t = el('div', 'log-t');
-    t.appendChild(el('b', null, p.id));
-    t.appendChild(document.createTextNode('  ' + p.section + ' · ' + p.line));
-    b.appendChild(t);
+    // Header: ID + Section + Status Chip + Score
+    const hd = el('div', 'prop-card-hd');
+    hd.appendChild(el('b', null, p.id));
+    hd.appendChild(document.createTextNode('  ·  ' + p.section + ' (' + p.line + ')'));
 
-    b.appendChild(el('div', 'log-m',
-      hhmm(p.start) + '–' + hhmm(p.start + dur) + ' · window ' + dur +
-      ' min / work ' + p.window.workMin + ' min · ' +
-      (p.items.length + p.added.length) + ' task(s) · ' +
-      (p.machines.length ? p.machines.map((x) => x.id).join('+') : 'manual gang')));
+    const scBadge = el('span', 'chip', p.score.toFixed(0));
+    scBadge.style.cssText = 'margin-left:auto;color:' + scoreColor(p.score) + ';border-color:' + scoreColor(p.score);
+    hd.appendChild(scBadge);
 
-    const m2 = el('div', 'log-m');
-    m2.style.marginTop = '4px';
-    m2.appendChild(el('span', 'chip ' + (im.paxDelayMin === 0 ? 'rout' : 'crit'),
-      im.paxDelayMin === 0 ? '0 min delay' : im.paxDelayMin + ' min delay'));
+    card.appendChild(hd);
+
+    // Sub: Time Window, Physical Work Time, Bundled Count
+    const sub = el('div', 'prop-card-sub');
+    const winSpan = el('span', null, hhmm(p.start) + '–' + hhmm(p.start + dur));
+    winSpan.style.color = '#fbbf24';
+    winSpan.style.fontWeight = '700';
+    sub.appendChild(winSpan);
+    sub.appendChild(document.createTextNode(' · Window ' + dur + 'm (Work ' + p.window.workMin + 'm)'));
+    sub.appendChild(document.createTextNode(' · ' + (p.items.length + p.added.length) + ' tasks'));
+    const plantText = p.machines.length ? p.machines.map((x) => x.id).join(' + ') : 'Manual gang';
+    sub.appendChild(document.createTextNode(' · ' + plantText));
+    card.appendChild(sub);
+
+    // Impact Chips
+    const chipsRow = el('div', 'prop-chips-row');
+    const paxChip = el('span', 'chip ' + (im.paxDelayMin === 0 ? 'rout' : 'crit'),
+      im.paxDelayMin === 0 ? '0 min delay' : '+' + im.paxDelayMin + ' min delay');
+    chipsRow.appendChild(paxChip);
+
     if (im.freightLooped) {
-      const d2 = el('span', 'chip urg', im.freightLooped + ' freight looped');
-      d2.style.marginLeft = '4px';
-      m2.appendChild(d2);
+      chipsRow.appendChild(el('span', 'chip urg', im.freightLooped + ' freight held'));
     }
     if (p.savings.savedMin > 0) {
-      const d4 = el('span', 'chip', '−' + p.savings.savedMin + ' min bundled');
-      d4.style.marginLeft = '4px';
-      m2.appendChild(d4);
+      chipsRow.appendChild(el('span', 'chip', '−' + p.savings.savedMin + 'm bundled'));
     }
     if (p.status !== 'PENDING') {
-      const d3 = el('span', 'chip' + (p.status === 'APPROVED' ? ' rout' : ''), p.status);
-      d3.style.marginLeft = '4px';
-      m2.appendChild(d3);
+      chipsRow.appendChild(el('span', 'chip' + (p.status === 'APPROVED' ? ' rout' : ' crit'), p.status));
     }
-    b.appendChild(m2);
-    row.appendChild(b);
+    card.appendChild(chipsRow);
 
-    const sc = el('div', 'log-time', p.score.toFixed(0));
-    sc.style.cssText += ';font-size:14px;font-weight:700;color:' + scoreColor(p.score);
-    row.appendChild(sc);
+    // Clear CTA Action Buttons
+    const actRow = el('div', 'prop-actions');
 
-    row.addEventListener('click', () => { store.getState().setSelProposal(p.id); });
-    box.appendChild(row);
+    if (p.status === 'PENDING') {
+      const btnApprove = el('button', 'btn-sm btn-prop-ok', '✓ Approve Block');
+      btnApprove.addEventListener('click', (e) => {
+        e.stopPropagation();
+        quickApprove(p, dur);
+      });
+      actRow.appendChild(btnApprove);
+
+      const btnReject = el('button', 'btn-sm btn-prop-no', '✕ Reject');
+      btnReject.addEventListener('click', (e) => {
+        e.stopPropagation();
+        store.getState().setSelProposal(p.id);
+      });
+      actRow.appendChild(btnReject);
+    }
+
+    const btnInspect = el('button', 'btn-sm btn-prop-inspect', 'Inspect Permit →');
+    btnInspect.addEventListener('click', (e) => {
+      e.stopPropagation();
+      store.getState().setSelProposal(p.id);
+    });
+    actRow.appendChild(btnInspect);
+
+    card.appendChild(actRow);
+
+    card.addEventListener('click', () => {
+      store.getState().setSelProposal(p.id);
+    });
+
+    box.appendChild(card);
   });
+}
+
+function quickApprove(p: LiveProposal, dur: number): void {
+  store.getState().updateProposal(p.id, (pp) => {
+    const next = { ...pp };
+    next.end = next.start + dur;
+    next.status = 'APPROVED';
+    next.order = issueOrder(next, next.start, dur);
+    return next;
+  });
+
+  const pp = store.getState().proposals.filter((x) => x.id === p.id)[0];
+  if (pp && pp.order) {
+    logEvent('approve', pp.id + ' approved — PN ' + pp.order.pnSm,
+      pp.section + ' · ' + pp.lines.join('+') + ' · ' + hhmm(pp.start) + '–' + hhmm(pp.end) +
+      ' (' + dur + ' min window) · ' + (pp.items.length + pp.added.length) + ' task(s) cleared.', pp.id);
+    toast('Block ' + pp.id + ' approved — Private Number ' + pp.order.pnSm);
+  }
 }
 
 /* ---- Rejection audit ---- */
@@ -273,13 +347,15 @@ export function renderAudit(): void {
 
   const s = store.getState();
   const refused = s.proposals.filter((p) => p.status === 'REJECTED');
+
   const sub = byId('audit-sub');
   if (sub) sub.textContent = refused.length + ' refused this shift';
+  const tabCnt = byId('tab-cnt-audit');
+  if (tabCnt) tabCnt.textContent = String(refused.length);
 
   if (!refused.length) {
     box.appendChild(el('div', 'empty',
-      'No blocks refused. A rejection must carry an operational reason code, ' +
-      'and it is recorded here with what it leaves outstanding.'));
+      'No blocks refused. When a block is rejected, it is recorded here with reason code and outstanding backlog impact.'));
     return;
   }
 
@@ -304,7 +380,7 @@ export function renderAudit(): void {
       b.appendChild(el('div', 'log-m', p.rejectedFor.detail));
     }
     b.appendChild(el('div', 'log-m',
-      (p.items.length + p.added.length) + ' demand(s) back to backlog · ' +
+      (p.items.length + p.added.length) + ' demand(s) returned to backlog · ' +
       p.impact.overdueDaysCleared + ' overdue-days still outstanding'));
     it.appendChild(b);
 

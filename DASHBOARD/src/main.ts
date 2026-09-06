@@ -137,15 +137,26 @@ function bindWorkspace(): void {
         Array.prototype.forEach.call(pbox.children, (x: HTMLElement) => {
           x.classList.toggle('on', x === b);
         });
-        (['feed', 'audit'] as AppState['panelTab'][]).forEach((w) => {
+        (['blocks', 'feed', 'audit'] as AppState['panelTab'][]).forEach((w) => {
           const n = byId('pt-' + w);
           if (n) n.classList.toggle('on', w === pt);
         });
-        const qc = byId('q-count'), as = byId('audit-sub');
-        if (qc) qc.style.display = pt === 'feed' ? '' : 'none';
-        if (as) as.style.display = pt === 'audit' ? '' : 'none';
-        if (pt === 'feed') Queue.renderQueue(); else Queue.renderAudit();
+        if (pt === 'blocks') Queue.renderProposals();
+        else if (pt === 'feed') Queue.renderQueue();
+        else Queue.renderAudit();
       });
+    });
+  }
+
+  // Drawer width toggle (collapse/expand)
+  const toggleBtn = byId('btn-toggle-drawer');
+  const drawer = byId('ops-drawer');
+  if (toggleBtn && drawer) {
+    toggleBtn.addEventListener('click', () => {
+      drawer.classList.toggle('collapsed');
+      const isCollapsed = drawer.classList.contains('collapsed');
+      toggleBtn.innerHTML = isCollapsed ? '&#9654;' : '&#9664;';
+      toggleBtn.title = isCollapsed ? 'Expand Drawer' : 'Collapse Drawer';
     });
   }
 }
@@ -187,8 +198,9 @@ function renderView(): void {
   const s = store.getState();
   if (currentView === 'ops') {
     renderWorkspace();
-    Queue.renderProposals();
-    if (s.panelTab === 'feed') Queue.renderQueue(); else Queue.renderAudit();
+    if (s.panelTab === 'blocks') Queue.renderProposals();
+    else if (s.panelTab === 'feed') Queue.renderQueue();
+    else Queue.renderAudit();
   } else if (currentView === 'reports') {
     Ribbon.renderReports();
   } else if (currentView === 'logs') {
@@ -240,6 +252,58 @@ async function loadBundle(): Promise<Bundle> {
   throw new Error('Neither /api/division-state nor window.RAILSYNC_DATA is available');
 }
 
+/* ------------------------------------------------------- live SSE stream */
+
+let sseSource: EventSource | null = null;
+let reconnectTimeout: number | null = null;
+let reconnectDelay = 1000;
+const MAX_RECONNECT_DELAY = 16000;
+
+function connectSSE(): void {
+  if (sseSource) {
+    try { sseSource.close(); } catch {}
+    sseSource = null;
+  }
+
+  try {
+    sseSource = new EventSource('/api/stream');
+
+    sseSource.onopen = () => {
+      reconnectDelay = 1000;
+      console.info('[RailSync SSE] Live operational stream connected.');
+    };
+
+    sseSource.onmessage = (event) => {
+      try {
+        const payload = JSON.parse(event.data);
+        if (payload.type === 'telemetry_tick' && typeof payload.clock === 'number') {
+          // Advance division clock if playing
+          if (store.getState().playing) {
+            store.getState().setClock(payload.clock);
+          }
+        }
+      } catch (e) {
+        console.warn('[RailSync SSE] Parse warning:', e);
+      }
+    };
+
+    sseSource.onerror = () => {
+      if (sseSource) {
+        try { sseSource.close(); } catch {}
+        sseSource = null;
+      }
+      // Gracefully fall back to client clock with exponential backoff reconnect
+      if (reconnectTimeout !== null) clearTimeout(reconnectTimeout);
+      reconnectTimeout = window.setTimeout(() => {
+        reconnectDelay = Math.min(reconnectDelay * 2, MAX_RECONNECT_DELAY);
+        connectSSE();
+      }, reconnectDelay);
+    };
+  } catch (err) {
+    console.warn('[RailSync SSE] EventSource unavailable, running local simulation:', err);
+  }
+}
+
 /* ------------------------------------------------------- boot */
 
 async function boot(): Promise<void> {
@@ -270,6 +334,7 @@ async function boot(): Promise<void> {
   Drawer.bind();
   bindClock();
   bindViews();
+  connectSSE();
 
   /* ---- Store Subscriptions ---- */
 

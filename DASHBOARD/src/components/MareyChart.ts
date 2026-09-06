@@ -20,7 +20,21 @@ import {
 } from '../lib/core.ts';
 import type { Train, LiveProposal, TrainClass } from '../types/index.ts';
 
-const M = { l: 64, r: 16, t: 12, b: 26 };
+const M = { l: 78, r: 24, t: 16, b: 32 };
+
+let resizeObs: ResizeObserver | null = null;
+
+function ensureResizeObserver(host: HTMLElement): void {
+  if (resizeObs) return;
+  let timer: number;
+  resizeObs = new ResizeObserver(() => {
+    cancelAnimationFrame(timer);
+    timer = requestAnimationFrame(() => {
+      render();
+    });
+  });
+  resizeObs.observe(host);
+}
 
 function corridorTrains(cid: string): Train[] {
   return D().trains.filter((t) => t.corridor === cid);
@@ -39,6 +53,8 @@ export function render(): void {
   const host = byId('marey-wrap');
   const root = document.getElementById('marey-svg') as unknown as SVGSVGElement | null;
   if (!host || !root) return;
+
+  ensureResizeObserver(host);
 
   const W = host.clientWidth, H = host.clientHeight;
   const iw = W - M.l - M.r, ih = H - M.t - M.b;
@@ -61,12 +77,12 @@ export function render(): void {
   cp.appendChild(svgEl('rect', { x: M.l, y: M.t, width: iw, height: ih }));
   defs.appendChild(cp);
   const hatch = svgEl('pattern', {
-    id: 'mk-hatch', width: 7, height: 7,
+    id: 'mk-hatch', width: 8, height: 8,
     patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(45)',
   });
-  hatch.appendChild(svgEl('rect', { width: 7, height: 7, fill: 'rgba(245,185,66,.09)' }));
+  hatch.appendChild(svgEl('rect', { width: 8, height: 8, fill: 'rgba(251,191,36,.12)' }));
   hatch.appendChild(svgEl('line', {
-    x1: 0, y1: 0, x2: 0, y2: 7, stroke: 'rgba(245,185,66,.42)', 'stroke-width': 2.5,
+    x1: 0, y1: 0, x2: 0, y2: 8, stroke: 'rgba(251,191,36,.55)', 'stroke-width': 2.6,
   }));
   defs.appendChild(hatch);
   root.appendChild(defs);
@@ -91,7 +107,7 @@ export function render(): void {
       x1: X(t), y1: M.t, x2: X(t), y2: M.t + ih, class: major ? 'mk-grid-hr' : 'mk-grid',
     }));
     if (major) {
-      const tx = svgEl('text', { x: X(t), y: H - 9, class: 'mk-axis-txt', 'text-anchor': 'middle' });
+      const tx = svgEl('text', { x: X(t), y: H - 10, class: 'mk-axis-txt', 'text-anchor': 'middle' });
       tx.textContent = hhmm(t);
       root.appendChild(tx);
     }
@@ -102,7 +118,7 @@ export function render(): void {
     plot.appendChild(svgEl('line', {
       x1: M.l, y1: Y(st.km), x2: M.l + iw, y2: Y(st.km), class: 'mk-stn-line',
     }));
-    const lab = svgEl('text', { x: M.l - 8, y: Y(st.km) + 3, class: 'mk-stn-txt', 'text-anchor': 'end' });
+    const lab = svgEl('text', { x: M.l - 8, y: Y(st.km) - 2, class: 'mk-stn-txt', 'text-anchor': 'end' });
     lab.textContent = st.code;
     root.appendChild(lab);
     const km = svgEl('text', { x: M.l - 8, y: Y(st.km) + 12, class: 'mk-stn-km', 'text-anchor': 'end' });

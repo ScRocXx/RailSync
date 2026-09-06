@@ -168,42 +168,43 @@
         </div>
       </div>
 
-      <!-- ---------- DECISION & INTERVENTION PANEL ---------- -->
-      <div class="ops-right">
-        <div class="panel" style="flex:0 0 auto;max-height:40%">
-          <div class="panel-hd">
-            <h2>Recommended Blocks</h2>
-            <span class="sub" id="prop-sub">&mdash;</span>
-            <div class="grow"></div>
-            <span class="chip" id="prop-pending">&mdash;</span>
-          </div>
-          <div class="panel-bd" id="prop-list"></div>
-        </div>
-
-        <div class="panel" style="flex:1">
-          <div class="panel-hd">
+      <!-- ---------- UNIFIED OPERATIONS DRAWER ---------- -->
+      <div class="ops-right" id="ops-drawer">
+        <div class="panel drawer-panel">
+          <div class="panel-hd drawer-hd">
             <div class="seg" id="panel-tabs">
-              <button data-pt="feed" class="on">Ingestion Feed</button>
-              <button data-pt="audit">Rejection Audit</button>
+              <button data-pt="blocks" class="on" id="tab-btn-blocks">Recommended Blocks (<span id="tab-cnt-blocks">--</span>)</button>
+              <button data-pt="feed" id="tab-btn-feed">Raw Ingestion Backlog (<span id="tab-cnt-feed">--</span>)</button>
+              <button data-pt="audit" id="tab-btn-audit">Rejection Audit (<span id="tab-cnt-audit">0</span>)</button>
             </div>
             <div class="grow"></div>
-            <span class="sub" id="q-count">&mdash;</span>
-            <span class="sub" id="audit-sub" style="display:none">&mdash;</span>
+            <button id="btn-toggle-drawer" class="drawer-toggle-btn" title="Toggle Drawer Width">&#9664;</button>
           </div>
 
-          <div class="pt-pane on" id="pt-feed">
+          <!-- Tab 1: Recommended Blocks -->
+          <div class="pt-pane on" id="pt-blocks">
+            <div class="drawer-subbar">
+              <span class="sub" id="prop-sub">&mdash;</span>
+              <div class="grow"></div>
+              <span class="chip urg" id="prop-pending">&mdash;</span>
+            </div>
+            <div class="panel-bd" id="prop-list"></div>
+          </div>
+
+          <!-- Tab 2: Raw Ingestion Backlog -->
+          <div class="pt-pane" id="pt-feed">
             <div class="filters" id="q-filters"></div>
-            <div class="panel-bd">
+            <div class="panel-bd" id="q-table-wrap">
               <table class="grid" id="q-table">
                 <thead>
                   <tr>
-                    <th>Requisition</th>
-                    <th>Dept</th>
-                    <th>Section / Track</th>
-                    <th>Chainage</th>
-                    <th>Telemetry</th>
-                    <th style="text-align:right">O/D</th>
-                    <th style="width:96px">Urgency</th>
+                    <th style="min-width:120px">Requisition</th>
+                    <th style="min-width:70px">Dept</th>
+                    <th style="min-width:130px">Section / Track</th>
+                    <th style="min-width:140px">Chainage</th>
+                    <th style="min-width:140px">Telemetry</th>
+                    <th style="min-width:70px;text-align:right">O/D</th>
+                    <th style="min-width:110px">Urgency</th>
                   </tr>
                 </thead>
                 <tbody id="q-body"></tbody>
@@ -211,7 +212,11 @@
             </div>
           </div>
 
+          <!-- Tab 3: Rejection Audit -->
           <div class="pt-pane" id="pt-audit">
+            <div class="drawer-subbar">
+              <span class="sub" id="audit-sub">&mdash;</span>
+            </div>
             <div class="panel-bd" id="audit-list"></div>
           </div>
         </div>
@@ -246,6 +251,21 @@
   <div class="dw-bd" id="dw-bd"></div>
   <div class="dw-ft" id="dw-ft"></div>
 </aside>
+
+<!-- ================================ FLEET PLANT INSPECTOR MODAL -->
+<div id="fleet-modal" class="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-hd">
+      <div class="row">
+        <h2 id="fm-id">&mdash;</h2>
+        <span class="chip" id="fm-fit">FIT</span>
+        <button class="close" id="fm-close">&times;</button>
+      </div>
+      <div class="modal-sub" id="fm-sub">&mdash;</div>
+    </div>
+    <div class="modal-bd" id="fm-bd"></div>
+  </div>
+</div>
 
 <div id="tip"></div>
 <div id="toast-wrap"></div>

@@ -61,7 +61,7 @@ export const store = createStore<RailSyncStore>()((set) => ({
   hotTrain: null,
   hotBlock: null,
   workspace: 'chart',
-  panelTab: 'feed',
+  panelTab: 'blocks',
   overrunMin: 0,
   proposals: [],
   log: [],

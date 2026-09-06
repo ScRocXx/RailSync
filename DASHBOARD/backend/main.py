@@ -4,9 +4,13 @@ Provides live endpoints for division state, conflict detection, and real-time op
 """
 
 import sys
+import asyncio
+import json
+from datetime import datetime
 from pathlib import Path
 from typing import Optional
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -117,6 +121,42 @@ def inject_delay(req: DelayInjectionRequest):
         "new_delay_minutes": target["delay"],
         "reason": req.reason,
     }
+
+
+@app.get("/api/stream")
+async def live_stream(request: Request):
+    """
+    Server-Sent Events (SSE) route: streams periodic operational telemetry ticks,
+    simulated division clock progression, and live telemetry updates to the dashboard.
+    """
+    async def event_generator():
+        # Open on morning peak shift (07:30 AM = 450 min)
+        clock_minute = 450.0
+        while True:
+            if await request.is_disconnected():
+                break
+
+            bundle = get_current_bundle()
+            metrics = bundle.get("metrics", {})
+            payload = {
+                "type": "telemetry_tick",
+                "clock": round(clock_minute, 2),
+                "punctuality": metrics.get("punctuality", 72.2),
+                "timestamp": datetime.utcnow().isoformat(),
+            }
+            yield f"data: {json.dumps(payload)}\n\n"
+            clock_minute = (clock_minute + 0.1) % (24 * 60)
+            await asyncio.sleep(1.0)
+
+    return StreamingResponse(
+        event_generator(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+            "X-Accel-Buffering": "no",
+        },
+    )
 
 
 if __name__ == "__main__":

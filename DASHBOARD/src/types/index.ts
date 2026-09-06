@@ -276,7 +276,7 @@ export interface AppState {
   hotTrain: string | null;
   hotBlock: string | null;
   workspace: 'chart' | 'map' | 'fleet';
-  panelTab: 'feed' | 'audit';
+  panelTab: 'blocks' | 'feed' | 'audit';
   overrunMin: number;
   proposals: LiveProposal[];
   log: LogEntry[];

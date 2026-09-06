@@ -13,10 +13,24 @@ import type {
   LiveProposal, Regulation, RunningTrain,
 } from '../types/index.ts';
 
-const M = { l: 34, r: 30, t: 24, b: 46 };
+const M = { l: 44, r: 36, t: 24, b: 46 };
 const SECTOR: Record<string, string> = {
   CORR_NORTH: 'North', CORR_EAST: 'East', CORR_SOUTH: 'South', CORR_WEST: 'West',
 };
+
+let netResizeObs: ResizeObserver | null = null;
+
+function ensureNetResizeObserver(host: HTMLElement): void {
+  if (netResizeObs) return;
+  let timer: number;
+  netResizeObs = new ResizeObserver(() => {
+    cancelAnimationFrame(timer);
+    timer = requestAnimationFrame(() => {
+      render();
+    });
+  });
+  netResizeObs.observe(host);
+}
 
 function depotsOn(corr: Corridor): Record<string, Machine[]> {
   const by: Record<string, Machine[]> = {};
@@ -49,6 +63,8 @@ export function render(): void {
   const host = byId('net-wrap');
   const root = document.getElementById('net-svg') as unknown as SVGSVGElement | null;
   if (!host || !root) return;
+
+  ensureNetResizeObserver(host);
 
   const W = host.clientWidth, H = host.clientHeight;
   const iw = W - M.l - M.r;
