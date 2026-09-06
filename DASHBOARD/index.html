@@ -3,17 +3,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RailSync — Delhi Division Section Control</title>
+<title>RailSync — Delhi Division Section Control Desk</title>
 </head>
 <body>
 
-<!-- ================================ LIVE TELEMETRY RIBBON (v) -->
+<!-- ================================ DIVISION MASTER SCADA BANNER -->
 <header id="banner">
   <div class="brand">
     <div class="brand-mark">RS</div>
     <div class="brand-txt">
-      <b>RailSync Control</b>
-      <span id="brand-div">Delhi Division</span>
+      <b>RailSync Command Desk</b>
+      <span id="brand-div">Delhi Division · Northern Railway</span>
+    </div>
+  </div>
+
+  <div class="stat clock-box">
+    <div class="stat-k">Division Master Clock (GPS)</div>
+    <div class="clock-row">
+      <div class="clock-time" id="s-clock">07:30:00 IST</div>
+      <div class="clock-chips">
+        <span class="chip-gps" id="s-gps-chip">● GPS/RTIS SYNCED</span>
+        <span class="chip-shift" id="s-shift-chip">SHIFT: MORNING 06:00–14:00</span>
+      </div>
+      <div class="clock-ctrl">
+        <button id="c-play" title="Play / Pause">&#9654;</button>
+        <button id="c-x1" class="on" title="Real-time 1x">1&times;</button>
+        <button id="c-x8" title="Simulation 8x">8&times;</button>
+        <button id="c-x60" title="Simulation 60x">60&times;</button>
+        <button id="c-rst" title="Reset to 00:00">&#8635;</button>
+      </div>
     </div>
   </div>
 
@@ -21,20 +39,6 @@
     <div class="stat-k">Punctuality Index</div>
     <div class="stat-v" id="s-punct">--</div>
     <div class="stat-sub" id="s-punct-sub">--</div>
-  </div>
-
-  <div class="stat clock-box">
-    <div class="stat-k">Division Clock</div>
-    <div class="clock-row">
-      <div class="clock-time" id="s-clock">00:00</div>
-      <div class="clock-ctrl">
-        <button id="c-play" title="Play / Pause">&#9654;</button>
-        <button id="c-x1" class="on" title="Real time">1&times;</button>
-        <button id="c-x8" title="8&times;">8&times;</button>
-        <button id="c-x60" title="60&times;">60&times;</button>
-        <button id="c-rst" title="Reset to 00:00">&#8635;</button>
-      </div>
-    </div>
   </div>
 
   <div class="stat">
@@ -63,194 +67,350 @@
 
   <div class="banner-spacer"></div>
 
-  <div class="tsr-chip" id="tsr-chip" title="Active TSR / caution orders">
+  <div class="tsr-chip" id="tsr-chip" title="Active TSR / Caution Orders">
     <span class="dot"></span>
     <div>
-      <div class="stat-k" style="color:#ff8a8c">Active TSR</div>
+      <div class="stat-k" style="color:#f87171">Active TSR</div>
       <div class="mono" style="font-size:15px;font-weight:700" id="s-tsr">--</div>
+    </div>
+  </div>
+
+  <div class="scada-chip" id="scada-telemetry-chip" title="Active Terminal Simulators Link">
+    <span class="live-dot" id="sim-live-dot"></span>
+    <div>
+      <div class="stat-k">TELEMETRY LINK</div>
+      <div class="mono stat-v-sm" id="s-sim-link">STANDBY</div>
     </div>
   </div>
 </header>
 
-<div id="shell">
-  <nav id="rail">
-    <button class="rail-btn on" data-view="ops">&#9636;<span class="tip">Operations Control</span></button>
-    <button class="rail-btn" data-view="reports">&#9638;<span class="tip">Reports &amp; Analytics</span></button>
-    <button class="rail-btn" data-view="logs">&#9776;<span class="tip">Logs &amp; History</span></button>
-  </nav>
+<!-- ================================ 6 DEDICATED WORKSPACE TABS -->
+<nav id="ws-nav-bar" class="command-bar">
+  <button class="ws-nav-btn" data-ws="marey" id="nav-marey">
+    <span class="ws-num">1</span>
+    <span class="ws-name">TIME-DISTANCE STRING (Marey)</span>
+  </button>
+  <button class="ws-nav-btn" data-ws="ctc" id="nav-ctc">
+    <span class="ws-num">2</span>
+    <span class="ws-name">CTC TRACK MIMIC (Schematic)</span>
+  </button>
+  <button class="ws-nav-btn on" data-ws="planner" id="nav-planner">
+    <span class="ws-num">3</span>
+    <span class="ws-name">BLOCK PLANNER (CORE)</span>
+  </button>
+  <button class="ws-nav-btn" data-ws="fleet" id="nav-fleet">
+    <span class="ws-num">4</span>
+    <span class="ws-name">FLEET &amp; HOER ASSETS</span>
+  </button>
+  <button class="ws-nav-btn" data-ws="reports" id="nav-reports">
+    <span class="ws-num">5</span>
+    <span class="ws-name">REPORTS &amp; CHARTS (GRAPHS)</span>
+  </button>
+  <button class="ws-nav-btn" data-ws="audit" id="nav-audit">
+    <span class="ws-num">6</span>
+    <span class="ws-name">AUDIT LOGS (PN)</span>
+  </button>
+</nav>
 
-  <main id="main">
+<!-- ================================ 6 FULL-SCREEN WORKSPACES -->
+<main id="main">
 
-    <!-- ============================ VIEW: OPERATIONS -->
-    <section class="view on" id="view-ops">
+  <!-- 1. TIME-DISTANCE STRING (MAREY) -->
+  <section class="ws-pane" id="ws-marey">
+    <div class="ws-toolbar">
+      <div class="seg" id="corr-tabs"></div>
+      <div class="toolbar-sep"></div>
+      <div class="seg" id="span-tabs">
+        <button data-sp="1440">24h</button>
+        <button data-sp="480" class="on">8h Window</button>
+        <button data-sp="240">4h Window</button>
+      </div>
+      <div class="grow"></div>
+      <span class="ws-meta" id="marey-sub">&mdash;</span>
+      <div class="legend">
+        <i><b style="background:var(--t-premium)"></b>Premium (VB/Raj)</i>
+        <i><b style="background:var(--t-express)"></b>Mail/Express</i>
+        <i><b style="background:var(--t-suburban)"></b>Suburban EMU</i>
+        <i><b style="background:var(--t-freight);border-top:1px dashed #cbd5e1;height:1px"></b>Freight</i>
+        <i><b style="background:var(--amber)"></b>Block Slot</i>
+      </div>
+    </div>
+    <div class="ws-canvas-host">
+      <div id="marey-wrap"><svg id="marey-svg"></svg></div>
+    </div>
+  </section>
 
-      <!-- ---------- PRIMARY OPERATIONAL WORKSPACE ---------- -->
-      <div class="ops-left">
-        <div class="ws-bar">
-          <div class="seg" id="ws-tabs">
-            <button data-ws="chart" class="on">Time&ndash;Distance Chart</button>
-            <button data-ws="map">Corridor Track Map</button>
-            <button data-ws="fleet">Fleet &amp; Crew HOER</button>
-          </div>
+  <!-- 2. CTC TRACK MIMIC (SCHEMATIC INTERLOCKING) -->
+  <section class="ws-pane" id="ws-ctc">
+    <div class="ws-toolbar">
+      <div class="seg" id="ctc-corr-tabs"></div>
+      <div class="grow"></div>
+      <div class="legend">
+        <i><b style="background:#22c55e"></b>Track Clear</i>
+        <i><b style="background:var(--red)"></b>Track Occupied</i>
+        <i><b style="background:var(--amber)"></b>Possession Block</i>
+        <i><b style="background:var(--blue)"></b>Platform Loop (P1–P4)</i>
+        <i><b style="background:var(--t-freight)"></b>Held Freight</i>
+        <i><b style="background:var(--violet);height:8px;width:8px"></b>Depot Spur</i>
+      </div>
+    </div>
+    <div class="ctc-layout">
+      <div class="ctc-canvas-wrap" id="net-wrap-2">
+        <div id="net-wrap"><svg id="net-svg"></svg></div>
+      </div>
+      <div class="ctc-yard-matrix-wrap">
+        <div class="matrix-hd">STATION INTERLOCKING &amp; YARD STATUS REGISTER</div>
+        <div class="ctc-yard-matrix" id="ctc-yard-matrix"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. BLOCK PLANNER (CORE) — 50/50 SIDE-BY-SIDE AI COMMAND DESK -->
+  <section class="ws-pane on" id="ws-planner">
+    <div class="planner-split">
+      
+      <!-- LEFT DESK: RAW INGESTION FEED & TELEMETRY TABLE -->
+      <div class="planner-left">
+        <div class="desk-hd">
+          <div class="desk-title">RAW TELEMETRY INGESTION BACKLOG</div>
+          <span class="desk-sub" id="q-count">-- demands</span>
           <div class="grow"></div>
-          <div class="seg" id="corr-tabs"></div>
+          <span class="scroll-hint">&#x2194; Full 7-column SCADA telemetry matrix</span>
         </div>
-
-        <!-- Tab 1: string chart above, synchronised schematic below -->
-        <div class="ws-pane on" id="ws-chart">
-          <div class="panel" id="p-marey">
-            <div class="panel-hd">
-              <h2>Master String Chart</h2>
-              <span class="sub" id="mk-sub">&mdash;</span>
-              <div class="grow"></div>
-              <div class="legend">
-                <i><b style="background:var(--t-premium)"></b>Premium</i>
-                <i><b style="background:var(--t-express)"></b>Mail/Exp</i>
-                <i><b style="background:var(--t-suburban)"></b>EMU</i>
-                <i><b style="background:var(--t-freight)"></b>Freight</i>
-                <i><b style="background:var(--amber);height:8px;width:8px;border-radius:2px"></b>Block</i>
-              </div>
-              <div class="seg" id="mk-zoom">
-                <button data-z="24" class="on">24h</button>
-                <button data-z="8">8h</button>
-                <button data-z="4">4h</button>
-              </div>
-            </div>
-            <div class="panel-bd" style="overflow:hidden">
-              <div id="marey-wrap"><svg id="marey-svg"></svg></div>
-            </div>
-          </div>
-
-          <div class="panel" id="p-network">
-            <div class="panel-hd">
-              <h2>Schematic Track Network</h2>
-              <span class="sub">cursor-synced with the chart</span>
-              <div class="grow"></div>
-              <div class="legend">
-                <i><b style="background:#2b6b47"></b>Clear</i>
-                <i><b style="background:var(--red)"></b>Occupied</i>
-                <i><b style="background:var(--amber)"></b>Block</i>
-                <i><b style="background:var(--cyan)"></b>Loop</i>
-                <i><b style="background:var(--violet);height:8px;width:8px;border-radius:2px"></b>Depot</i>
-              </div>
-            </div>
-            <div class="panel-bd" style="overflow:hidden" id="net-host-chart">
-              <div id="net-wrap"><svg id="net-svg"></svg></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tab 2: the schematic at full height — loops, sidings, depots -->
-        <div class="ws-pane" id="ws-map">
-          <div class="panel" style="flex:1">
-            <div class="panel-hd">
-              <h2>Corridor Track Map</h2>
-              <span class="sub">main running lines vs loop stabling</span>
-              <div class="grow"></div>
-              <div class="legend">
-                <i><b style="background:#2b6b47"></b>Clear</i>
-                <i><b style="background:var(--red)"></b>Occupied</i>
-                <i><b style="background:var(--amber)"></b>Block</i>
-                <i><b style="background:var(--cyan)"></b>Loop line</i>
-                <i><b style="background:var(--t-freight)"></b>Rake held</i>
-                <i><b style="background:var(--violet);height:8px;width:8px;border-radius:2px"></b>Depot</i>
-              </div>
-            </div>
-            <div class="panel-bd" style="overflow:hidden" id="net-wrap-2"></div>
-          </div>
-        </div>
-
-        <!-- Tab 3: mobile resources (vi) -->
-        <div class="ws-pane" id="ws-fleet">
-          <div class="panel" style="flex:1">
-            <div class="panel-bd" id="fleet-root"></div>
-          </div>
+        <div class="filters-bar" id="q-filters"></div>
+        <div class="table-container" id="q-table-wrap">
+          <table class="grid" id="q-table">
+            <thead>
+              <tr>
+                <th style="min-width:130px">Requisition</th>
+                <th style="min-width:70px">Dept</th>
+                <th style="min-width:130px">Section / Line</th>
+                <th style="min-width:145px">Chainage</th>
+                <th style="min-width:165px">Raw Telemetry</th>
+                <th style="min-width:65px;text-align:right">O/D</th>
+                <th style="min-width:115px">Urgency (0–100)</th>
+              </tr>
+            </thead>
+            <tbody id="q-body"></tbody>
+          </table>
         </div>
       </div>
 
-      <!-- ---------- UNIFIED OPERATIONS DRAWER ---------- -->
-      <div class="ops-right" id="ops-drawer">
-        <div class="panel drawer-panel">
-          <div class="panel-hd drawer-hd">
-            <div class="seg" id="panel-tabs">
-              <button data-pt="blocks" class="on" id="tab-btn-blocks">Recommended Blocks (<span id="tab-cnt-blocks">--</span>)</button>
-              <button data-pt="feed" id="tab-btn-feed">Raw Ingestion Backlog (<span id="tab-cnt-feed">--</span>)</button>
-              <button data-pt="audit" id="tab-btn-audit">Rejection Audit (<span id="tab-cnt-audit">0</span>)</button>
-            </div>
-            <div class="grow"></div>
-            <button id="btn-toggle-drawer" class="drawer-toggle-btn" title="Toggle Drawer Width">&#9664;</button>
-          </div>
+      <!-- RIGHT DESK: AI BLOCK PROPOSALS & DECISION ENGINE -->
+      <div class="planner-right">
+        <div class="desk-hd">
+          <div class="desk-title">AI BLOCK RECOMMENDATION SHORTLIST</div>
+          <span class="desk-sub" id="prop-sub">&mdash;</span>
+          <div class="grow"></div>
+          <span class="chip urg" id="prop-pending">&mdash;</span>
+        </div>
 
-          <!-- Tab 1: Recommended Blocks -->
-          <div class="pt-pane on" id="pt-blocks">
-            <div class="drawer-subbar">
-              <span class="sub" id="prop-sub">&mdash;</span>
-              <div class="grow"></div>
-              <span class="chip urg" id="prop-pending">&mdash;</span>
-            </div>
-            <div class="panel-bd" id="prop-list"></div>
+        <!-- OVERRUN "BURST BUFFER" RISK SIMULATOR -->
+        <div class="burst-buffer-card">
+          <div class="bb-hd">
+            <span class="bb-k">OVERRUN "BURST BUFFER" RISK SIMULATOR</span>
+            <span class="mono bb-v" id="bb-val">+0 MIN BUFFER</span>
           </div>
+          <div class="bb-controls">
+            <button class="bb-btn on" data-bb="0">+0m (Zero Buffer)</button>
+            <button class="bb-btn" data-bb="15">+15m Buffer</button>
+            <button class="bb-btn" data-bb="30">+30m Buffer</button>
+          </div>
+          <div class="bb-desc" id="bb-desc">Zero buffer selected: evaluating nominal handback window.</div>
+        </div>
 
-          <!-- Tab 2: Raw Ingestion Backlog -->
-          <div class="pt-pane" id="pt-feed">
-            <div class="filters" id="q-filters"></div>
-            <div class="panel-bd" id="q-table-wrap">
-              <table class="grid" id="q-table">
-                <thead>
-                  <tr>
-                    <th style="min-width:120px">Requisition</th>
-                    <th style="min-width:70px">Dept</th>
-                    <th style="min-width:130px">Section / Track</th>
-                    <th style="min-width:140px">Chainage</th>
-                    <th style="min-width:140px">Telemetry</th>
-                    <th style="min-width:70px;text-align:right">O/D</th>
-                    <th style="min-width:110px">Urgency</th>
-                  </tr>
-                </thead>
-                <tbody id="q-body"></tbody>
-              </table>
-            </div>
-          </div>
+        <div class="proposals-container" id="prop-list"></div>
+      </div>
 
-          <!-- Tab 3: Rejection Audit -->
-          <div class="pt-pane" id="pt-audit">
-            <div class="drawer-subbar">
-              <span class="sub" id="audit-sub">&mdash;</span>
-            </div>
-            <div class="panel-bd" id="audit-list"></div>
-          </div>
+    </div>
+  </section>
+
+  <!-- 4. FLEET & HOER ASSETS -->
+  <section class="ws-pane" id="ws-fleet">
+    <div class="ws-toolbar">
+      <div class="desk-title">HEAVY TRACK MACHINE FLEET &amp; STATUTORY HOER CREW REGISTER</div>
+      <div class="grow"></div>
+      <div class="legend">
+        <i><b style="background:#22c55e"></b>FIT for Traffic Block</i>
+        <i><b style="background:var(--red)"></b>Maintenance / Relief Required</i>
+        <i><b style="background:var(--amber)"></b>Approaching 9h Statutory Limit</i>
+      </div>
+    </div>
+    <div class="fleet-canvas-host">
+      <div id="fleet-root"></div>
+    </div>
+  </section>
+
+  <!-- 5. REPORTS & CHARTS (GRAPHS) -->
+  <section class="ws-pane" id="ws-reports">
+    <div class="ws-toolbar">
+      <div class="desk-title">DIVISIONAL SCADA TELEMETRY &amp; ANALYTICAL CHARTS</div>
+      <div class="grow"></div>
+      <span class="ws-meta">Updated live from RTIS, CRT probes, and TMS databases</span>
+    </div>
+    <div class="reports-canvas-host">
+      <div class="rep-grid" id="rep-grid"></div>
+    </div>
+  </section>
+
+  <!-- 6. AUDIT LOGS (PN) -->
+  <section class="ws-pane" id="ws-audit">
+    <div class="ws-toolbar">
+      <div class="desk-title">CRIS OPERATIONAL AUDIT LOGBOOK &amp; CONTROL ORDERS</div>
+      <div class="grow"></div>
+      <span class="ws-meta" id="audit-sub">&mdash;</span>
+    </div>
+    <div class="audit-canvas-host">
+      <div id="log-root"></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================================ OFFICIAL CONTROL ORDER (PN) MODAL -->
+<div id="memo-modal" class="modal-overlay">
+  <div class="modal-box modal-box-lg">
+    <div class="modal-hd">
+      <div class="row">
+        <div>
+          <div class="modal-inst">NORTHERN RAILWAY · DELHI DIVISION CONTROL OFFICE</div>
+          <h2 id="memo-order-id">CONTROL ORDER — MAINTENANCE BLOCK</h2>
+        </div>
+        <div class="grow"></div>
+        <span class="chip rout" id="memo-status">APPROVED</span>
+        <button class="close" id="memo-close">&times;</button>
+      </div>
+      <div class="modal-sub" id="memo-section-sub">&mdash;</div>
+    </div>
+    <div class="modal-bd">
+      <div class="pn-display-row">
+        <div class="pn-card">
+          <div class="pn-lbl">PRIVATE NUMBER — STATION MASTER (SM)</div>
+          <div class="pn-num" id="memo-pn-sm">--</div>
+        </div>
+        <div class="pn-card" id="memo-pn-tpc-wrap">
+          <div class="pn-lbl">PRIVATE NUMBER — TRACTION POWER (TPC)</div>
+          <div class="pn-num" id="memo-pn-tpc">--</div>
+        </div>
+        <div class="pn-card">
+          <div class="pn-lbl">TOTAL GRANTED WINDOW</div>
+          <div class="pn-num" id="memo-window-dur" style="color:var(--amber)">--</div>
         </div>
       </div>
-    </section>
 
-    <!-- ============================ VIEW: REPORTS -->
-    <section class="view" id="view-reports">
-      <div style="flex:1;overflow:auto">
-        <div class="rep-grid" id="rep-grid"></div>
+      <div class="memo-content-wrap">
+        <div class="memo-title">OFFICIAL CONTROL TELEGRAM TRANSMISSION TEXT:</div>
+        <pre class="memo" id="memo-text"></pre>
       </div>
-    </section>
-
-    <!-- ============================ VIEW: LOGS -->
-    <section class="view" id="view-logs">
-      <div style="flex:1;overflow:auto" id="log-root"></div>
-    </section>
-
-  </main>
+    </div>
+    <div class="modal-ft">
+      <button class="btn btn-sh" id="btn-copy-memo">&#x2398; Copy Control Order to Clipboard</button>
+      <div class="grow"></div>
+      <button class="btn btn-sec" id="btn-close-memo">Close</button>
+    </div>
+  </div>
 </div>
 
-<!-- ================================ APPROVAL DRAWER (iv) -->
-<aside id="drawer">
-  <div class="dw-hd">
-    <div class="row">
-      <h2 id="dw-id">&mdash;</h2>
-      <span class="chip" id="dw-status">PENDING</span>
-      <button class="close" id="dw-close">&times;</button>
+<!-- ================================ STRUCTURED REJECTION MODAL -->
+<div id="reject-modal" class="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-hd">
+      <div class="row">
+        <div>
+          <div class="modal-inst">SECTION CONTROLLER LOG</div>
+          <h2 id="reject-prop-id">REJECT / DEFER BLOCK REQUISITION</h2>
+        </div>
+        <div class="grow"></div>
+        <button class="close" id="reject-close">&times;</button>
+      </div>
+      <div class="modal-sub" id="reject-prop-sub">&mdash;</div>
     </div>
-    <div class="dw-sub" id="dw-sub">&mdash;</div>
+    <div class="modal-bd">
+      <p style="color:var(--text-mute);margin-top:0">Select the official CRIS reason code for refusing or deferring this maintenance possession window:</p>
+      
+      <div class="reason-options" id="reject-reasons">
+        <label class="reason-opt">
+          <input type="radio" name="reason_code" value="PRECEDENCE_PREMIUM" checked>
+          <div>
+            <b>[PREC-01] Precedence to Premium Traffic</b>
+            <span>High-priority Rajdhani / Vande Bharat headway conflict on line.</span>
+          </div>
+        </label>
+        <label class="reason-opt">
+          <input type="radio" name="reason_code" value="INSUFFICIENT_MARGIN">
+          <div>
+            <b>[TRAF-02] Insufficient Traffic Gap</b>
+            <span>Available headway does not satisfy minimum required machine ramp-in &amp; work duration.</span>
+          </div>
+        </label>
+        <label class="reason-opt">
+          <input type="radio" name="reason_code" value="TEMP_RESTRICTION">
+          <div>
+            <b>[TEMP-03] Adverse Rail Thermometry</b>
+            <span>Rail temperature Tr outside safe LWR tamping envelope (Td-30°C to Td+10°C).</span>
+          </div>
+        </label>
+        <label class="reason-opt">
+          <input type="radio" name="reason_code" value="CREW_HOER_LIMIT">
+          <div>
+            <b>[HOER-04] Crew Duty Expiry / HOER</b>
+            <span>Machine operator gang exceeding 9-hour statutory duty; relief crew unavailable.</span>
+          </div>
+        </label>
+        <label class="reason-opt">
+          <input type="radio" name="reason_code" value="PLANT_DEFECT">
+          <div>
+            <b>[MECH-05] Plant / Tamping Machine Defect</b>
+            <span>Mechanical maintenance required or tine wear below acceptable threshold.</span>
+          </div>
+        </label>
+      </div>
+
+      <div style="margin-top:12px">
+        <label style="display:block;font-size:11px;color:var(--text-mute);margin-bottom:4px">Controller Additional Remarks / Justification:</label>
+        <textarea id="reject-note" class="scada-textarea" rows="2" placeholder="e.g. Advised P-Way AEN to reschedule for 02:30 night window."></textarea>
+      </div>
+    </div>
+    <div class="modal-ft">
+      <button class="btn btn-danger" id="btn-confirm-reject">Confirm Rejection &amp; Return to Backlog</button>
+      <div class="grow"></div>
+      <button class="btn btn-sec" id="btn-cancel-reject">Cancel</button>
+    </div>
   </div>
-  <div class="dw-bd" id="dw-bd"></div>
-  <div class="dw-ft" id="dw-ft"></div>
-</aside>
+</div>
+
+<!-- ================================ SHIFT SLOT MODAL -->
+<div id="shift-modal" class="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-hd">
+      <div class="row">
+        <div>
+          <div class="modal-inst">TRAFFIC WINDOW OPTIMIZER</div>
+          <h2 id="shift-prop-id">SHIFT PROPOSED TIME SLOT</h2>
+        </div>
+        <div class="grow"></div>
+        <button class="close" id="shift-close">&times;</button>
+      </div>
+      <div class="modal-sub" id="shift-prop-sub">&mdash;</div>
+    </div>
+    <div class="modal-bd">
+      <div class="shift-ctrl-wrap">
+        <div class="shift-row">
+          <button class="f-btn" id="btn-shift-minus">−15m</button>
+          <input type="range" id="shift-range" min="-240" max="240" step="5" value="0" style="flex:1">
+          <button class="f-btn" id="btn-shift-plus">+15m</button>
+          <span class="mono" id="shift-val" style="width:74px;text-align:right;font-size:13px;font-weight:700">+0 min</span>
+        </div>
+        <div class="recalc" id="shift-recalc" style="margin-top:10px">Optimised slot. Adjust to test an alternative window — traffic impact re-scores live.</div>
+      </div>
+    </div>
+    <div class="modal-ft">
+      <button class="btn btn-sh" id="btn-apply-shift">Apply Shift &amp; Re-Score</button>
+      <div class="grow"></div>
+      <button class="btn btn-sec" id="btn-cancel-shift">Cancel</button>
+    </div>
+  </div>
+</div>
 
 <!-- ================================ FLEET PLANT INSPECTOR MODAL -->
 <div id="fleet-modal" class="modal-overlay">
@@ -266,6 +426,9 @@
     <div class="modal-bd" id="fm-bd"></div>
   </div>
 </div>
+
+<!-- Legacy drawer element kept hidden to preserve any DOM references safely -->
+<aside id="drawer" style="display:none"></aside>
 
 <div id="tip"></div>
 <div id="toast-wrap"></div>

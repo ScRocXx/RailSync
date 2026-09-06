@@ -3,7 +3,9 @@ RailSync FastAPI Backend Server
 Provides live endpoints for division state, conflict detection, and real-time operations.
 """
 
+import os
 import sys
+import time
 import asyncio
 import json
 from datetime import datetime
@@ -123,11 +125,60 @@ def inject_delay(req: DelayInjectionRequest):
     }
 
 
+import sqlite3
+
+SIM_DB = os.path.join(os.path.dirname(__file__), "..", "..", "SIMULATOR", "data", "telemetry.db")
+
+
+def read_live_telemetry():
+    """Queries telemetry.db for active simulator heartbeats and latest states."""
+    active_sims = []
+    latest_states = {}
+    if not os.path.exists(SIM_DB):
+        return {"live": False, "connected": [], "states": {}}
+
+    try:
+        conn = sqlite3.connect(SIM_DB, timeout=1.0)
+        conn.row_factory = sqlite3.Row
+        cur = conn.cursor()
+        now_ts = time.time()
+        # Look for heartbeats within the last 3.5 seconds
+        cur.execute("SELECT * FROM simulator_heartbeat WHERE ? - last_heartbeat < 3.5", (now_ts,))
+        rows = cur.fetchall()
+        for r in rows:
+            active_sims.append({
+                "sim_id": r["sim_id"],
+                "sim_name": r["sim_name"],
+                "tick_count": r["tick_count"],
+                "last_message": r["last_message"],
+                "latency_sec": round(now_ts - r["last_heartbeat"], 2),
+            })
+
+        # Read latest states
+        cur.execute("SELECT * FROM simulator_state")
+        srows = cur.fetchall()
+        for sr in srows:
+            try:
+                latest_states[sr["sim_id"]] = json.loads(sr["payload"])
+            except Exception:
+                pass
+        conn.close()
+    except Exception:
+        pass
+
+    return {
+        "live": len(active_sims) > 0,
+        "connected": active_sims,
+        "states": latest_states,
+    }
+
+
 @app.get("/api/stream")
 async def live_stream(request: Request):
     """
     Server-Sent Events (SSE) route: streams periodic operational telemetry ticks,
-    simulated division clock progression, and live telemetry updates to the dashboard.
+    active simulator terminal heartbeats, simulated division clock progression,
+    and live telemetry updates to the dashboard.
     """
     async def event_generator():
         # Open on morning peak shift (07:30 AM = 450 min)
@@ -138,11 +189,15 @@ async def live_stream(request: Request):
 
             bundle = get_current_bundle()
             metrics = bundle.get("metrics", {})
+            live_telemetry = read_live_telemetry()
             payload = {
                 "type": "telemetry_tick",
                 "clock": round(clock_minute, 2),
                 "punctuality": metrics.get("punctuality", 72.2),
                 "timestamp": datetime.utcnow().isoformat(),
+                "telemetry_live": live_telemetry["live"],
+                "connected_simulators": live_telemetry["connected"],
+                "live_states": live_telemetry["states"],
             }
             yield f"data: {json.dumps(payload)}\n\n"
             clock_minute = (clock_minute + 0.1) % (24 * 60)

@@ -197,17 +197,17 @@ def generate_coa_streams(seed=42, output_dir="data"):
     """Generates passenger train streams for RailSync-ABPS COA integration."""
     random.seed(seed)
     
-    # 36 total:
-    # CORR_NORTH: 9
-    # CORR_EAST: 9
-    # CORR_SOUTH: 10
-    # CORR_WEST: 8
+    # Authentic CRIS COA traffic density: 128 passenger trains across Delhi Division
+    # CORR_NORTH (Delhi-Panipat trunk line): 38 trains
+    # CORR_EAST (Ghaziabad-Meerut): 24 trains
+    # CORR_SOUTH (Delhi-Palwal 4-track trunk line): 42 trains
+    # CORR_WEST (Delhi-Rohtak): 24 trains
     
     trains = []
-    trains.extend(generate_trains_for_corridor("CORR_NORTH", 9, {1: 1, 2: 5, 3: 3}))
-    trains.extend(generate_trains_for_corridor("CORR_EAST", 9, {1: 1, 2: 5, 3: 3}))
-    trains.extend(generate_trains_for_corridor("CORR_SOUTH", 10, {1: 2, 2: 5, 3: 3}))
-    trains.extend(generate_trains_for_corridor("CORR_WEST", 8, {1: 2, 2: 3, 3: 3}))
+    trains.extend(generate_trains_for_corridor("CORR_NORTH", 38, {1: 6, 2: 20, 3: 12}))
+    trains.extend(generate_trains_for_corridor("CORR_EAST", 24, {1: 4, 2: 12, 3: 8}))
+    trains.extend(generate_trains_for_corridor("CORR_SOUTH", 42, {1: 8, 2: 22, 3: 12}))
+    trains.extend(generate_trains_for_corridor("CORR_WEST", 24, {1: 4, 2: 12, 3: 8}))
     
     # Strict fail-fast Pydantic validation
     for t in trains:

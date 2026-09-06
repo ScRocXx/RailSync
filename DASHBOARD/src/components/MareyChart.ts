@@ -99,16 +99,17 @@ export function render(): void {
   });
 
   /* ---- time grid ---- */
-  const stepMin = s.zoom >= 24 ? 60 : (s.zoom >= 8 ? 30 : 15);
-  const labelEvery = s.zoom >= 24 ? 120 : (s.zoom >= 8 ? 60 : 30);
-  for (let t = Math.ceil(t0 / stepMin) * stepMin; t <= t1; t += stepMin) {
-    const major = t % labelEvery === 0;
+  for (let t = Math.ceil(t0 / 15) * 15; t <= t1; t += 15) {
+    const isHour = t % 60 === 0;
+    const isMajorHour = t % 120 === 0;
     plot.appendChild(svgEl('line', {
-      x1: X(t), y1: M.t, x2: X(t), y2: M.t + ih, class: major ? 'mk-grid-hr' : 'mk-grid',
+      x1: X(t), y1: M.t, x2: X(t), y2: M.t + ih,
+      class: isHour ? 'mk-grid-hr' : 'mk-grid',
     }));
-    if (major) {
-      const tx = svgEl('text', { x: X(t), y: H - 10, class: 'mk-axis-txt', 'text-anchor': 'middle' });
+    if (isHour) {
+      const tx = svgEl('text', { x: X(t), y: H - 8, class: 'mk-axis-txt', 'text-anchor': 'middle' });
       tx.textContent = hhmm(t);
+      if (isMajorHour) tx.setAttribute('font-weight', '700');
       root.appendChild(tx);
     }
   }
@@ -121,7 +122,7 @@ export function render(): void {
     const lab = svgEl('text', { x: M.l - 8, y: Y(st.km) - 2, class: 'mk-stn-txt', 'text-anchor': 'end' });
     lab.textContent = st.code;
     root.appendChild(lab);
-    const km = svgEl('text', { x: M.l - 8, y: Y(st.km) + 12, class: 'mk-stn-km', 'text-anchor': 'end' });
+    const km = svgEl('text', { x: M.l - 8, y: Y(st.km) + 11, class: 'mk-stn-km', 'text-anchor': 'end' });
     km.textContent = st.km.toFixed(0);
     root.appendChild(km);
   });
@@ -147,9 +148,9 @@ export function render(): void {
       (s.selProposal === p.id ? ' sel' : '') +
       (s.hotBlock === p.id ? ' hot' : '');
     const rect = svgEl('rect', {
-      x: xa, y: ya, width: Math.max(3, xb - xa), height: h, class: cls, rx: 2,
+      x: xa, y: ya, width: Math.max(3, xb - xa), height: h, class: cls,
     });
-    rect.setAttribute('fill', p.status === 'APPROVED' ? 'rgba(46,204,113,.16)' : 'url(#mk-hatch)');
+    rect.setAttribute('fill', p.status === 'APPROVED' ? 'rgba(34,197,94,.18)' : 'url(#mk-hatch)');
     rect.addEventListener('mousemove', (e) => {
       if (s.hotBlock !== p.id) store.getState().setHotBlock(p.id);
       tip(blockTip(p), e as MouseEvent);
@@ -163,19 +164,10 @@ export function render(): void {
     });
     plot.appendChild(rect);
 
-    if (xb - xa > 12 && h > 6) {
-      const wx0 = X(p.start + (dur - p.window.workMin) / 2);
-      const wx1 = X(p.start + (dur + p.window.workMin) / 2);
-      plot.appendChild(svgEl('rect', {
-        x: wx0, y: ya + h * 0.32, width: Math.max(2, wx1 - wx0), height: Math.max(2, h * 0.36),
-        class: 'mk-work', rx: 1,
-      }));
-    }
-
     if (xb - xa > 46 && h > 11) {
       const lbl = svgEl('text', { x: xa + 4, y: ya + Math.min(11, h - 2), class: 'mk-block-txt' });
       lbl.textContent = p.id;
-      if (p.status === 'APPROVED') lbl.setAttribute('fill', '#2ecc71');
+      if (p.status === 'APPROVED') lbl.setAttribute('fill', '#22c55e');
       plot.appendChild(lbl);
     }
   });
@@ -185,27 +177,67 @@ export function render(): void {
   const hot = s.hotTrain;
 
   trains.forEach((tr) => {
-    if (tr.kind !== 'PASSENGER' || tr.delay <= 0) return;
-    plot.appendChild(svgEl('polyline', {
-      points: tr.sched.map((p) => X(p[0]) + ',' + Y(p[1])).join(' '),
-      class: 'mk-sched',
-    }));
-  });
-
-  trains.forEach((tr) => {
     const pts = tr.path.map((p) => X(p[0]) + ',' + Y(p[1])).join(' ');
-    let cls = 'mk-path ' + tr.cls;
+    let cls = 'mk-path mk-train ' + tr.cls;
     if (hot && hot !== tr.id) cls += ' dim';
     if (hot === tr.id) cls += ' hot';
-    plot.appendChild(svgEl('polyline', { points: pts, class: cls }));
+    plot.appendChild(svgEl('polyline', {
+      id: 'tr-path-' + tr.id,
+      points: pts,
+      class: cls,
+      stroke: CLS_COLOR[tr.cls] || '#94a3b8',
+    }));
+
+    // Train trajectory label running parallel
+    if (tr.path.length >= 2) {
+      const midIdx = Math.floor(tr.path.length / 2);
+      const p1 = tr.path[midIdx];
+      const p2 = tr.path[midIdx + 1] || p1;
+      const mx = (X(p1[0]) + X(p2[0])) / 2;
+      const my = (Y(p1[1]) + Y(p2[1])) / 2;
+      if (mx > M.l + 20 && mx < M.l + iw - 30 && my > M.t + 10 && my < M.t + ih - 10) {
+        const angle = Math.atan2(Y(p2[1]) - Y(p1[1]), X(p2[0]) - X(p1[0])) * (180 / Math.PI);
+        const normAngle = (angle > 90 || angle < -90) ? angle + 180 : angle;
+        const tag = svgEl('text', {
+          id: 'tr-tag-' + tr.id,
+          x: mx, y: my - 3,
+          transform: `rotate(${normAngle.toFixed(1)}, ${mx.toFixed(1)}, ${my.toFixed(1)})`,
+          'text-anchor': 'middle',
+          fill: CLS_COLOR[tr.cls] || '#94a3b8',
+          'font-size': '9px',
+          'font-family': 'Consolas, monospace',
+          'font-weight': '700',
+          opacity: '0.85',
+          'pointer-events': 'none',
+          class: hot === tr.id ? 'hot' : '',
+        });
+        tag.textContent = tr.no;
+        plot.appendChild(tag);
+      }
+    }
 
     const hit = svgEl('polyline', { points: pts, class: 'mk-hit' });
     hit.addEventListener('mousemove', (e) => {
-      if (store.getState().hotTrain !== tr.id) store.getState().setHotTrain(tr.id);
+      if (store.getState().hotTrain !== tr.id) {
+        store.getState().setHotTrain(tr.id);
+        const pGroup = document.querySelector('.mk-plot');
+        if (pGroup) pGroup.classList.add('mk-isolated');
+        const poly = document.getElementById('tr-path-' + tr.id);
+        if (poly) poly.classList.add('hot');
+        const tag = document.getElementById('tr-tag-' + tr.id);
+        if (tag) tag.classList.add('hot');
+      }
       tip(trainTip(tr), e as MouseEvent);
     });
     hit.addEventListener('mouseleave', () => {
-      store.getState().setHotTrain(null); tipOff();
+      store.getState().setHotTrain(null);
+      const pGroup = document.querySelector('.mk-plot');
+      if (pGroup) pGroup.classList.remove('mk-isolated');
+      const poly = document.getElementById('tr-path-' + tr.id);
+      if (poly) poly.classList.remove('hot');
+      const tag = document.getElementById('tr-tag-' + tr.id);
+      if (tag) tag.classList.remove('hot');
+      tipOff();
     });
     plot.appendChild(hit);
   });
@@ -225,10 +257,10 @@ export function render(): void {
   root.appendChild(needleHead);
 
   root.appendChild(svgEl('rect', {
-    x: M.l, y: M.t, width: iw, height: ih, fill: 'none', stroke: '#1e293b', 'stroke-width': 1,
+    x: M.l, y: M.t, width: iw, height: ih, fill: 'none', stroke: '#1e2638', 'stroke-width': 1,
   }));
 
-  const sub = byId('mk-sub');
+  const sub = byId('marey-sub') || byId('mk-sub');
   if (sub) {
     sub.textContent = corr.name + '  ·  ' + trains.length + ' paths  ·  ' +
       hhmm(t0) + '–' + hhmm(t1 === DAY ? 1439 : t1);
@@ -313,14 +345,15 @@ function blockTip(p: LiveProposal): string {
 /* ---- Zoom + Pan ---- */
 
 export function bindZoom(): void {
-  const seg = byId('mk-zoom');
+  const seg = byId('span-tabs') || byId('mk-zoom');
   if (seg) {
     seg.addEventListener('click', (e) => {
       const b = (e.target as HTMLElement).closest('button') as HTMLButtonElement | null;
-      if (!b || !b.dataset.z) return;
-      const z = +b.dataset.z;
+      if (!b) return;
+      const sp = b.dataset.sp ? +b.dataset.sp : b.dataset.z ? +b.dataset.z * 60 : 480;
+      const z = sp / 60;
       const clock = store.getState().clock;
-      store.getState().setZoom(z, Math.max(0, Math.min(DAY - z * 60, clock - z * 30)));
+      store.getState().setZoom(z, Math.max(0, Math.min(DAY - sp, clock - sp / 2)));
       Array.prototype.forEach.call(seg.children, (c: Element) => {
         c.classList.toggle('on', c === b);
       });

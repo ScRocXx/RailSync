@@ -5,12 +5,15 @@
 import { store } from '../store/useRailSyncStore.ts';
 import {
   D, S, hhmm, shortCorr, esc, scoreColor, CLS_COLOR,
-  totalDuration, issueOrder, scoreWindow, mergeImpact,
+  totalDuration, issueOrder, scoreWindow, mergeImpact, projectOverrun,
   byId, clear, el, tip, tipOff, tipRows, toast, logEvent,
 } from '../lib/core.ts';
 import type {
   Dept, Band, Demand, LiveProposal, BlockStatus, ProposalItem, WindowScore,
 } from '../types/index.ts';
+import {
+  doApproveWithMemo, showMemoModal, showRejectModal, showShiftModal,
+} from './BlockDrawer.ts';
 
 /* ---- Filters ---- */
 
@@ -105,11 +108,11 @@ export function renderQueue(): void {
 
     // 1. Requisition ID
     const c1 = el('td');
-    c1.style.minWidth = '120px';
+    c1.style.minWidth = '130px';
     c1.style.whiteSpace = 'nowrap';
     const s1 = el('span', 'mono', q.id);
     s1.style.fontSize = '12px';
-    s1.style.fontWeight = '600';
+    s1.style.fontWeight = '700';
     c1.appendChild(s1);
     tr.appendChild(c1);
 
@@ -125,26 +128,26 @@ export function renderQueue(): void {
     c3.style.minWidth = '130px';
     c3.style.whiteSpace = 'nowrap';
     const c3Text = el('div', null, shortCorr(q.corridor));
-    c3Text.style.fontWeight = '600';
+    c3Text.style.fontWeight = '700';
     c3.appendChild(c3Text);
     const ln = el('div', 'mono', q.line);
-    ln.style.cssText = 'font-size:12px;color:var(--text-mute)';
+    ln.style.cssText = 'font-size:11.5px;color:var(--text-mute)';
     c3.appendChild(ln);
     tr.appendChild(c3);
 
     // 4. Chainage
     const c4 = el('td', 'mono', q.chainage);
-    c4.style.cssText = 'min-width:140px;font-size:12px;white-space:nowrap;font-variant-numeric:tabular-nums;';
+    c4.style.cssText = 'min-width:150px;font-size:12px;white-space:nowrap;font-variant-numeric:tabular-nums;';
     tr.appendChild(c4);
 
     // 5. Telemetry
     const c5 = el('td', 'mono', q.telemetry);
-    c5.style.cssText = 'min-width:140px;font-size:12px;white-space:nowrap;font-variant-numeric:tabular-nums;';
+    c5.style.cssText = 'min-width:170px;font-size:12px;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--text);';
     tr.appendChild(c5);
 
     // 6. Overdue days
     const c6 = el('td');
-    c6.style.minWidth = '70px';
+    c6.style.minWidth = '65px';
     c6.style.textAlign = 'right';
     c6.style.whiteSpace = 'nowrap';
     const odc = q.overdueDays >= 10 ? 'od-hi' : q.overdueDays >= 4 ? 'od-md' : 'od-lo';
@@ -241,6 +244,7 @@ export function renderProposals(): void {
   list.forEach((p) => {
     const dur = totalDuration(p);
     const im = p.impact;
+    const w = p.window;
 
     const card = el('div', 'prop-card' + (s.selProposal === p.id ? ' sel' : ''));
 
@@ -261,11 +265,36 @@ export function renderProposals(): void {
     winSpan.style.color = '#fbbf24';
     winSpan.style.fontWeight = '700';
     sub.appendChild(winSpan);
-    sub.appendChild(document.createTextNode(' · Window ' + dur + 'm (Work ' + p.window.workMin + 'm)'));
+    sub.appendChild(document.createTextNode(' · Window ' + dur + 'm (Work ' + w.workMin + 'm)'));
     sub.appendChild(document.createTextNode(' · ' + (p.items.length + p.added.length) + ' tasks'));
     const plantText = p.machines.length ? p.machines.map((x) => x.id).join(' + ') : 'Manual gang';
     sub.appendChild(document.createTextNode(' · ' + plantText));
     card.appendChild(sub);
+
+    // Visual Physical Work Breakdown Progress Bar
+    const barWrap = el('div');
+    barWrap.style.cssText = 'margin:4px 0;';
+    const bar = el('div');
+    bar.style.cssText = 'display:flex;height:6px;background:#1e2638;overflow:hidden;gap:1px;';
+
+    const segs: [number, string, string][] = [];
+    if (w.protectionMin) segs.push([w.protectionMin / 2, '#f59e0b', 'Protection ' + (w.protectionMin / 2) + 'm']);
+    if (w.earthingMin) segs.push([w.earthingMin / 2, '#38bdf8', 'Earthing ' + (w.earthingMin / 2) + 'm']);
+    if (w.rampMin) segs.push([w.rampMin / 2, '#a78bfa', 'Ramp ' + (w.rampMin / 2) + 'm']);
+    segs.push([w.workMin, '#22c55e', 'Work ' + w.workMin + 'm']);
+    if (w.rampMin) segs.push([w.rampMin / 2, '#a78bfa', 'Ramp out ' + (w.rampMin / 2) + 'm']);
+    if (w.earthingMin) segs.push([w.earthingMin / 2, '#38bdf8', 'De-earthing ' + (w.earthingMin / 2) + 'm']);
+    if (w.protectionMin) segs.push([w.protectionMin / 2, '#f59e0b', 'Withdraw ' + (w.protectionMin / 2) + 'm']);
+
+    segs.forEach((sg) => {
+      const segEl = el('div');
+      segEl.style.width = (100 * sg[0] / dur) + '%';
+      segEl.style.background = sg[1];
+      segEl.title = sg[2];
+      bar.appendChild(segEl);
+    });
+    barWrap.appendChild(bar);
+    card.appendChild(barWrap);
 
     // Impact Chips
     const chipsRow = el('div', 'prop-chips-row');
@@ -280,38 +309,69 @@ export function renderProposals(): void {
       chipsRow.appendChild(el('span', 'chip', '−' + p.savings.savedMin + 'm bundled'));
     }
     if (p.status !== 'PENDING') {
-      chipsRow.appendChild(el('span', 'chip' + (p.status === 'APPROVED' ? ' rout' : ' crit'), p.status));
+      chipsRow.appendChild(el('span', 'chip ' + (p.status === 'APPROVED' ? 'rout' : 'crit'), p.status));
     }
     card.appendChild(chipsRow);
 
-    // Clear CTA Action Buttons
+    // Overrun "Burst Buffer" Risk Projection (if buffer > 0)
+    if (s.overrunMin > 0) {
+      const proj = projectOverrun(p, p.start, dur, s.overrunMin);
+      const bbRow = el('div');
+      bbRow.style.cssText = 'padding:5px 8px;font-size:11px;font-family:var(--mono);margin-top:2px;';
+      if (proj.totalDelayMin > 0) {
+        bbRow.style.background = 'rgba(239, 68, 68, 0.12)';
+        bbRow.style.border = '1px solid rgba(239, 68, 68, 0.35)';
+        bbRow.style.color = '#f87171';
+        bbRow.innerHTML = `<b>▲ OVERRUN RISK (+${s.overrunMin}m buffer):</b> +${proj.totalDelayMin}m added delay across ${proj.trains.length} trains (${proj.trains.map((t) => t.no).join(', ')})`;
+      } else {
+        bbRow.style.background = 'rgba(34, 197, 94, 0.1)';
+        bbRow.style.border = '1px solid rgba(34, 197, 94, 0.3)';
+        bbRow.style.color = '#4ade80';
+        bbRow.innerHTML = `<b>● OVERRUN BUFFER (+${s.overrunMin}m):</b> 0 min added delay (buffer clear of traffic)`;
+      }
+      card.appendChild(bbRow);
+    }
+
+    // Direct Action CTA Buttons
     const actRow = el('div', 'prop-actions');
 
     if (p.status === 'PENDING') {
-      const btnApprove = el('button', 'btn-sm btn-prop-ok', '✓ Approve Block');
+      const btnApprove = el('button', 'btn-sm btn-prop-ok', 'APPROVE + ISSUE MEMO');
       btnApprove.addEventListener('click', (e) => {
         e.stopPropagation();
-        quickApprove(p, dur);
+        doApproveWithMemo(p, dur);
+        renderProposals();
       });
       actRow.appendChild(btnApprove);
 
-      const btnReject = el('button', 'btn-sm btn-prop-no', '✕ Reject');
+      const btnShift = el('button', 'btn-sm btn-prop-shift', 'SHIFT SLOT');
+      btnShift.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showShiftModal(p);
+      });
+      actRow.appendChild(btnShift);
+
+      const btnReject = el('button', 'btn-sm btn-prop-no', 'REJECT / DEFER');
       btnReject.addEventListener('click', (e) => {
         e.stopPropagation();
-        store.getState().setSelProposal(p.id);
+        showRejectModal(p);
       });
       actRow.appendChild(btnReject);
+    } else if (p.status === 'APPROVED') {
+      const btnOrder = el('button', 'btn-sm btn-prop-ok',
+        `VIEW CONTROL ORDER (PN: ${p.order?.pnSm ?? '48'})`);
+      btnOrder.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showMemoModal(p);
+      });
+      actRow.appendChild(btnOrder);
+    } else if (p.status === 'REJECTED') {
+      const rejBadge = el('span', 'chip crit',
+        `REJECTED: ${p.rejectedFor?.code ?? 'REFUSED'}`);
+      actRow.appendChild(rejBadge);
     }
 
-    const btnInspect = el('button', 'btn-sm btn-prop-inspect', 'Inspect Permit →');
-    btnInspect.addEventListener('click', (e) => {
-      e.stopPropagation();
-      store.getState().setSelProposal(p.id);
-    });
-    actRow.appendChild(btnInspect);
-
     card.appendChild(actRow);
-
     card.addEventListener('click', () => {
       store.getState().setSelProposal(p.id);
     });
@@ -320,22 +380,24 @@ export function renderProposals(): void {
   });
 }
 
-function quickApprove(p: LiveProposal, dur: number): void {
-  store.getState().updateProposal(p.id, (pp) => {
-    const next = { ...pp };
-    next.end = next.start + dur;
-    next.status = 'APPROVED';
-    next.order = issueOrder(next, next.start, dur);
-    return next;
+export function bindBurstBuffer(): void {
+  const btns = document.querySelectorAll<HTMLElement>('.bb-btn');
+  btns.forEach((b) => {
+    b.addEventListener('click', () => {
+      const extra = +(b.dataset.bb || '0');
+      store.getState().setOverrunMin(extra);
+      btns.forEach((x) => x.classList.toggle('on', x === b));
+      const val = byId('bb-val');
+      if (val) val.textContent = '+' + extra + ' MIN BUFFER';
+      const desc = byId('bb-desc');
+      if (desc) {
+        desc.textContent = extra === 0
+          ? 'Zero buffer selected: evaluating nominal handback window.'
+          : `+${extra} min buffer active: simulating delayed track handback and downstream train precedence conflicts.`;
+      }
+      renderProposals();
+    });
   });
-
-  const pp = store.getState().proposals.filter((x) => x.id === p.id)[0];
-  if (pp && pp.order) {
-    logEvent('approve', pp.id + ' approved — PN ' + pp.order.pnSm,
-      pp.section + ' · ' + pp.lines.join('+') + ' · ' + hhmm(pp.start) + '–' + hhmm(pp.end) +
-      ' (' + dur + ' min window) · ' + (pp.items.length + pp.added.length) + ' task(s) cleared.', pp.id);
-    toast('Block ' + pp.id + ' approved — Private Number ' + pp.order.pnSm);
-  }
 }
 
 /* ---- Rejection audit ---- */

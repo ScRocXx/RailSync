@@ -1,11 +1,12 @@
 /* ============================================================
    RailSync — Main Application Entrypoint
-   Delhi Division Operational Section Control
+   Delhi Division Operational Section Control Desk
+   6 Full-Screen Workspaces · SCADA Palette · URL Hash Sync
    ============================================================ */
 
 import './index.css';
 import { store } from './store/useRailSyncStore.ts';
-import type { Bundle, AppState } from './types/index.ts';
+import type { Bundle, Workspace } from './types/index.ts';
 import {
   D, S, DAY, hhmm, pad2, shortCorr, runningAt, railTemp,
   tip, tipOff, tipRows, logEvent, byId, initProposals, setPlaying,
@@ -16,9 +17,6 @@ import * as Queue from './components/BacklogQueue.ts';
 import * as Drawer from './components/BlockDrawer.ts';
 import * as Ribbon from './components/TelemetryRibbon.ts';
 import * as Fleet from './components/FleetTracker.ts';
-
-type ViewName = 'ops' | 'reports' | 'logs';
-let currentView: ViewName = 'ops';
 
 function setText(id: string, txt: string): void {
   const n = byId(id);
@@ -39,9 +37,7 @@ function renderBanner(): void {
   setText('s-punct', pu.toFixed(1) + '%');
   const pn = byId('s-punct');
   if (pn) pn.className = 'stat-v ' + (pu >= 90 ? 'v-good' : pu >= 75 ? 'v-warn' : 'v-bad');
-  setText('s-punct-sub', m.trainsOnTime + '/' + m.trainsRun + ' RT · avg ' + m.avgDelay + ' min');
-
-  setText('s-clock', hhmm(s.clock));
+  setText('s-punct-sub', m.trainsOnTime + '/' + m.trainsRun + ' RT · avg +' + m.avgDelay.toFixed(1) + 'm');
 
   const t = railTemp(s.clock, s.corridor);
   if (t) {
@@ -55,6 +51,7 @@ function renderBanner(): void {
     if (chip) {
       chip.onmousemove = (e) => { tip(tsrTip(), e as MouseEvent); };
       chip.onmouseleave = tipOff;
+      chip.onclick = () => { store.getState().setWorkspace('reports'); };
     }
   }
 
@@ -84,81 +81,91 @@ function tsrTip(): string {
   ]);
   return '<div class="tt-h"><span class="swatch" style="background:#ef4444"></span>' +
     data.tsr.length + ' caution orders in force</div>' + tipRows(rows) +
-    '<div class="tt-r" style="margin-top:6px;color:#64748b"><span>Click for the full register</span></div>';
+    '<div class="tt-r" style="margin-top:6px;color:#64748b"><span>Click to open Reports &amp; Charts</span></div>';
 }
 
-/* ------------------------------------------------------- workspace */
+/* ------------------------------------------------------- wall clock & shift */
 
-function moveSchematic(): void {
+function updateWallClock(): void {
+  const now = new Date();
+  // Format Indian Standard Time (IST)
+  const options: Intl.DateTimeFormatOptions = {
+    timeZone: 'Asia/Kolkata',
+    hour: '2-digit', minute: '2-digit', second: '2-digit',
+    hour12: false,
+  };
+  const istTime = now.toLocaleTimeString('en-GB', options) + ' IST';
   const s = store.getState();
-  const wrap = byId('net-wrap');
-  const target = byId(s.workspace === 'map' ? 'net-wrap-2' : 'net-host-chart');
-  if (wrap && target && wrap.parentElement !== target) {
-    target.appendChild(wrap);
+
+  // If simulation is not playing, use formatted current IST clock or division clock
+  if (!s.playing) {
+    setText('s-clock', istTime);
+  } else {
+    setText('s-clock', hhmm(s.clock) + ' SIM');
+  }
+
+  // Calculate shift
+  const hrs = now.getHours();
+  let shiftName = 'MORNING 06:00–14:00';
+  if (hrs >= 14 && hrs < 22) shiftName = 'EVENING 14:00–22:00';
+  else if (hrs >= 22 || hrs < 6) shiftName = 'NIGHT 22:00–06:00';
+
+  setText('s-shift-chip', 'SHIFT: ' + shiftName);
+}
+
+/* ------------------------------------------------------- 6 workspaces */
+
+export function renderWorkspace(): void {
+  const s = store.getState();
+  const ws = s.workspace;
+
+  // Sync navigation bar buttons
+  const navBtns = document.querySelectorAll<HTMLElement>('.ws-nav-btn');
+  navBtns.forEach((b) => {
+    b.classList.toggle('on', b.dataset.ws === ws);
+  });
+
+  // Sync workspace pane visibility
+  const panes = ['marey', 'ctc', 'planner', 'fleet', 'reports', 'audit'] as Workspace[];
+  panes.forEach((w) => {
+    const p = byId('ws-' + w);
+    if (p) p.classList.toggle('on', w === ws);
+  });
+
+  // Render active workspace contents
+  switch (ws) {
+    case 'marey':
+      Marey.render();
+      break;
+    case 'ctc':
+      Schematic.render();
+      break;
+    case 'planner':
+      Queue.renderQueue();
+      Queue.renderProposals();
+      break;
+    case 'fleet':
+      Fleet.render();
+      break;
+    case 'reports':
+      Ribbon.renderReports();
+      break;
+    case 'audit':
+      Ribbon.renderLogs();
+      break;
   }
 }
 
-function renderWorkspace(): void {
-  const s = store.getState();
-  if (s.workspace === 'fleet') {
-    Fleet.render();
-    return;
-  }
-  Marey.render();
-  Schematic.render();
-}
-
-function bindWorkspace(): void {
-  const box = byId('ws-tabs');
-  if (box) {
-    Array.prototype.forEach.call(box.children, (b: HTMLElement) => {
-      b.addEventListener('click', () => {
-        const ws = b.dataset.ws as AppState['workspace'];
+function bindWorkspaceNav(): void {
+  const navBtns = document.querySelectorAll<HTMLElement>('.ws-nav-btn');
+  navBtns.forEach((b) => {
+    b.addEventListener('click', () => {
+      const ws = b.dataset.ws as Workspace;
+      if (ws) {
         store.getState().setWorkspace(ws);
-        Array.prototype.forEach.call(box.children, (x: HTMLElement) => {
-          x.classList.toggle('on', x === b);
-        });
-        (['chart', 'map', 'fleet'] as AppState['workspace'][]).forEach((w) => {
-          const n = byId('ws-' + w);
-          if (n) n.classList.toggle('on', w === ws);
-        });
-        moveSchematic();
-        renderWorkspace();
-      });
+      }
     });
-  }
-
-  const pbox = byId('panel-tabs');
-  if (pbox) {
-    Array.prototype.forEach.call(pbox.children, (b: HTMLElement) => {
-      b.addEventListener('click', () => {
-        const pt = b.dataset.pt as AppState['panelTab'];
-        store.getState().setPanelTab(pt);
-        Array.prototype.forEach.call(pbox.children, (x: HTMLElement) => {
-          x.classList.toggle('on', x === b);
-        });
-        (['blocks', 'feed', 'audit'] as AppState['panelTab'][]).forEach((w) => {
-          const n = byId('pt-' + w);
-          if (n) n.classList.toggle('on', w === pt);
-        });
-        if (pt === 'blocks') Queue.renderProposals();
-        else if (pt === 'feed') Queue.renderQueue();
-        else Queue.renderAudit();
-      });
-    });
-  }
-
-  // Drawer width toggle (collapse/expand)
-  const toggleBtn = byId('btn-toggle-drawer');
-  const drawer = byId('ops-drawer');
-  if (toggleBtn && drawer) {
-    toggleBtn.addEventListener('click', () => {
-      drawer.classList.toggle('collapsed');
-      const isCollapsed = drawer.classList.contains('collapsed');
-      toggleBtn.innerHTML = isCollapsed ? '&#9654;' : '&#9664;';
-      toggleBtn.title = isCollapsed ? 'Expand Drawer' : 'Collapse Drawer';
-    });
-  }
+  });
 }
 
 /* ------------------------------------------------------- clock UI */
@@ -187,48 +194,7 @@ function bindClock(): void {
   const rst = byId('c-rst');
   if (rst) {
     rst.addEventListener('click', () => {
-      store.getState().setClock(0);
-    });
-  }
-}
-
-/* ------------------------------------------------------- views */
-
-function renderView(): void {
-  const s = store.getState();
-  if (currentView === 'ops') {
-    renderWorkspace();
-    if (s.panelTab === 'blocks') Queue.renderProposals();
-    else if (s.panelTab === 'feed') Queue.renderQueue();
-    else Queue.renderAudit();
-  } else if (currentView === 'reports') {
-    Ribbon.renderReports();
-  } else if (currentView === 'logs') {
-    Ribbon.renderLogs();
-  }
-}
-
-function bindViews(): void {
-  const btns = document.querySelectorAll<HTMLElement>('.rail-btn');
-  btns.forEach((b) => {
-    b.addEventListener('click', () => {
-      currentView = b.dataset.view as ViewName;
-      btns.forEach((x) => {
-        x.classList.toggle('on', x === b);
-      });
-      (['ops', 'reports', 'logs'] as ViewName[]).forEach((v) => {
-        const n = byId('view-' + v);
-        if (n) n.classList.toggle('on', v === currentView);
-      });
-      renderView();
-    });
-  });
-
-  const chip = byId('tsr-chip');
-  if (chip) {
-    chip.addEventListener('click', () => {
-      const b = document.querySelector<HTMLElement>('.rail-btn[data-view="reports"]');
-      if (b) b.click();
+      store.getState().setClock(450); // 07:30 AM
     });
   }
 }
@@ -276,10 +242,35 @@ function connectSSE(): void {
     sseSource.onmessage = (event) => {
       try {
         const payload = JSON.parse(event.data);
-        if (payload.type === 'telemetry_tick' && typeof payload.clock === 'number') {
-          // Advance division clock if playing
-          if (store.getState().playing) {
+        if (payload.type === 'telemetry_tick') {
+          if (typeof payload.clock === 'number' && store.getState().playing) {
             store.getState().setClock(payload.clock);
+          }
+
+          // Live Telemetry status chip in header ribbon
+          const dot = byId('sim-live-dot');
+          const lbl = byId('s-sim-link');
+          const chip = byId('scada-telemetry-chip');
+          const connSims: Array<{sim_id: string; sim_name: string; tick_count: number; last_message: string; latency_sec: number}> = payload.connected_simulators || [];
+
+          if (payload.telemetry_live && connSims.length > 0) {
+            if (dot) dot.className = 'live-dot active';
+            if (lbl) {
+              lbl.textContent = `${connSims.length}/8 LIVE`;
+              lbl.style.color = '#22c55e';
+            }
+            if (chip) {
+              chip.title = 'Active Simulator Pipelines:\n' + connSims.map((c) => `• ${c.sim_name} (tick ${c.tick_count}, ${c.latency_sec}s ago)\n  └─ ${c.last_message}`).join('\n');
+            }
+          } else {
+            if (dot) dot.className = 'live-dot';
+            if (lbl) {
+              lbl.textContent = 'STANDBY';
+              lbl.style.color = '#f59e0b';
+            }
+            if (chip) {
+              chip.title = 'No live terminal simulators detected.\nRun launch_all_simulators.bat to stream live raw telemetry.';
+            }
           }
         }
       } catch (e) {
@@ -288,11 +279,17 @@ function connectSSE(): void {
     };
 
     sseSource.onerror = () => {
+      const dot = byId('sim-live-dot');
+      const lbl = byId('s-sim-link');
+      if (dot) dot.className = 'live-dot';
+      if (lbl) {
+        lbl.textContent = 'OFFLINE';
+        lbl.style.color = '#ef4444';
+      }
       if (sseSource) {
         try { sseSource.close(); } catch {}
         sseSource = null;
       }
-      // Gracefully fall back to client clock with exponential backoff reconnect
       if (reconnectTimeout !== null) clearTimeout(reconnectTimeout);
       reconnectTimeout = window.setTimeout(() => {
         reconnectDelay = Math.min(reconnectDelay * 2, MAX_RECONNECT_DELAY);
@@ -327,49 +324,54 @@ async function boot(): Promise<void> {
   // Open on morning peak shift (07:30 AM = 450 min)
   store.getState().setClock(450);
 
+  // Setup UI bindings
   Schematic.bindTabs();
   Marey.bindZoom();
-  bindWorkspace();
+  bindWorkspaceNav();
   Queue.buildFilters();
+  Queue.bindBurstBuffer();
   Drawer.bind();
   bindClock();
-  bindViews();
   connectSSE();
+
+  // Wall clock interval (every 1s)
+  updateWallClock();
+  setInterval(updateWallClock, 1000);
 
   /* ---- Store Subscriptions ---- */
 
-  // 1. Clock updates (lightweight needle + status ribbon, NO full chart wipe)
+  // 1. Workspace switching
+  store.subscribe((state, prev) => {
+    if (state.workspace !== prev.workspace) {
+      renderWorkspace();
+    }
+  });
+
+  // 2. Clock updates
   store.subscribe((state, prev) => {
     if (state.clock !== prev.clock) {
-      // Reposition Marey needle
       Marey.updateNeedle();
 
-      // Keep zoom window centered if following clock
       if (state.zoom < 24) {
         const span = state.zoom * 60;
         if (state.clock < state.zoomAt || state.clock > state.zoomAt + span) {
           const newAt = Math.max(0, Math.min(DAY - span, state.clock - span / 2));
           store.getState().setZoom(state.zoom, newAt);
-          Marey.render();
+          if (state.workspace === 'marey') Marey.render();
         }
       }
 
-      // Update banner stats
       renderBanner();
 
-      // If in map mode, track schematic reflects live train positions
-      if (state.workspace === 'map') {
+      if (state.workspace === 'ctc') {
         Schematic.render();
-      }
-
-      // If viewing reports, update punctuality/telemetry
-      if (currentView === 'reports') {
+      } else if (state.workspace === 'reports') {
         Ribbon.renderReports();
       }
     }
   });
 
-  // 2. Play/pause status
+  // 3. Play/pause toggle
   store.subscribe((state, prev) => {
     if (state.playing !== prev.playing) {
       const play = byId<HTMLButtonElement>('c-play');
@@ -380,45 +382,47 @@ async function boot(): Promise<void> {
     }
   });
 
-  // 3. Corridor change
+  // 4. Corridor change
   store.subscribe((state, prev) => {
     if (state.corridor !== prev.corridor) {
       renderBanner();
       renderWorkspace();
-      if (state.panelTab === 'feed') Queue.renderQueue();
     }
   });
 
-  // 4. Cursor synchronization (hover sync between Marey and Schematic)
+  // 5. Cursor synchronization (hover sync between Marey and Schematic)
   store.subscribe((state, prev) => {
     if (state.hotTrain !== prev.hotTrain || state.hotBlock !== prev.hotBlock) {
-      if (state.workspace !== 'fleet') {
-        Marey.render();
+      if (state.workspace === 'marey') {
+        // Class toggling is handled natively in DOM for instant performance
+      } else if (state.workspace === 'ctc') {
         Schematic.render();
       }
     }
   });
 
-  // 5. Proposal mutations (approved / rejected)
+  // 6. Proposal mutations (approved / rejected / shifted)
   store.subscribe((state, prev) => {
     if (state.proposals !== prev.proposals) {
       renderBanner();
-      Queue.renderProposals();
-      if (state.panelTab === 'audit') Queue.renderAudit();
-      if (state.workspace !== 'fleet') {
+      if (state.workspace === 'planner') {
+        Queue.renderProposals();
+      } else if (state.workspace === 'marey') {
         Marey.render();
+      } else if (state.workspace === 'audit') {
+        Ribbon.renderLogs();
       }
     }
   });
 
-  // 6. Log additions
+  // 7. Log additions
   store.subscribe((state, prev) => {
-    if (state.log !== prev.log && currentView === 'logs') {
+    if (state.log !== prev.log && state.workspace === 'audit') {
       Ribbon.renderLogs();
     }
   });
 
-  // 7. Window resize debouncer
+  // 8. Window resize debouncer
   let resizeTimer: number | undefined;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
@@ -431,7 +435,7 @@ async function boot(): Promise<void> {
     data.trains.length + ' train paths loaded · ' + data.tsr.length + ' TSR in force.', null);
 
   renderBanner();
-  renderView();
+  renderWorkspace();
 }
 
 if (document.readyState === 'loading') {

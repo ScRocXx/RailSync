@@ -568,6 +568,231 @@ function renderFooter(p: LiveProposal, im: Impact | WindowScore,
   }
 }
 
+export function doApproveWithMemo(p: LiveProposal, dur: number): void {
+  store.getState().updateProposal(p.id, (pp) => {
+    const next = { ...pp };
+    next.end = next.start + dur;
+    next.status = 'APPROVED';
+    next.order = issueOrder(next, next.start, dur);
+    return next;
+  });
+
+  const pp = find(p.id)!;
+  if (pp && pp.order) {
+    logEvent('approve', pp.id + ' approved — PN ' + pp.order.pnSm,
+      pp.section + ' · ' + pp.lines.join('+') + ' · ' + hhmm(pp.start) + '–' + hhmm(pp.end) +
+      ' (' + dur + ' min window, ' + pp.window.workMin + ' min work) · ' +
+      (pp.items.length + pp.added.length) + ' task(s) cleared.', pp.id);
+    toast('Block ' + pp.id + ' approved — Private Number ' + pp.order.pnSm);
+    showMemoModal(pp);
+  }
+}
+
+export function showMemoModal(p: LiveProposal): void {
+  const m = byId('memo-modal');
+  if (!m) return;
+
+  const dur = totalDuration(p);
+  const ord = p.order || issueOrder(p, p.start, dur);
+
+  const title = byId('memo-order-id');
+  if (title) title.textContent = 'CONTROL ORDER — ' + p.id;
+  const status = byId('memo-status');
+  if (status) {
+    status.textContent = p.status;
+    status.className = 'chip ' + (p.status === 'APPROVED' ? 'rout' : 'crit');
+  }
+  const sub = byId('memo-section-sub');
+  if (sub) {
+    sub.textContent = p.section + ' (' + p.lines.join(' + ') + ') · Chainage KM ' +
+      p.loKm.toFixed(2) + ' – ' + p.hiKm.toFixed(2);
+  }
+  const pnSm = byId('memo-pn-sm');
+  if (pnSm) pnSm.textContent = String(ord.pnSm);
+
+  const pnTpc = byId('memo-pn-tpc');
+  const pnTpcWrap = byId('memo-pn-tpc-wrap');
+  if (pnTpc) pnTpc.textContent = ord.pnTpc ? String(ord.pnTpc) : 'N/A';
+  if (pnTpcWrap) pnTpcWrap.style.display = ord.pnTpc ? '' : 'none';
+
+  const winDur = byId('memo-window-dur');
+  if (winDur) winDur.textContent = dur + ' MIN (' + hhmm(p.start) + '–' + hhmm(p.end || p.start + dur) + ')';
+
+  const memoPre = byId('memo-text');
+  if (memoPre) memoPre.textContent = ord.text;
+
+  const btnCopy = byId('btn-copy-memo');
+  if (btnCopy) {
+    btnCopy.onclick = () => {
+      navigator.clipboard.writeText(ord.text).then(
+        () => toast('Control order copied to clipboard'),
+        () => toast('Select text to copy manually', 'warn')
+      );
+    };
+  }
+
+  const btnClose = byId('btn-close-memo');
+  const closeX = byId('memo-close');
+  const closeFn = () => m.classList.remove('on');
+  if (btnClose) btnClose.onclick = closeFn;
+  if (closeX) closeX.onclick = closeFn;
+
+  m.classList.add('on');
+}
+
+export function showRejectModal(p: LiveProposal): void {
+  const m = byId('reject-modal');
+  if (!m) return;
+
+  const title = byId('reject-prop-id');
+  if (title) title.textContent = 'REJECT / DEFER — ' + p.id;
+  const sub = byId('reject-prop-sub');
+  if (sub) {
+    sub.textContent = p.section + ' (' + p.lines.join('+') + ') · ' +
+      hhmm(p.start) + '–' + hhmm(p.start + totalDuration(p));
+  }
+
+  const noteInput = byId<HTMLTextAreaElement>('reject-note');
+  if (noteInput) noteInput.value = '';
+
+  const confirmBtn = byId('btn-confirm-reject');
+  if (confirmBtn) {
+    confirmBtn.onclick = () => {
+      const selected = document.querySelector<HTMLInputElement>('input[name="reason_code"]:checked');
+      const val = selected ? selected.value : 'PRECEDENCE_PREMIUM';
+
+      const REASONS: Record<string, { code: string; label: string; detail: string }> = {
+        PRECEDENCE_PREMIUM: {
+          code: 'PREC-01',
+          label: 'Precedence to Premium Traffic',
+          detail: 'High-priority Rajdhani / Vande Bharat headway conflict on line.',
+        },
+        INSUFFICIENT_MARGIN: {
+          code: 'TRAF-02',
+          label: 'Insufficient Traffic Gap',
+          detail: 'Available headway does not satisfy minimum required work duration.',
+        },
+        TEMP_RESTRICTION: {
+          code: 'TEMP-03',
+          label: 'Adverse Rail Thermometry',
+          detail: 'Rail temperature Tr outside safe LWR tamping envelope (Td-30°C to Td+10°C).',
+        },
+        CREW_HOER_LIMIT: {
+          code: 'HOER-04',
+          label: 'Crew Duty Expiry / HOER',
+          detail: 'Machine operator gang exceeding 9-hour statutory duty; relief crew unavailable.',
+        },
+        PLANT_DEFECT: {
+          code: 'MECH-05',
+          label: 'Plant / Tamping Machine Defect',
+          detail: 'Mechanical maintenance required or tine wear below threshold.',
+        },
+      };
+
+      const r = REASONS[val] || REASONS.PRECEDENCE_PREMIUM;
+      const userNote = noteInput?.value.trim();
+      const rc: ReasonCode = {
+        code: r.code,
+        label: r.label,
+        detail: userNote ? `${r.detail} Note: ${userNote}` : r.detail,
+      };
+
+      doReject(p, rc);
+      m.classList.remove('on');
+    };
+  }
+
+  const cancelBtn = byId('btn-cancel-reject');
+  const closeX = byId('reject-close');
+  const closeFn = () => m.classList.remove('on');
+  if (cancelBtn) cancelBtn.onclick = closeFn;
+  if (closeX) closeX.onclick = closeFn;
+
+  m.classList.add('on');
+}
+
+export function showShiftModal(p: LiveProposal): void {
+  const m = byId('shift-modal');
+  if (!m) return;
+
+  const dur = totalDuration(p);
+  let localDelta = 0;
+
+  const title = byId('shift-prop-id');
+  if (title) title.textContent = 'SHIFT TIME SLOT — ' + p.id;
+  const sub = byId('shift-prop-sub');
+  if (sub) {
+    sub.textContent = 'Nominal: ' + hhmm(p.start) + '–' + hhmm(p.start + dur) + ' (' + dur + 'm window)';
+  }
+
+  const rng = byId<HTMLInputElement>('shift-range');
+  const valSpan = byId('shift-val');
+  const recalcNote = byId('shift-recalc');
+  const minus = byId('btn-shift-minus');
+  const plus = byId('btn-shift-plus');
+
+  function updateShiftUI(v: number): void {
+    localDelta = Math.max(-240, Math.min(240, v));
+    if (p.start + localDelta < 0) localDelta = -p.start;
+    if (p.start + localDelta + dur > DAY) localDelta = DAY - dur - p.start;
+
+    if (rng) rng.value = String(localDelta);
+    if (valSpan) valSpan.textContent = (localDelta >= 0 ? '+' : '') + localDelta + ' min';
+
+    if (recalcNote) {
+      if (localDelta === 0) {
+        recalcNote.textContent = 'Optimised slot. Adjust to test an alternative window — traffic impact re-scores live.';
+        recalcNote.style.color = 'var(--text-mute)';
+      } else {
+        const newStart = p.start + localDelta;
+        const im = scoreWindow(p, newStart, dur);
+        const base = p.impact.paxDelayMin;
+        const diff = im.paxDelayMin - base;
+        const verdict = diff === 0 ? 'same traffic cost'
+          : diff < 0 ? `better (${Math.abs(diff)} min less delay)`
+          : `worse (+${diff} min more delay)`;
+        recalcNote.textContent = 'Shifted to ' + hhmm(newStart) + '–' + hhmm(newStart + dur) + ': ' + verdict + '.';
+        recalcNote.style.color = diff > 0 ? 'var(--red)' : 'var(--green)';
+      }
+    }
+  }
+
+  updateShiftUI(0);
+
+  if (rng) rng.oninput = () => updateShiftUI(+rng.value);
+  if (minus) minus.onclick = () => updateShiftUI(localDelta - 15);
+  if (plus) plus.onclick = () => updateShiftUI(localDelta + 15);
+
+  const applyBtn = byId('btn-apply-shift');
+  if (applyBtn) {
+    applyBtn.onclick = () => {
+      if (localDelta !== 0) {
+        const newStart = p.start + localDelta;
+        const im = scoreWindow(p, newStart, dur);
+        store.getState().updateProposal(p.id, (pp) => ({
+          ...pp,
+          start: newStart,
+          end: newStart + dur,
+          impact: mergeImpact(pp, im),
+        }));
+        logEvent('shift', p.id + ' slot shifted',
+          'Moved ' + (localDelta > 0 ? '+' : '') + localDelta + ' min to ' +
+          hhmm(newStart) + '–' + hhmm(newStart + dur), p.id);
+        toast('Block ' + p.id + ' shifted ' + (localDelta > 0 ? '+' : '') + localDelta + ' min');
+      }
+      m.classList.remove('on');
+    };
+  }
+
+  const cancelBtn = byId('btn-cancel-shift');
+  const closeX = byId('shift-close');
+  const closeFn = () => m.classList.remove('on');
+  if (cancelBtn) cancelBtn.onclick = closeFn;
+  if (closeX) closeX.onclick = closeFn;
+
+  m.classList.add('on');
+}
+
 function doApprove(p: LiveProposal, im: Impact | WindowScore,
                    start: number, dur: number): void {
   store.getState().updateProposal(p.id, (pp) => {
@@ -591,7 +816,7 @@ function doApprove(p: LiveProposal, im: Impact | WindowScore,
     ' (' + dur + ' min window, ' + pp.window.workMin + ' min work) · ' +
     (pp.items.length + pp.added.length) + ' task(s) cleared.', pp.id);
   toast('Block ' + pp.id + ' approved — Private Number ' + pp.order!.pnSm);
-  render();
+  showMemoModal(pp);
 }
 
 function doReject(p: LiveProposal, rc: ReasonCode): void {
@@ -604,7 +829,6 @@ function doReject(p: LiveProposal, rc: ReasonCode): void {
   logEvent('reject', p.id + ' rejected — [' + rc.code + '] ' + rc.label,
     rc.detail, p.id);
   toast('Block ' + p.id + ' refused — ' + rc.code, 'bad');
-  render();
 }
 
 /* ---- Wiring ---- */
@@ -616,11 +840,21 @@ export function bind(): void {
   // Subscribe to proposal selection changes
   store.subscribe((state, prev) => {
     if (state.selProposal !== prev.selProposal && state.selProposal) {
-      open(state.selProposal);
+      const p = find(state.selProposal);
+      if (p) {
+        if (p.status === 'APPROVED') {
+          showMemoModal(p);
+        } else {
+          open(state.selProposal);
+        }
+      }
     }
   });
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && store.getState().selProposal) close();
+    if (e.key === 'Escape') {
+      if (store.getState().selProposal) close();
+      document.querySelectorAll('.modal-overlay.on').forEach((m) => m.classList.remove('on'));
+    }
   });
 }

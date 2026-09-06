@@ -8,8 +8,20 @@
 
 import { createStore } from 'zustand/vanilla';
 import type {
-  AppState, Bundle, LiveProposal, LogEntry, LogKind, Filters,
+  AppState, Bundle, LiveProposal, LogEntry, LogKind, Filters, Workspace,
 } from '../types/index.ts';
+
+function initialWorkspace(): Workspace {
+  if (typeof window === 'undefined') return 'planner';
+  const hash = window.location.hash.replace(/^#\/?/, '').toLowerCase();
+  const valid: Workspace[] = ['marey', 'ctc', 'planner', 'fleet', 'reports', 'audit'];
+  if (valid.includes(hash as Workspace)) return hash as Workspace;
+  if (hash === 'chart') return 'marey';
+  if (hash === 'map') return 'ctc';
+  if (hash === 'ops') return 'planner';
+  if (hash === 'logs') return 'audit';
+  return 'planner';
+}
 
 /* ---- Store shape: data bundle + mutable app state ---- */
 
@@ -21,6 +33,8 @@ export interface RailSyncState extends AppState {
 export interface RailSyncActions {
   setData: (d: Bundle) => void;
   setClock: (m: number) => void;
+  setWallClock: (s: string) => void;
+  setShift: (s: string) => void;
   setPlaying: (on: boolean) => void;
   setSpeed: (s: number) => void;
   setCorridor: (id: string) => void;
@@ -30,8 +44,8 @@ export interface RailSyncActions {
   setSelProposal: (id: string | null) => void;
   setHotTrain: (id: string | null) => void;
   setHotBlock: (id: string | null) => void;
-  setWorkspace: (w: AppState['workspace']) => void;
-  setPanelTab: (t: AppState['panelTab']) => void;
+  setWorkspace: (w: Workspace) => void;
+  setPanelTab: (t: 'blocks' | 'feed' | 'audit') => void;
   setOverrunMin: (m: number) => void;
   setProposals: (p: LiveProposal[]) => void;
   updateProposal: (id: string, fn: (p: LiveProposal) => LiveProposal) => void;
@@ -40,16 +54,20 @@ export interface RailSyncActions {
 
 export type RailSyncStore = RailSyncState & RailSyncActions;
 
+const initWs = initialWorkspace();
+
 export const store = createStore<RailSyncStore>()((set) => ({
   /* ---- data ---- */
   data: null,
 
   /* ---- app state defaults ---- */
   clock: 0,
+  wallClock: '07:30:00 IST',
+  shift: 'MORNING 06:00–14:00',
   playing: false,
   speed: 1,
   corridor: '',
-  zoom: 24,
+  zoom: 8,
   zoomAt: 0,
   filters: {
     dept: { TMS: true, TDMS: true, SMMS: true },
@@ -60,7 +78,7 @@ export const store = createStore<RailSyncStore>()((set) => ({
   selProposal: null,
   hotTrain: null,
   hotBlock: null,
-  workspace: 'chart',
+  workspace: initWs,
   panelTab: 'blocks',
   overrunMin: 0,
   proposals: [],
@@ -69,6 +87,8 @@ export const store = createStore<RailSyncStore>()((set) => ({
   /* ---- actions ---- */
   setData: (d) => set({ data: d, corridor: d.corridors[0]?.id ?? '' }),
   setClock: (m) => set({ clock: m }),
+  setWallClock: (wc) => set({ wallClock: wc }),
+  setShift: (sh) => set({ shift: sh }),
   setPlaying: (on) => set({ playing: on }),
   setSpeed: (s) => set({ speed: s }),
   setCorridor: (id) => set({ corridor: id, selDemand: null }),
@@ -78,7 +98,14 @@ export const store = createStore<RailSyncStore>()((set) => ({
   setSelProposal: (id) => set({ selProposal: id }),
   setHotTrain: (id) => set({ hotTrain: id }),
   setHotBlock: (id) => set({ hotBlock: id }),
-  setWorkspace: (w) => set({ workspace: w }),
+  setWorkspace: (w) => {
+    try {
+      if (window.location.hash !== '#' + w) {
+        window.location.hash = '#' + w;
+      }
+    } catch {}
+    set({ workspace: w });
+  },
   setPanelTab: (t) => set({ panelTab: t }),
   setOverrunMin: (m) => set({ overrunMin: m }),
   setProposals: (p) => set({ proposals: p }),
@@ -92,6 +119,15 @@ export const store = createStore<RailSyncStore>()((set) => ({
     ],
   })),
 }));
+
+if (typeof window !== 'undefined') {
+  window.addEventListener('hashchange', () => {
+    const ws = initialWorkspace();
+    if (store.getState().workspace !== ws) {
+      store.getState().setWorkspace(ws);
+    }
+  });
+}
 
 /* ---- Granular selectors for performance ---- */
 

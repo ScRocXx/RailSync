@@ -263,8 +263,12 @@ export interface LogEntry {
   ref: string | null; at: number; wall: Date;
 }
 
+export type Workspace = 'marey' | 'ctc' | 'planner' | 'fleet' | 'reports' | 'audit';
+
 export interface AppState {
   clock: number;
+  wallClock?: string;
+  shift?: string;
   playing: boolean;
   speed: number;
   corridor: string;
@@ -275,8 +279,8 @@ export interface AppState {
   selProposal: string | null;
   hotTrain: string | null;
   hotBlock: string | null;
-  workspace: 'chart' | 'map' | 'fleet';
-  panelTab: 'blocks' | 'feed' | 'audit';
+  workspace: Workspace;
+  panelTab?: 'blocks' | 'feed' | 'audit';
   overrunMin: number;
   proposals: LiveProposal[];
   log: LogEntry[];
