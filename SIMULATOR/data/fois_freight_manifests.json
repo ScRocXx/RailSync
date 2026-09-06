@@ -1,0 +1,290 @@
+[
+  {
+    "rake_id": "BOXNHL-COAL-NR-901",
+    "corridor_id": "CORR_WEST",
+    "commodity_group": "COAL_THERMAL",
+    "direction": "UP",
+    "origin_station": "ROK",
+    "destination_station": "DLI",
+    "rake_configuration": {
+      "wagon_type": "BOXNHL",
+      "total_wagons": 58,
+      "gross_tonnage": 4850.0,
+      "total_length_meters": 680.0
+    },
+    "speed_potential_kmph": 50,
+    "powerhouse_criticality": "NORMAL",
+    "can_be_stabled_in_loop": true,
+    "preferred_departure_window": {
+      "from_minutes": 120,
+      "to_minutes": 360,
+      "from_time_str": "02:00",
+      "to_time_str": "06:00"
+    },
+    "estimated_transit_minutes": 180
+  },
+  {
+    "rake_id": "BOXNHL-COAL-NR-902",
+    "corridor_id": "CORR_NORTH",
+    "commodity_group": "COAL_THERMAL",
+    "direction": "UP",
+    "origin_station": "PNP",
+    "destination_station": "DLI",
+    "rake_configuration": {
+      "wagon_type": "BOXNHL",
+      "total_wagons": 58,
+      "gross_tonnage": 4850.0,
+      "total_length_meters": 680.0
+    },
+    "speed_potential_kmph": 50,
+    "powerhouse_criticality": "CRITICAL_SUPER",
+    "can_be_stabled_in_loop": true,
+    "preferred_departure_window": {
+      "from_minutes": 281,
+      "to_minutes": 521,
+      "from_time_str": "04:41",
+      "to_time_str": "08:41"
+    },
+    "estimated_transit_minutes": 182
+  },
+  {
+    "rake_id": "BOXNHL-COAL-NR-903",
+    "corridor_id": "CORR_EAST",
+    "commodity_group": "COAL_THERMAL",
+    "direction": "UP",
+    "origin_station": "MTC",
+    "destination_station": "GZB",
+    "rake_configuration": {
+      "wagon_type": "BOXNHL",
+      "total_wagons": 58,
+      "gross_tonnage": 4850.0,
+      "total_length_meters": 680.0
+    },
+    "speed_potential_kmph": 50,
+    "powerhouse_criticality": "CRITICAL_SUPER",
+    "can_be_stabled_in_loop": true,
+    "preferred_departure_window": {
+      "from_minutes": 104,
+      "to_minutes": 344,
+      "from_time_str": "01:44",
+      "to_time_str": "05:44"
+    },
+    "estimated_transit_minutes": 293
+  },
+  {
+    "rake_id": "BOXNHL-COAL-NR-904",
+    "corridor_id": "CORR_SOUTH",
+    "commodity_group": "COAL_THERMAL",
+    "direction": "UP",
+    "origin_station": "PWL",
+    "destination_station": "NZM",
+    "rake_configuration": {
+      "wagon_type": "BOXNHL",
+      "total_wagons": 58,
+      "gross_tonnage": 4850.0,
+      "total_length_meters": 680.0
+    },
+    "speed_potential_kmph": 50,
+    "powerhouse_criticality": "NORMAL",
+    "can_be_stabled_in_loop": true,
+    "preferred_departure_window": {
+      "from_minutes": 604,
+      "to_minutes": 844,
+      "from_time_str": "10:04",
+      "to_time_str": "14:04"
+    },
+    "estimated_transit_minutes": 228
+  },
+  {
+    "rake_id": "BOXNHL-COAL-NR-905",
+    "corridor_id": "CORR_WEST",
+    "commodity_group": "COAL_THERMAL",
+    "direction": "UP",
+    "origin_station": "ROK",
+    "destination_station": "DLI",
+    "rake_configuration": {
+      "wagon_type": "BOXNHL",
+      "total_wagons": 58,
+      "gross_tonnage": 4850.0,
+      "total_length_meters": 680.0
+    },
+    "speed_potential_kmph": 50,
+    "powerhouse_criticality": "NORMAL",
+    "can_be_stabled_in_loop": true,
+    "preferred_departure_window": {
+      "from_minutes": 30,
+      "to_minutes": 270,
+      "from_time_str": "00:30",
+      "to_time_str": "04:30"
+    },
+    "estimated_transit_minutes": 143
+  },
+  {
+    "rake_id": "BTPN-POL_-NR-906",
+    "corridor_id": "CORR_NORTH",
+    "commodity_group": "POL_PETROLEUM",
+    "direction": "UP",
+    "origin_station": "PNP",
+    "destination_station": "DLI",
+    "rake_configuration": {
+      "wagon_type": "BTPN",
+      "total_wagons": 42,
+      "gross_tonnage": 2940.0,
+      "total_length_meters": 490.0
+    },
+    "speed_potential_kmph": 55,
+    "powerhouse_criticality": "NORMAL",
+    "can_be_stabled_in_loop": true,
+    "preferred_departure_window": {
+      "from_minutes": 238,
+      "to_minutes": 478,
+      "from_time_str": "03:58",
+      "to_time_str": "07:58"
+    },
+    "estimated_transit_minutes": 249
+  },
+  {
+    "rake_id": "BTPN-POL_-NR-907",
+    "corridor_id": "CORR_EAST",
+    "commodity_group": "POL_PETROLEUM",
+    "direction": "UP",
+    "origin_station": "MTC",
+    "destination_station": "GZB",
+    "rake_configuration": {
+      "wagon_type": "BTPN",
+      "total_wagons": 42,
+      "gross_tonnage": 2940.0,
+      "total_length_meters": 490.0
+    },
+    "speed_potential_kmph": 55,
+    "powerhouse_criticality": "NORMAL",
+    "can_be_stabled_in_loop": true,
+    "preferred_departure_window": {
+      "from_minutes": 574,
+      "to_minutes": 814,
+      "from_time_str": "09:34",
+      "to_time_str": "13:34"
+    },
+    "estimated_transit_minutes": 170
+  },
+  {
+    "rake_id": "BTPN-POL_-NR-908",
+    "corridor_id": "CORR_SOUTH",
+    "commodity_group": "POL_PETROLEUM",
+    "direction": "DN",
+    "origin_station": "NZM",
+    "destination_station": "PWL",
+    "rake_configuration": {
+      "wagon_type": "BTPN",
+      "total_wagons": 42,
+      "gross_tonnage": 2940.0,
+      "total_length_meters": 490.0
+    },
+    "speed_potential_kmph": 55,
+    "powerhouse_criticality": "NORMAL",
+    "can_be_stabled_in_loop": true,
+    "preferred_departure_window": {
+      "from_minutes": 225,
+      "to_minutes": 465,
+      "from_time_str": "03:45",
+      "to_time_str": "07:45"
+    },
+    "estimated_transit_minutes": 234
+  },
+  {
+    "rake_id": "BTPN-POL_-NR-909",
+    "corridor_id": "CORR_WEST",
+    "commodity_group": "POL_PETROLEUM",
+    "direction": "DN",
+    "origin_station": "DLI",
+    "destination_station": "ROK",
+    "rake_configuration": {
+      "wagon_type": "BTPN",
+      "total_wagons": 42,
+      "gross_tonnage": 2940.0,
+      "total_length_meters": 490.0
+    },
+    "speed_potential_kmph": 55,
+    "powerhouse_criticality": "NORMAL",
+    "can_be_stabled_in_loop": true,
+    "preferred_departure_window": {
+      "from_minutes": 828,
+      "to_minutes": 1068,
+      "from_time_str": "13:48",
+      "to_time_str": "17:48"
+    },
+    "estimated_transit_minutes": 121
+  },
+  {
+    "rake_id": "BLC-CONT-NR-910",
+    "corridor_id": "CORR_NORTH",
+    "commodity_group": "CONTAINER_CONCOR",
+    "direction": "UP",
+    "origin_station": "PNP",
+    "destination_station": "DLI",
+    "rake_configuration": {
+      "wagon_type": "BLC",
+      "total_wagons": 45,
+      "gross_tonnage": 2700.0,
+      "total_length_meters": 530.0
+    },
+    "speed_potential_kmph": 60,
+    "powerhouse_criticality": "NORMAL",
+    "can_be_stabled_in_loop": true,
+    "preferred_departure_window": {
+      "from_minutes": 714,
+      "to_minutes": 954,
+      "from_time_str": "11:54",
+      "to_time_str": "15:54"
+    },
+    "estimated_transit_minutes": 228
+  },
+  {
+    "rake_id": "BLC-CONT-NR-911",
+    "corridor_id": "CORR_EAST",
+    "commodity_group": "CONTAINER_CONCOR",
+    "direction": "DN",
+    "origin_station": "GZB",
+    "destination_station": "MTC",
+    "rake_configuration": {
+      "wagon_type": "BLC",
+      "total_wagons": 45,
+      "gross_tonnage": 2700.0,
+      "total_length_meters": 530.0
+    },
+    "speed_potential_kmph": 60,
+    "powerhouse_criticality": "NORMAL",
+    "can_be_stabled_in_loop": true,
+    "preferred_departure_window": {
+      "from_minutes": 284,
+      "to_minutes": 524,
+      "from_time_str": "04:44",
+      "to_time_str": "08:44"
+    },
+    "estimated_transit_minutes": 159
+  },
+  {
+    "rake_id": "BLC-CONT-NR-912",
+    "corridor_id": "CORR_SOUTH",
+    "commodity_group": "CONTAINER_CONCOR",
+    "direction": "UP",
+    "origin_station": "PWL",
+    "destination_station": "NZM",
+    "rake_configuration": {
+      "wagon_type": "BLC",
+      "total_wagons": 45,
+      "gross_tonnage": 2700.0,
+      "total_length_meters": 530.0
+    },
+    "speed_potential_kmph": 60,
+    "powerhouse_criticality": "NORMAL",
+    "can_be_stabled_in_loop": true,
+    "preferred_departure_window": {
+      "from_minutes": 980,
+      "to_minutes": 1220,
+      "from_time_str": "16:20",
+      "to_time_str": "20:20"
+    },
+    "estimated_transit_minutes": 206
+  }
+]

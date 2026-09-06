@@ -1,0 +1,2954 @@
+[
+  {
+    "train_no": "87397",
+    "train_name": "Mail/Express",
+    "corridor_id": "CORR_NORTH",
+    "track_id": "UP_MAIN",
+    "priority_rank": 2,
+    "direction": "UP",
+    "max_permissible_speed_kmph": 120,
+    "stations_trajectory": [
+      {
+        "station_code": "DLI",
+        "arr_scheduled": 419,
+        "dep_scheduled": 421,
+        "action": "HALT",
+        "arr_actual_rtis": 432,
+        "dep_actual_rtis": 434,
+        "arr_time_str": "06:59",
+        "dep_time_str": "07:01"
+      },
+      {
+        "station_code": "SZM",
+        "arr_scheduled": 424,
+        "dep_scheduled": 424,
+        "action": "PASS",
+        "arr_actual_rtis": 437,
+        "dep_actual_rtis": 437,
+        "arr_time_str": "07:04",
+        "dep_time_str": "07:04"
+      },
+      {
+        "station_code": "ANDI",
+        "arr_scheduled": 429,
+        "dep_scheduled": 429,
+        "action": "PASS",
+        "arr_actual_rtis": 442,
+        "dep_actual_rtis": 442,
+        "arr_time_str": "07:09",
+        "dep_time_str": "07:09"
+      },
+      {
+        "station_code": "NUR",
+        "arr_scheduled": 442,
+        "dep_scheduled": 442,
+        "action": "PASS",
+        "arr_actual_rtis": 455,
+        "dep_actual_rtis": 455,
+        "arr_time_str": "07:22",
+        "dep_time_str": "07:22"
+      },
+      {
+        "station_code": "SNP",
+        "arr_scheduled": 455,
+        "dep_scheduled": 455,
+        "action": "PASS",
+        "arr_actual_rtis": 468,
+        "dep_actual_rtis": 468,
+        "arr_time_str": "07:35",
+        "dep_time_str": "07:35"
+      },
+      {
+        "station_code": "GNU",
+        "arr_scheduled": 467,
+        "dep_scheduled": 467,
+        "action": "PASS",
+        "arr_actual_rtis": 480,
+        "dep_actual_rtis": 480,
+        "arr_time_str": "07:47",
+        "dep_time_str": "07:47"
+      },
+      {
+        "station_code": "SMK",
+        "arr_scheduled": 476,
+        "dep_scheduled": 477,
+        "action": "HALT",
+        "arr_actual_rtis": 489,
+        "dep_actual_rtis": 490,
+        "arr_time_str": "07:56",
+        "dep_time_str": "07:57"
+      },
+      {
+        "station_code": "PNP",
+        "arr_scheduled": 490,
+        "dep_scheduled": 492,
+        "action": "HALT",
+        "arr_actual_rtis": 503,
+        "dep_actual_rtis": 505,
+        "arr_time_str": "08:10",
+        "dep_time_str": "08:12"
+      }
+    ],
+    "current_delay_minutes": 13
+  },
+  {
+    "train_no": "46421",
+    "train_name": "Suburban EMU",
+    "corridor_id": "CORR_NORTH",
+    "track_id": "DN_MAIN",
+    "priority_rank": 3,
+    "direction": "DN",
+    "max_permissible_speed_kmph": 80,
+    "stations_trajectory": [
+      {
+        "station_code": "PNP",
+        "arr_scheduled": 1132,
+        "dep_scheduled": 1134,
+        "action": "HALT",
+        "arr_actual_rtis": 1134,
+        "dep_actual_rtis": 1136,
+        "arr_time_str": "18:52",
+        "dep_time_str": "18:54"
+      },
+      {
+        "station_code": "SMK",
+        "arr_scheduled": 1160,
+        "dep_scheduled": 1161,
+        "action": "HALT",
+        "arr_actual_rtis": 1162,
+        "dep_actual_rtis": 1163,
+        "arr_time_str": "19:20",
+        "dep_time_str": "19:21"
+      },
+      {
+        "station_code": "GNU",
+        "arr_scheduled": 1179,
+        "dep_scheduled": 1183,
+        "action": "HALT",
+        "arr_actual_rtis": 1181,
+        "dep_actual_rtis": 1185,
+        "arr_time_str": "19:39",
+        "dep_time_str": "19:43"
+      },
+      {
+        "station_code": "SNP",
+        "arr_scheduled": 1207,
+        "dep_scheduled": 1208,
+        "action": "HALT",
+        "arr_actual_rtis": 1209,
+        "dep_actual_rtis": 1210,
+        "arr_time_str": "20:07",
+        "dep_time_str": "20:08"
+      },
+      {
+        "station_code": "NUR",
+        "arr_scheduled": 1235,
+        "dep_scheduled": 1238,
+        "action": "HALT",
+        "arr_actual_rtis": 1237,
+        "dep_actual_rtis": 1240,
+        "arr_time_str": "20:35",
+        "dep_time_str": "20:38"
+      },
+      {
+        "station_code": "ANDI",
+        "arr_scheduled": 1264,
+        "dep_scheduled": 1267,
+        "action": "HALT",
+        "arr_actual_rtis": 1266,
+        "dep_actual_rtis": 1269,
+        "arr_time_str": "21:04",
+        "dep_time_str": "21:07"
+      },
+      {
+        "station_code": "SZM",
+        "arr_scheduled": 1276,
+        "dep_scheduled": 1281,
+        "action": "HALT",
+        "arr_actual_rtis": 1278,
+        "dep_actual_rtis": 1283,
+        "arr_time_str": "21:16",
+        "dep_time_str": "21:21"
+      },
+      {
+        "station_code": "DLI",
+        "arr_scheduled": 1286,
+        "dep_scheduled": 1289,
+        "action": "HALT",
+        "arr_actual_rtis": 1288,
+        "dep_actual_rtis": 1291,
+        "arr_time_str": "21:26",
+        "dep_time_str": "21:29"
+      }
+    ],
+    "current_delay_minutes": 2
+  },
+  {
+    "train_no": "80284",
+    "train_name": "Suburban EMU",
+    "corridor_id": "CORR_NORTH",
+    "track_id": "DN_MAIN",
+    "priority_rank": 3,
+    "direction": "DN",
+    "max_permissible_speed_kmph": 80,
+    "stations_trajectory": [
+      {
+        "station_code": "PNP",
+        "arr_scheduled": 1000,
+        "dep_scheduled": 1004,
+        "action": "HALT",
+        "arr_actual_rtis": 1018,
+        "dep_actual_rtis": 1022,
+        "arr_time_str": "16:40",
+        "dep_time_str": "16:44"
+      },
+      {
+        "station_code": "SMK",
+        "arr_scheduled": 1030,
+        "dep_scheduled": 1035,
+        "action": "HALT",
+        "arr_actual_rtis": 1048,
+        "dep_actual_rtis": 1053,
+        "arr_time_str": "17:10",
+        "dep_time_str": "17:15"
+      },
+      {
+        "station_code": "GNU",
+        "arr_scheduled": 1053,
+        "dep_scheduled": 1056,
+        "action": "HALT",
+        "arr_actual_rtis": 1071,
+        "dep_actual_rtis": 1074,
+        "arr_time_str": "17:33",
+        "dep_time_str": "17:36"
+      },
+      {
+        "station_code": "SNP",
+        "arr_scheduled": 1080,
+        "dep_scheduled": 1085,
+        "action": "HALT",
+        "arr_actual_rtis": 1098,
+        "dep_actual_rtis": 1103,
+        "arr_time_str": "18:00",
+        "dep_time_str": "18:05"
+      },
+      {
+        "station_code": "NUR",
+        "arr_scheduled": 1112,
+        "dep_scheduled": 1114,
+        "action": "HALT",
+        "arr_actual_rtis": 1130,
+        "dep_actual_rtis": 1132,
+        "arr_time_str": "18:32",
+        "dep_time_str": "18:34"
+      },
+      {
+        "station_code": "ANDI",
+        "arr_scheduled": 1140,
+        "dep_scheduled": 1141,
+        "action": "HALT",
+        "arr_actual_rtis": 1158,
+        "dep_actual_rtis": 1159,
+        "arr_time_str": "19:00",
+        "dep_time_str": "19:01"
+      },
+      {
+        "station_code": "SZM",
+        "arr_scheduled": 1150,
+        "dep_scheduled": 1151,
+        "action": "HALT",
+        "arr_actual_rtis": 1168,
+        "dep_actual_rtis": 1169,
+        "arr_time_str": "19:10",
+        "dep_time_str": "19:11"
+      },
+      {
+        "station_code": "DLI",
+        "arr_scheduled": 1156,
+        "dep_scheduled": 1158,
+        "action": "HALT",
+        "arr_actual_rtis": 1174,
+        "dep_actual_rtis": 1176,
+        "arr_time_str": "19:16",
+        "dep_time_str": "19:18"
+      }
+    ],
+    "current_delay_minutes": 18
+  },
+  {
+    "train_no": "40512",
+    "train_name": "Mail/Express",
+    "corridor_id": "CORR_NORTH",
+    "track_id": "UP_MAIN",
+    "priority_rank": 2,
+    "direction": "UP",
+    "max_permissible_speed_kmph": 110,
+    "stations_trajectory": [
+      {
+        "station_code": "DLI",
+        "arr_scheduled": 573,
+        "dep_scheduled": 577,
+        "action": "HALT",
+        "arr_actual_rtis": 578,
+        "dep_actual_rtis": 582,
+        "arr_time_str": "09:33",
+        "dep_time_str": "09:37"
+      },
+      {
+        "station_code": "SZM",
+        "arr_scheduled": 580,
+        "dep_scheduled": 583,
+        "action": "HALT",
+        "arr_actual_rtis": 585,
+        "dep_actual_rtis": 588,
+        "arr_time_str": "09:40",
+        "dep_time_str": "09:43"
+      },
+      {
+        "station_code": "ANDI",
+        "arr_scheduled": 588,
+        "dep_scheduled": 591,
+        "action": "HALT",
+        "arr_actual_rtis": 593,
+        "dep_actual_rtis": 596,
+        "arr_time_str": "09:48",
+        "dep_time_str": "09:51"
+      },
+      {
+        "station_code": "NUR",
+        "arr_scheduled": 605,
+        "dep_scheduled": 605,
+        "action": "PASS",
+        "arr_actual_rtis": 610,
+        "dep_actual_rtis": 610,
+        "arr_time_str": "10:05",
+        "dep_time_str": "10:05"
+      },
+      {
+        "station_code": "SNP",
+        "arr_scheduled": 620,
+        "dep_scheduled": 620,
+        "action": "PASS",
+        "arr_actual_rtis": 625,
+        "dep_actual_rtis": 625,
+        "arr_time_str": "10:20",
+        "dep_time_str": "10:20"
+      },
+      {
+        "station_code": "GNU",
+        "arr_scheduled": 633,
+        "dep_scheduled": 635,
+        "action": "HALT",
+        "arr_actual_rtis": 638,
+        "dep_actual_rtis": 640,
+        "arr_time_str": "10:33",
+        "dep_time_str": "10:35"
+      },
+      {
+        "station_code": "SMK",
+        "arr_scheduled": 645,
+        "dep_scheduled": 645,
+        "action": "PASS",
+        "arr_actual_rtis": 650,
+        "dep_actual_rtis": 650,
+        "arr_time_str": "10:45",
+        "dep_time_str": "10:45"
+      },
+      {
+        "station_code": "PNP",
+        "arr_scheduled": 659,
+        "dep_scheduled": 661,
+        "action": "HALT",
+        "arr_actual_rtis": 664,
+        "dep_actual_rtis": 666,
+        "arr_time_str": "10:59",
+        "dep_time_str": "11:01"
+      }
+    ],
+    "current_delay_minutes": 5
+  },
+  {
+    "train_no": "59735",
+    "train_name": "Suburban EMU",
+    "corridor_id": "CORR_NORTH",
+    "track_id": "DN_MAIN",
+    "priority_rank": 3,
+    "direction": "DN",
+    "max_permissible_speed_kmph": 80,
+    "stations_trajectory": [
+      {
+        "station_code": "PNP",
+        "arr_scheduled": 1072,
+        "dep_scheduled": 1076,
+        "action": "HALT",
+        "arr_actual_rtis": 1085,
+        "dep_actual_rtis": 1089,
+        "arr_time_str": "17:52",
+        "dep_time_str": "17:56"
+      },
+      {
+        "station_code": "SMK",
+        "arr_scheduled": 1102,
+        "dep_scheduled": 1103,
+        "action": "HALT",
+        "arr_actual_rtis": 1115,
+        "dep_actual_rtis": 1116,
+        "arr_time_str": "18:22",
+        "dep_time_str": "18:23"
+      },
+      {
+        "station_code": "GNU",
+        "arr_scheduled": 1121,
+        "dep_scheduled": 1123,
+        "action": "HALT",
+        "arr_actual_rtis": 1134,
+        "dep_actual_rtis": 1136,
+        "arr_time_str": "18:41",
+        "dep_time_str": "18:43"
+      },
+      {
+        "station_code": "SNP",
+        "arr_scheduled": 1147,
+        "dep_scheduled": 1148,
+        "action": "HALT",
+        "arr_actual_rtis": 1160,
+        "dep_actual_rtis": 1161,
+        "arr_time_str": "19:07",
+        "dep_time_str": "19:08"
+      },
+      {
+        "station_code": "NUR",
+        "arr_scheduled": 1175,
+        "dep_scheduled": 1178,
+        "action": "HALT",
+        "arr_actual_rtis": 1188,
+        "dep_actual_rtis": 1191,
+        "arr_time_str": "19:35",
+        "dep_time_str": "19:38"
+      },
+      {
+        "station_code": "ANDI",
+        "arr_scheduled": 1204,
+        "dep_scheduled": 1208,
+        "action": "HALT",
+        "arr_actual_rtis": 1217,
+        "dep_actual_rtis": 1221,
+        "arr_time_str": "20:04",
+        "dep_time_str": "20:08"
+      },
+      {
+        "station_code": "SZM",
+        "arr_scheduled": 1217,
+        "dep_scheduled": 1220,
+        "action": "HALT",
+        "arr_actual_rtis": 1230,
+        "dep_actual_rtis": 1233,
+        "arr_time_str": "20:17",
+        "dep_time_str": "20:20"
+      },
+      {
+        "station_code": "DLI",
+        "arr_scheduled": 1225,
+        "dep_scheduled": 1226,
+        "action": "HALT",
+        "arr_actual_rtis": 1238,
+        "dep_actual_rtis": 1239,
+        "arr_time_str": "20:25",
+        "dep_time_str": "20:26"
+      }
+    ],
+    "current_delay_minutes": 13
+  },
+  {
+    "train_no": "37869",
+    "train_name": "Mail/Express",
+    "corridor_id": "CORR_NORTH",
+    "track_id": "DN_MAIN",
+    "priority_rank": 2,
+    "direction": "DN",
+    "max_permissible_speed_kmph": 130,
+    "stations_trajectory": [
+      {
+        "station_code": "PNP",
+        "arr_scheduled": 553,
+        "dep_scheduled": 555,
+        "action": "HALT",
+        "arr_actual_rtis": 569,
+        "dep_actual_rtis": 571,
+        "arr_time_str": "09:13",
+        "dep_time_str": "09:15"
+      },
+      {
+        "station_code": "SMK",
+        "arr_scheduled": 567,
+        "dep_scheduled": 567,
+        "action": "PASS",
+        "arr_actual_rtis": 583,
+        "dep_actual_rtis": 583,
+        "arr_time_str": "09:27",
+        "dep_time_str": "09:27"
+      },
+      {
+        "station_code": "GNU",
+        "arr_scheduled": 575,
+        "dep_scheduled": 577,
+        "action": "HALT",
+        "arr_actual_rtis": 591,
+        "dep_actual_rtis": 593,
+        "arr_time_str": "09:35",
+        "dep_time_str": "09:37"
+      },
+      {
+        "station_code": "SNP",
+        "arr_scheduled": 588,
+        "dep_scheduled": 588,
+        "action": "PASS",
+        "arr_actual_rtis": 604,
+        "dep_actual_rtis": 604,
+        "arr_time_str": "09:48",
+        "dep_time_str": "09:48"
+      },
+      {
+        "station_code": "NUR",
+        "arr_scheduled": 600,
+        "dep_scheduled": 600,
+        "action": "PASS",
+        "arr_actual_rtis": 616,
+        "dep_actual_rtis": 616,
+        "arr_time_str": "10:00",
+        "dep_time_str": "10:00"
+      },
+      {
+        "station_code": "ANDI",
+        "arr_scheduled": 612,
+        "dep_scheduled": 616,
+        "action": "HALT",
+        "arr_actual_rtis": 628,
+        "dep_actual_rtis": 632,
+        "arr_time_str": "10:12",
+        "dep_time_str": "10:16"
+      },
+      {
+        "station_code": "SZM",
+        "arr_scheduled": 620,
+        "dep_scheduled": 620,
+        "action": "PASS",
+        "arr_actual_rtis": 636,
+        "dep_actual_rtis": 636,
+        "arr_time_str": "10:20",
+        "dep_time_str": "10:20"
+      },
+      {
+        "station_code": "DLI",
+        "arr_scheduled": 622,
+        "dep_scheduled": 626,
+        "action": "HALT",
+        "arr_actual_rtis": 638,
+        "dep_actual_rtis": 642,
+        "arr_time_str": "10:22",
+        "dep_time_str": "10:26"
+      }
+    ],
+    "current_delay_minutes": 16
+  },
+  {
+    "train_no": "82512",
+    "train_name": "Mail/Express",
+    "corridor_id": "CORR_NORTH",
+    "track_id": "DN_MAIN",
+    "priority_rank": 2,
+    "direction": "DN",
+    "max_permissible_speed_kmph": 110,
+    "stations_trajectory": [
+      {
+        "station_code": "PNP",
+        "arr_scheduled": 234,
+        "dep_scheduled": 238,
+        "action": "HALT",
+        "arr_actual_rtis": 250,
+        "dep_actual_rtis": 254,
+        "arr_time_str": "03:54",
+        "dep_time_str": "03:58"
+      },
+      {
+        "station_code": "SMK",
+        "arr_scheduled": 252,
+        "dep_scheduled": 252,
+        "action": "PASS",
+        "arr_actual_rtis": 268,
+        "dep_actual_rtis": 268,
+        "arr_time_str": "04:12",
+        "dep_time_str": "04:12"
+      },
+      {
+        "station_code": "GNU",
+        "arr_scheduled": 262,
+        "dep_scheduled": 262,
+        "action": "PASS",
+        "arr_actual_rtis": 278,
+        "dep_actual_rtis": 278,
+        "arr_time_str": "04:22",
+        "dep_time_str": "04:22"
+      },
+      {
+        "station_code": "SNP",
+        "arr_scheduled": 275,
+        "dep_scheduled": 277,
+        "action": "HALT",
+        "arr_actual_rtis": 291,
+        "dep_actual_rtis": 293,
+        "arr_time_str": "04:35",
+        "dep_time_str": "04:37"
+      },
+      {
+        "station_code": "NUR",
+        "arr_scheduled": 292,
+        "dep_scheduled": 292,
+        "action": "PASS",
+        "arr_actual_rtis": 308,
+        "dep_actual_rtis": 308,
+        "arr_time_str": "04:52",
+        "dep_time_str": "04:52"
+      },
+      {
+        "station_code": "ANDI",
+        "arr_scheduled": 306,
+        "dep_scheduled": 306,
+        "action": "PASS",
+        "arr_actual_rtis": 322,
+        "dep_actual_rtis": 322,
+        "arr_time_str": "05:06",
+        "dep_time_str": "05:06"
+      },
+      {
+        "station_code": "SZM",
+        "arr_scheduled": 311,
+        "dep_scheduled": 311,
+        "action": "PASS",
+        "arr_actual_rtis": 327,
+        "dep_actual_rtis": 327,
+        "arr_time_str": "05:11",
+        "dep_time_str": "05:11"
+      },
+      {
+        "station_code": "DLI",
+        "arr_scheduled": 314,
+        "dep_scheduled": 317,
+        "action": "HALT",
+        "arr_actual_rtis": 330,
+        "dep_actual_rtis": 333,
+        "arr_time_str": "05:14",
+        "dep_time_str": "05:17"
+      }
+    ],
+    "current_delay_minutes": 16
+  },
+  {
+    "train_no": "76542",
+    "train_name": "Rajdhani Express",
+    "corridor_id": "CORR_NORTH",
+    "track_id": "UP_MAIN",
+    "priority_rank": 1,
+    "direction": "UP",
+    "max_permissible_speed_kmph": 130,
+    "stations_trajectory": [
+      {
+        "station_code": "DLI",
+        "arr_scheduled": 1061,
+        "dep_scheduled": 1063,
+        "action": "HALT",
+        "arr_actual_rtis": 1066,
+        "dep_actual_rtis": 1068,
+        "arr_time_str": "17:41",
+        "dep_time_str": "17:43"
+      },
+      {
+        "station_code": "SZM",
+        "arr_scheduled": 1065,
+        "dep_scheduled": 1065,
+        "action": "PASS",
+        "arr_actual_rtis": 1070,
+        "dep_actual_rtis": 1070,
+        "arr_time_str": "17:45",
+        "dep_time_str": "17:45"
+      },
+      {
+        "station_code": "ANDI",
+        "arr_scheduled": 1069,
+        "dep_scheduled": 1069,
+        "action": "PASS",
+        "arr_actual_rtis": 1074,
+        "dep_actual_rtis": 1074,
+        "arr_time_str": "17:49",
+        "dep_time_str": "17:49"
+      },
+      {
+        "station_code": "NUR",
+        "arr_scheduled": 1080,
+        "dep_scheduled": 1080,
+        "action": "PASS",
+        "arr_actual_rtis": 1085,
+        "dep_actual_rtis": 1085,
+        "arr_time_str": "18:00",
+        "dep_time_str": "18:00"
+      },
+      {
+        "station_code": "SNP",
+        "arr_scheduled": 1092,
+        "dep_scheduled": 1092,
+        "action": "PASS",
+        "arr_actual_rtis": 1097,
+        "dep_actual_rtis": 1097,
+        "arr_time_str": "18:12",
+        "dep_time_str": "18:12"
+      },
+      {
+        "station_code": "GNU",
+        "arr_scheduled": 1102,
+        "dep_scheduled": 1102,
+        "action": "PASS",
+        "arr_actual_rtis": 1107,
+        "dep_actual_rtis": 1107,
+        "arr_time_str": "18:22",
+        "dep_time_str": "18:22"
+      },
+      {
+        "station_code": "SMK",
+        "arr_scheduled": 1110,
+        "dep_scheduled": 1110,
+        "action": "PASS",
+        "arr_actual_rtis": 1115,
+        "dep_actual_rtis": 1115,
+        "arr_time_str": "18:30",
+        "dep_time_str": "18:30"
+      },
+      {
+        "station_code": "PNP",
+        "arr_scheduled": 1121,
+        "dep_scheduled": 1123,
+        "action": "HALT",
+        "arr_actual_rtis": 1126,
+        "dep_actual_rtis": 1128,
+        "arr_time_str": "18:41",
+        "dep_time_str": "18:43"
+      }
+    ],
+    "current_delay_minutes": 5
+  },
+  {
+    "train_no": "80697",
+    "train_name": "Mail/Express",
+    "corridor_id": "CORR_NORTH",
+    "track_id": "UP_MAIN",
+    "priority_rank": 2,
+    "direction": "UP",
+    "max_permissible_speed_kmph": 130,
+    "stations_trajectory": [
+      {
+        "station_code": "DLI",
+        "arr_scheduled": 1226,
+        "dep_scheduled": 1230,
+        "action": "HALT",
+        "arr_actual_rtis": 1228,
+        "dep_actual_rtis": 1232,
+        "arr_time_str": "20:26",
+        "dep_time_str": "20:30"
+      },
+      {
+        "station_code": "SZM",
+        "arr_scheduled": 1232,
+        "dep_scheduled": 1232,
+        "action": "PASS",
+        "arr_actual_rtis": 1234,
+        "dep_actual_rtis": 1234,
+        "arr_time_str": "20:32",
+        "dep_time_str": "20:32"
+      },
+      {
+        "station_code": "ANDI",
+        "arr_scheduled": 1236,
+        "dep_scheduled": 1239,
+        "action": "HALT",
+        "arr_actual_rtis": 1238,
+        "dep_actual_rtis": 1241,
+        "arr_time_str": "20:36",
+        "dep_time_str": "20:39"
+      },
+      {
+        "station_code": "NUR",
+        "arr_scheduled": 1251,
+        "dep_scheduled": 1251,
+        "action": "PASS",
+        "arr_actual_rtis": 1253,
+        "dep_actual_rtis": 1253,
+        "arr_time_str": "20:51",
+        "dep_time_str": "20:51"
+      },
+      {
+        "station_code": "SNP",
+        "arr_scheduled": 1263,
+        "dep_scheduled": 1263,
+        "action": "PASS",
+        "arr_actual_rtis": 1265,
+        "dep_actual_rtis": 1265,
+        "arr_time_str": "21:03",
+        "dep_time_str": "21:03"
+      },
+      {
+        "station_code": "GNU",
+        "arr_scheduled": 1274,
+        "dep_scheduled": 1274,
+        "action": "PASS",
+        "arr_actual_rtis": 1276,
+        "dep_actual_rtis": 1276,
+        "arr_time_str": "21:14",
+        "dep_time_str": "21:14"
+      },
+      {
+        "station_code": "SMK",
+        "arr_scheduled": 1282,
+        "dep_scheduled": 1287,
+        "action": "HALT",
+        "arr_actual_rtis": 1284,
+        "dep_actual_rtis": 1289,
+        "arr_time_str": "21:22",
+        "dep_time_str": "21:27"
+      },
+      {
+        "station_code": "PNP",
+        "arr_scheduled": 1299,
+        "dep_scheduled": 1300,
+        "action": "HALT",
+        "arr_actual_rtis": 1301,
+        "dep_actual_rtis": 1302,
+        "arr_time_str": "21:39",
+        "dep_time_str": "21:40"
+      }
+    ],
+    "current_delay_minutes": 2
+  },
+  {
+    "train_no": "44741",
+    "train_name": "Rajdhani Express",
+    "corridor_id": "CORR_EAST",
+    "track_id": "UP_MAIN",
+    "priority_rank": 1,
+    "direction": "UP",
+    "max_permissible_speed_kmph": 110,
+    "stations_trajectory": [
+      {
+        "station_code": "GZB",
+        "arr_scheduled": 1104,
+        "dep_scheduled": 1106,
+        "action": "HALT",
+        "arr_actual_rtis": 1108,
+        "dep_actual_rtis": 1110,
+        "arr_time_str": "18:24",
+        "dep_time_str": "18:26"
+      },
+      {
+        "station_code": "GZN",
+        "arr_scheduled": 1110,
+        "dep_scheduled": 1110,
+        "action": "PASS",
+        "arr_actual_rtis": 1114,
+        "dep_actual_rtis": 1114,
+        "arr_time_str": "18:30",
+        "dep_time_str": "18:30"
+      },
+      {
+        "station_code": "MUD",
+        "arr_scheduled": 1120,
+        "dep_scheduled": 1120,
+        "action": "PASS",
+        "arr_actual_rtis": 1124,
+        "dep_actual_rtis": 1124,
+        "arr_time_str": "18:40",
+        "dep_time_str": "18:40"
+      },
+      {
+        "station_code": "MDNR",
+        "arr_scheduled": 1129,
+        "dep_scheduled": 1129,
+        "action": "PASS",
+        "arr_actual_rtis": 1133,
+        "dep_actual_rtis": 1133,
+        "arr_time_str": "18:49",
+        "dep_time_str": "18:49"
+      },
+      {
+        "station_code": "MUZ",
+        "arr_scheduled": 1140,
+        "dep_scheduled": 1140,
+        "action": "PASS",
+        "arr_actual_rtis": 1144,
+        "dep_actual_rtis": 1144,
+        "arr_time_str": "19:00",
+        "dep_time_str": "19:00"
+      },
+      {
+        "station_code": "MTC",
+        "arr_scheduled": 1143,
+        "dep_scheduled": 1145,
+        "action": "HALT",
+        "arr_actual_rtis": 1147,
+        "dep_actual_rtis": 1149,
+        "arr_time_str": "19:03",
+        "dep_time_str": "19:05"
+      }
+    ],
+    "current_delay_minutes": 4
+  },
+  {
+    "train_no": "98039",
+    "train_name": "Mail/Express",
+    "corridor_id": "CORR_EAST",
+    "track_id": "DN_MAIN",
+    "priority_rank": 2,
+    "direction": "DN",
+    "max_permissible_speed_kmph": 110,
+    "stations_trajectory": [
+      {
+        "station_code": "MTC",
+        "arr_scheduled": 1191,
+        "dep_scheduled": 1193,
+        "action": "HALT",
+        "arr_actual_rtis": 1193,
+        "dep_actual_rtis": 1195,
+        "arr_time_str": "19:51",
+        "dep_time_str": "19:53"
+      },
+      {
+        "station_code": "MUZ",
+        "arr_scheduled": 1196,
+        "dep_scheduled": 1197,
+        "action": "HALT",
+        "arr_actual_rtis": 1198,
+        "dep_actual_rtis": 1199,
+        "arr_time_str": "19:56",
+        "dep_time_str": "19:57"
+      },
+      {
+        "station_code": "MDNR",
+        "arr_scheduled": 1209,
+        "dep_scheduled": 1209,
+        "action": "PASS",
+        "arr_actual_rtis": 1211,
+        "dep_actual_rtis": 1211,
+        "arr_time_str": "20:09",
+        "dep_time_str": "20:09"
+      },
+      {
+        "station_code": "MUD",
+        "arr_scheduled": 1219,
+        "dep_scheduled": 1219,
+        "action": "PASS",
+        "arr_actual_rtis": 1221,
+        "dep_actual_rtis": 1221,
+        "arr_time_str": "20:19",
+        "dep_time_str": "20:19"
+      },
+      {
+        "station_code": "GZN",
+        "arr_scheduled": 1230,
+        "dep_scheduled": 1232,
+        "action": "HALT",
+        "arr_actual_rtis": 1232,
+        "dep_actual_rtis": 1234,
+        "arr_time_str": "20:30",
+        "dep_time_str": "20:32"
+      },
+      {
+        "station_code": "GZB",
+        "arr_scheduled": 1236,
+        "dep_scheduled": 1237,
+        "action": "HALT",
+        "arr_actual_rtis": 1238,
+        "dep_actual_rtis": 1239,
+        "arr_time_str": "20:36",
+        "dep_time_str": "20:37"
+      }
+    ],
+    "current_delay_minutes": 2
+  },
+  {
+    "train_no": "40007",
+    "train_name": "Mail/Express",
+    "corridor_id": "CORR_EAST",
+    "track_id": "UP_MAIN",
+    "priority_rank": 2,
+    "direction": "UP",
+    "max_permissible_speed_kmph": 110,
+    "stations_trajectory": [
+      {
+        "station_code": "GZB",
+        "arr_scheduled": 676,
+        "dep_scheduled": 678,
+        "action": "HALT",
+        "arr_actual_rtis": 694,
+        "dep_actual_rtis": 696,
+        "arr_time_str": "11:16",
+        "dep_time_str": "11:18"
+      },
+      {
+        "station_code": "GZN",
+        "arr_scheduled": 682,
+        "dep_scheduled": 682,
+        "action": "PASS",
+        "arr_actual_rtis": 700,
+        "dep_actual_rtis": 700,
+        "arr_time_str": "11:22",
+        "dep_time_str": "11:22"
+      },
+      {
+        "station_code": "MUD",
+        "arr_scheduled": 693,
+        "dep_scheduled": 697,
+        "action": "HALT",
+        "arr_actual_rtis": 711,
+        "dep_actual_rtis": 715,
+        "arr_time_str": "11:33",
+        "dep_time_str": "11:37"
+      },
+      {
+        "station_code": "MDNR",
+        "arr_scheduled": 707,
+        "dep_scheduled": 709,
+        "action": "HALT",
+        "arr_actual_rtis": 725,
+        "dep_actual_rtis": 727,
+        "arr_time_str": "11:47",
+        "dep_time_str": "11:49"
+      },
+      {
+        "station_code": "MUZ",
+        "arr_scheduled": 721,
+        "dep_scheduled": 721,
+        "action": "PASS",
+        "arr_actual_rtis": 739,
+        "dep_actual_rtis": 739,
+        "arr_time_str": "12:01",
+        "dep_time_str": "12:01"
+      },
+      {
+        "station_code": "MTC",
+        "arr_scheduled": 724,
+        "dep_scheduled": 729,
+        "action": "HALT",
+        "arr_actual_rtis": 742,
+        "dep_actual_rtis": 747,
+        "arr_time_str": "12:04",
+        "dep_time_str": "12:09"
+      }
+    ],
+    "current_delay_minutes": 18
+  },
+  {
+    "train_no": "41850",
+    "train_name": "Mail/Express",
+    "corridor_id": "CORR_EAST",
+    "track_id": "DN_MAIN",
+    "priority_rank": 2,
+    "direction": "DN",
+    "max_permissible_speed_kmph": 110,
+    "stations_trajectory": [
+      {
+        "station_code": "MTC",
+        "arr_scheduled": 389,
+        "dep_scheduled": 391,
+        "action": "HALT",
+        "arr_actual_rtis": 409,
+        "dep_actual_rtis": 411,
+        "arr_time_str": "06:29",
+        "dep_time_str": "06:31"
+      },
+      {
+        "station_code": "MUZ",
+        "arr_scheduled": 394,
+        "dep_scheduled": 398,
+        "action": "HALT",
+        "arr_actual_rtis": 414,
+        "dep_actual_rtis": 418,
+        "arr_time_str": "06:34",
+        "dep_time_str": "06:38"
+      },
+      {
+        "station_code": "MDNR",
+        "arr_scheduled": 410,
+        "dep_scheduled": 410,
+        "action": "PASS",
+        "arr_actual_rtis": 430,
+        "dep_actual_rtis": 430,
+        "arr_time_str": "06:50",
+        "dep_time_str": "06:50"
+      },
+      {
+        "station_code": "MUD",
+        "arr_scheduled": 420,
+        "dep_scheduled": 420,
+        "action": "PASS",
+        "arr_actual_rtis": 440,
+        "dep_actual_rtis": 440,
+        "arr_time_str": "07:00",
+        "dep_time_str": "07:00"
+      },
+      {
+        "station_code": "GZN",
+        "arr_scheduled": 431,
+        "dep_scheduled": 431,
+        "action": "PASS",
+        "arr_actual_rtis": 451,
+        "dep_actual_rtis": 451,
+        "arr_time_str": "07:11",
+        "dep_time_str": "07:11"
+      },
+      {
+        "station_code": "GZB",
+        "arr_scheduled": 435,
+        "dep_scheduled": 436,
+        "action": "HALT",
+        "arr_actual_rtis": 455,
+        "dep_actual_rtis": 456,
+        "arr_time_str": "07:15",
+        "dep_time_str": "07:16"
+      }
+    ],
+    "current_delay_minutes": 20
+  },
+  {
+    "train_no": "17944",
+    "train_name": "Suburban EMU",
+    "corridor_id": "CORR_EAST",
+    "track_id": "UP_MAIN",
+    "priority_rank": 3,
+    "direction": "UP",
+    "max_permissible_speed_kmph": 80,
+    "stations_trajectory": [
+      {
+        "station_code": "GZB",
+        "arr_scheduled": 580,
+        "dep_scheduled": 582,
+        "action": "HALT",
+        "arr_actual_rtis": 588,
+        "dep_actual_rtis": 590,
+        "arr_time_str": "09:40",
+        "dep_time_str": "09:42"
+      },
+      {
+        "station_code": "GZN",
+        "arr_scheduled": 590,
+        "dep_scheduled": 592,
+        "action": "HALT",
+        "arr_actual_rtis": 598,
+        "dep_actual_rtis": 600,
+        "arr_time_str": "09:50",
+        "dep_time_str": "09:52"
+      },
+      {
+        "station_code": "MUD",
+        "arr_scheduled": 612,
+        "dep_scheduled": 614,
+        "action": "HALT",
+        "arr_actual_rtis": 620,
+        "dep_actual_rtis": 622,
+        "arr_time_str": "10:12",
+        "dep_time_str": "10:14"
+      },
+      {
+        "station_code": "MDNR",
+        "arr_scheduled": 632,
+        "dep_scheduled": 634,
+        "action": "HALT",
+        "arr_actual_rtis": 640,
+        "dep_actual_rtis": 642,
+        "arr_time_str": "10:32",
+        "dep_time_str": "10:34"
+      },
+      {
+        "station_code": "MUZ",
+        "arr_scheduled": 657,
+        "dep_scheduled": 662,
+        "action": "HALT",
+        "arr_actual_rtis": 665,
+        "dep_actual_rtis": 670,
+        "arr_time_str": "10:57",
+        "dep_time_str": "11:02"
+      },
+      {
+        "station_code": "MTC",
+        "arr_scheduled": 667,
+        "dep_scheduled": 671,
+        "action": "HALT",
+        "arr_actual_rtis": 675,
+        "dep_actual_rtis": 679,
+        "arr_time_str": "11:07",
+        "dep_time_str": "11:11"
+      }
+    ],
+    "current_delay_minutes": 8
+  },
+  {
+    "train_no": "34050",
+    "train_name": "Mail/Express",
+    "corridor_id": "CORR_EAST",
+    "track_id": "DN_MAIN",
+    "priority_rank": 2,
+    "direction": "DN",
+    "max_permissible_speed_kmph": 110,
+    "stations_trajectory": [
+      {
+        "station_code": "MTC",
+        "arr_scheduled": 998,
+        "dep_scheduled": 1003,
+        "action": "HALT",
+        "arr_actual_rtis": 1005,
+        "dep_actual_rtis": 1010,
+        "arr_time_str": "16:38",
+        "dep_time_str": "16:43"
+      },
+      {
+        "station_code": "MUZ",
+        "arr_scheduled": 1006,
+        "dep_scheduled": 1006,
+        "action": "PASS",
+        "arr_actual_rtis": 1013,
+        "dep_actual_rtis": 1013,
+        "arr_time_str": "16:46",
+        "dep_time_str": "16:46"
+      },
+      {
+        "station_code": "MDNR",
+        "arr_scheduled": 1018,
+        "dep_scheduled": 1018,
+        "action": "PASS",
+        "arr_actual_rtis": 1025,
+        "dep_actual_rtis": 1025,
+        "arr_time_str": "16:58",
+        "dep_time_str": "16:58"
+      },
+      {
+        "station_code": "MUD",
+        "arr_scheduled": 1028,
+        "dep_scheduled": 1033,
+        "action": "HALT",
+        "arr_actual_rtis": 1035,
+        "dep_actual_rtis": 1040,
+        "arr_time_str": "17:08",
+        "dep_time_str": "17:13"
+      },
+      {
+        "station_code": "GZN",
+        "arr_scheduled": 1044,
+        "dep_scheduled": 1044,
+        "action": "PASS",
+        "arr_actual_rtis": 1051,
+        "dep_actual_rtis": 1051,
+        "arr_time_str": "17:24",
+        "dep_time_str": "17:24"
+      },
+      {
+        "station_code": "GZB",
+        "arr_scheduled": 1048,
+        "dep_scheduled": 1049,
+        "action": "HALT",
+        "arr_actual_rtis": 1055,
+        "dep_actual_rtis": 1056,
+        "arr_time_str": "17:28",
+        "dep_time_str": "17:29"
+      }
+    ],
+    "current_delay_minutes": 7
+  },
+  {
+    "train_no": "63269",
+    "train_name": "Suburban EMU",
+    "corridor_id": "CORR_EAST",
+    "track_id": "UP_MAIN",
+    "priority_rank": 3,
+    "direction": "UP",
+    "max_permissible_speed_kmph": 80,
+    "stations_trajectory": [
+      {
+        "station_code": "GZB",
+        "arr_scheduled": 462,
+        "dep_scheduled": 464,
+        "action": "HALT",
+        "arr_actual_rtis": 491,
+        "dep_actual_rtis": 493,
+        "arr_time_str": "07:42",
+        "dep_time_str": "07:44"
+      },
+      {
+        "station_code": "GZN",
+        "arr_scheduled": 472,
+        "dep_scheduled": 474,
+        "action": "HALT",
+        "arr_actual_rtis": 501,
+        "dep_actual_rtis": 503,
+        "arr_time_str": "07:52",
+        "dep_time_str": "07:54"
+      },
+      {
+        "station_code": "MUD",
+        "arr_scheduled": 494,
+        "dep_scheduled": 498,
+        "action": "HALT",
+        "arr_actual_rtis": 523,
+        "dep_actual_rtis": 527,
+        "arr_time_str": "08:14",
+        "dep_time_str": "08:18"
+      },
+      {
+        "station_code": "MDNR",
+        "arr_scheduled": 516,
+        "dep_scheduled": 517,
+        "action": "HALT",
+        "arr_actual_rtis": 545,
+        "dep_actual_rtis": 546,
+        "arr_time_str": "08:36",
+        "dep_time_str": "08:37"
+      },
+      {
+        "station_code": "MUZ",
+        "arr_scheduled": 540,
+        "dep_scheduled": 544,
+        "action": "HALT",
+        "arr_actual_rtis": 569,
+        "dep_actual_rtis": 573,
+        "arr_time_str": "09:00",
+        "dep_time_str": "09:04"
+      },
+      {
+        "station_code": "MTC",
+        "arr_scheduled": 549,
+        "dep_scheduled": 552,
+        "action": "HALT",
+        "arr_actual_rtis": 578,
+        "dep_actual_rtis": 581,
+        "arr_time_str": "09:09",
+        "dep_time_str": "09:12"
+      }
+    ],
+    "current_delay_minutes": 29
+  },
+  {
+    "train_no": "65444",
+    "train_name": "Mail/Express",
+    "corridor_id": "CORR_EAST",
+    "track_id": "DN_MAIN",
+    "priority_rank": 2,
+    "direction": "DN",
+    "max_permissible_speed_kmph": 110,
+    "stations_trajectory": [
+      {
+        "station_code": "MTC",
+        "arr_scheduled": 1138,
+        "dep_scheduled": 1143,
+        "action": "HALT",
+        "arr_actual_rtis": 1139,
+        "dep_actual_rtis": 1144,
+        "arr_time_str": "18:58",
+        "dep_time_str": "19:03"
+      },
+      {
+        "station_code": "MUZ",
+        "arr_scheduled": 1146,
+        "dep_scheduled": 1149,
+        "action": "HALT",
+        "arr_actual_rtis": 1147,
+        "dep_actual_rtis": 1150,
+        "arr_time_str": "19:06",
+        "dep_time_str": "19:09"
+      },
+      {
+        "station_code": "MDNR",
+        "arr_scheduled": 1161,
+        "dep_scheduled": 1162,
+        "action": "HALT",
+        "arr_actual_rtis": 1162,
+        "dep_actual_rtis": 1163,
+        "arr_time_str": "19:21",
+        "dep_time_str": "19:22"
+      },
+      {
+        "station_code": "MUD",
+        "arr_scheduled": 1172,
+        "dep_scheduled": 1172,
+        "action": "PASS",
+        "arr_actual_rtis": 1173,
+        "dep_actual_rtis": 1173,
+        "arr_time_str": "19:32",
+        "dep_time_str": "19:32"
+      },
+      {
+        "station_code": "GZN",
+        "arr_scheduled": 1183,
+        "dep_scheduled": 1183,
+        "action": "PASS",
+        "arr_actual_rtis": 1184,
+        "dep_actual_rtis": 1184,
+        "arr_time_str": "19:43",
+        "dep_time_str": "19:43"
+      },
+      {
+        "station_code": "GZB",
+        "arr_scheduled": 1187,
+        "dep_scheduled": 1190,
+        "action": "HALT",
+        "arr_actual_rtis": 1188,
+        "dep_actual_rtis": 1191,
+        "arr_time_str": "19:47",
+        "dep_time_str": "19:50"
+      }
+    ],
+    "current_delay_minutes": 1
+  },
+  {
+    "train_no": "86569",
+    "train_name": "Suburban EMU",
+    "corridor_id": "CORR_EAST",
+    "track_id": "UP_MAIN",
+    "priority_rank": 3,
+    "direction": "UP",
+    "max_permissible_speed_kmph": 80,
+    "stations_trajectory": [
+      {
+        "station_code": "GZB",
+        "arr_scheduled": 1231,
+        "dep_scheduled": 1234,
+        "action": "HALT",
+        "arr_actual_rtis": 1235,
+        "dep_actual_rtis": 1238,
+        "arr_time_str": "20:31",
+        "dep_time_str": "20:34"
+      },
+      {
+        "station_code": "GZN",
+        "arr_scheduled": 1242,
+        "dep_scheduled": 1243,
+        "action": "HALT",
+        "arr_actual_rtis": 1246,
+        "dep_actual_rtis": 1247,
+        "arr_time_str": "20:42",
+        "dep_time_str": "20:43"
+      },
+      {
+        "station_code": "MUD",
+        "arr_scheduled": 1263,
+        "dep_scheduled": 1268,
+        "action": "HALT",
+        "arr_actual_rtis": 1267,
+        "dep_actual_rtis": 1272,
+        "arr_time_str": "21:03",
+        "dep_time_str": "21:08"
+      },
+      {
+        "station_code": "MDNR",
+        "arr_scheduled": 1286,
+        "dep_scheduled": 1287,
+        "action": "HALT",
+        "arr_actual_rtis": 1290,
+        "dep_actual_rtis": 1291,
+        "arr_time_str": "21:26",
+        "dep_time_str": "21:27"
+      },
+      {
+        "station_code": "MUZ",
+        "arr_scheduled": 1310,
+        "dep_scheduled": 1312,
+        "action": "HALT",
+        "arr_actual_rtis": 1314,
+        "dep_actual_rtis": 1316,
+        "arr_time_str": "21:50",
+        "dep_time_str": "21:52"
+      },
+      {
+        "station_code": "MTC",
+        "arr_scheduled": 1317,
+        "dep_scheduled": 1318,
+        "action": "HALT",
+        "arr_actual_rtis": 1321,
+        "dep_actual_rtis": 1322,
+        "arr_time_str": "21:57",
+        "dep_time_str": "21:58"
+      }
+    ],
+    "current_delay_minutes": 4
+  },
+  {
+    "train_no": "44179",
+    "train_name": "Mail/Express",
+    "corridor_id": "CORR_SOUTH",
+    "track_id": "4TH_LINE",
+    "priority_rank": 2,
+    "direction": "DN",
+    "max_permissible_speed_kmph": 110,
+    "stations_trajectory": [
+      {
+        "station_code": "PWL",
+        "arr_scheduled": 643,
+        "dep_scheduled": 646,
+        "action": "HALT",
+        "arr_actual_rtis": 657,
+        "dep_actual_rtis": 660,
+        "arr_time_str": "10:43",
+        "dep_time_str": "10:46"
+      },
+      {
+        "station_code": "AST",
+        "arr_scheduled": 657,
+        "dep_scheduled": 659,
+        "action": "HALT",
+        "arr_actual_rtis": 671,
+        "dep_actual_rtis": 673,
+        "arr_time_str": "10:57",
+        "dep_time_str": "10:59"
+      },
+      {
+        "station_code": "BVH",
+        "arr_scheduled": 672,
+        "dep_scheduled": 672,
+        "action": "PASS",
+        "arr_actual_rtis": 686,
+        "dep_actual_rtis": 686,
+        "arr_time_str": "11:12",
+        "dep_time_str": "11:12"
+      },
+      {
+        "station_code": "FDB",
+        "arr_scheduled": 679,
+        "dep_scheduled": 682,
+        "action": "HALT",
+        "arr_actual_rtis": 693,
+        "dep_actual_rtis": 696,
+        "arr_time_str": "11:19",
+        "dep_time_str": "11:22"
+      },
+      {
+        "station_code": "TKD",
+        "arr_scheduled": 691,
+        "dep_scheduled": 691,
+        "action": "PASS",
+        "arr_actual_rtis": 705,
+        "dep_actual_rtis": 705,
+        "arr_time_str": "11:31",
+        "dep_time_str": "11:31"
+      },
+      {
+        "station_code": "OKA",
+        "arr_scheduled": 697,
+        "dep_scheduled": 697,
+        "action": "PASS",
+        "arr_actual_rtis": 711,
+        "dep_actual_rtis": 711,
+        "arr_time_str": "11:37",
+        "dep_time_str": "11:37"
+      },
+      {
+        "station_code": "NZM",
+        "arr_scheduled": 701,
+        "dep_scheduled": 702,
+        "action": "HALT",
+        "arr_actual_rtis": 715,
+        "dep_actual_rtis": 716,
+        "arr_time_str": "11:41",
+        "dep_time_str": "11:42"
+      }
+    ],
+    "current_delay_minutes": 14
+  },
+  {
+    "train_no": "80468",
+    "train_name": "Suburban EMU",
+    "corridor_id": "CORR_SOUTH",
+    "track_id": "UP_MAIN",
+    "priority_rank": 3,
+    "direction": "UP",
+    "max_permissible_speed_kmph": 80,
+    "stations_trajectory": [
+      {
+        "station_code": "NZM",
+        "arr_scheduled": 598,
+        "dep_scheduled": 602,
+        "action": "HALT",
+        "arr_actual_rtis": 632,
+        "dep_actual_rtis": 636,
+        "arr_time_str": "09:58",
+        "dep_time_str": "10:02"
+      },
+      {
+        "station_code": "OKA",
+        "arr_scheduled": 608,
+        "dep_scheduled": 609,
+        "action": "HALT",
+        "arr_actual_rtis": 642,
+        "dep_actual_rtis": 643,
+        "arr_time_str": "10:08",
+        "dep_time_str": "10:09"
+      },
+      {
+        "station_code": "TKD",
+        "arr_scheduled": 620,
+        "dep_scheduled": 622,
+        "action": "HALT",
+        "arr_actual_rtis": 654,
+        "dep_actual_rtis": 656,
+        "arr_time_str": "10:20",
+        "dep_time_str": "10:22"
+      },
+      {
+        "station_code": "FDB",
+        "arr_scheduled": 639,
+        "dep_scheduled": 642,
+        "action": "HALT",
+        "arr_actual_rtis": 673,
+        "dep_actual_rtis": 676,
+        "arr_time_str": "10:39",
+        "dep_time_str": "10:42"
+      },
+      {
+        "station_code": "BVH",
+        "arr_scheduled": 654,
+        "dep_scheduled": 657,
+        "action": "HALT",
+        "arr_actual_rtis": 688,
+        "dep_actual_rtis": 691,
+        "arr_time_str": "10:54",
+        "dep_time_str": "10:57"
+      },
+      {
+        "station_code": "AST",
+        "arr_scheduled": 681,
+        "dep_scheduled": 683,
+        "action": "HALT",
+        "arr_actual_rtis": 715,
+        "dep_actual_rtis": 717,
+        "arr_time_str": "11:21",
+        "dep_time_str": "11:23"
+      },
+      {
+        "station_code": "PWL",
+        "arr_scheduled": 703,
+        "dep_scheduled": 707,
+        "action": "HALT",
+        "arr_actual_rtis": 737,
+        "dep_actual_rtis": 741,
+        "arr_time_str": "11:43",
+        "dep_time_str": "11:47"
+      }
+    ],
+    "current_delay_minutes": 34
+  },
+  {
+    "train_no": "97538",
+    "train_name": "Mail/Express",
+    "corridor_id": "CORR_SOUTH",
+    "track_id": "DN_MAIN",
+    "priority_rank": 2,
+    "direction": "DN",
+    "max_permissible_speed_kmph": 130,
+    "stations_trajectory": [
+      {
+        "station_code": "PWL",
+        "arr_scheduled": 1028,
+        "dep_scheduled": 1032,
+        "action": "HALT",
+        "arr_actual_rtis": 1048,
+        "dep_actual_rtis": 1052,
+        "arr_time_str": "17:08",
+        "dep_time_str": "17:12"
+      },
+      {
+        "station_code": "AST",
+        "arr_scheduled": 1041,
+        "dep_scheduled": 1042,
+        "action": "HALT",
+        "arr_actual_rtis": 1061,
+        "dep_actual_rtis": 1062,
+        "arr_time_str": "17:21",
+        "dep_time_str": "17:22"
+      },
+      {
+        "station_code": "BVH",
+        "arr_scheduled": 1053,
+        "dep_scheduled": 1053,
+        "action": "PASS",
+        "arr_actual_rtis": 1073,
+        "dep_actual_rtis": 1073,
+        "arr_time_str": "17:33",
+        "dep_time_str": "17:33"
+      },
+      {
+        "station_code": "FDB",
+        "arr_scheduled": 1059,
+        "dep_scheduled": 1062,
+        "action": "HALT",
+        "arr_actual_rtis": 1079,
+        "dep_actual_rtis": 1082,
+        "arr_time_str": "17:39",
+        "dep_time_str": "17:42"
+      },
+      {
+        "station_code": "TKD",
+        "arr_scheduled": 1070,
+        "dep_scheduled": 1070,
+        "action": "PASS",
+        "arr_actual_rtis": 1090,
+        "dep_actual_rtis": 1090,
+        "arr_time_str": "17:50",
+        "dep_time_str": "17:50"
+      },
+      {
+        "station_code": "OKA",
+        "arr_scheduled": 1075,
+        "dep_scheduled": 1075,
+        "action": "PASS",
+        "arr_actual_rtis": 1095,
+        "dep_actual_rtis": 1095,
+        "arr_time_str": "17:55",
+        "dep_time_str": "17:55"
+      },
+      {
+        "station_code": "NZM",
+        "arr_scheduled": 1078,
+        "dep_scheduled": 1080,
+        "action": "HALT",
+        "arr_actual_rtis": 1098,
+        "dep_actual_rtis": 1100,
+        "arr_time_str": "17:58",
+        "dep_time_str": "18:00"
+      }
+    ],
+    "current_delay_minutes": 20
+  },
+  {
+    "train_no": "42914",
+    "train_name": "Rajdhani Express",
+    "corridor_id": "CORR_SOUTH",
+    "track_id": "4TH_LINE",
+    "priority_rank": 1,
+    "direction": "DN",
+    "max_permissible_speed_kmph": 130,
+    "stations_trajectory": [
+      {
+        "station_code": "PWL",
+        "arr_scheduled": 430,
+        "dep_scheduled": 432,
+        "action": "HALT",
+        "arr_actual_rtis": 430,
+        "dep_actual_rtis": 432,
+        "arr_time_str": "07:10",
+        "dep_time_str": "07:12"
+      },
+      {
+        "station_code": "AST",
+        "arr_scheduled": 440,
+        "dep_scheduled": 440,
+        "action": "PASS",
+        "arr_actual_rtis": 440,
+        "dep_actual_rtis": 440,
+        "arr_time_str": "07:20",
+        "dep_time_str": "07:20"
+      },
+      {
+        "station_code": "BVH",
+        "arr_scheduled": 450,
+        "dep_scheduled": 450,
+        "action": "PASS",
+        "arr_actual_rtis": 450,
+        "dep_actual_rtis": 450,
+        "arr_time_str": "07:30",
+        "dep_time_str": "07:30"
+      },
+      {
+        "station_code": "FDB",
+        "arr_scheduled": 455,
+        "dep_scheduled": 455,
+        "action": "PASS",
+        "arr_actual_rtis": 455,
+        "dep_actual_rtis": 455,
+        "arr_time_str": "07:35",
+        "dep_time_str": "07:35"
+      },
+      {
+        "station_code": "TKD",
+        "arr_scheduled": 462,
+        "dep_scheduled": 462,
+        "action": "PASS",
+        "arr_actual_rtis": 462,
+        "dep_actual_rtis": 462,
+        "arr_time_str": "07:42",
+        "dep_time_str": "07:42"
+      },
+      {
+        "station_code": "OKA",
+        "arr_scheduled": 467,
+        "dep_scheduled": 467,
+        "action": "PASS",
+        "arr_actual_rtis": 467,
+        "dep_actual_rtis": 467,
+        "arr_time_str": "07:47",
+        "dep_time_str": "07:47"
+      },
+      {
+        "station_code": "NZM",
+        "arr_scheduled": 470,
+        "dep_scheduled": 471,
+        "action": "HALT",
+        "arr_actual_rtis": 470,
+        "dep_actual_rtis": 471,
+        "arr_time_str": "07:50",
+        "dep_time_str": "07:51"
+      }
+    ],
+    "current_delay_minutes": 0
+  },
+  {
+    "train_no": "93507",
+    "train_name": "Suburban EMU",
+    "corridor_id": "CORR_SOUTH",
+    "track_id": "DN_MAIN",
+    "priority_rank": 3,
+    "direction": "DN",
+    "max_permissible_speed_kmph": 80,
+    "stations_trajectory": [
+      {
+        "station_code": "PWL",
+        "arr_scheduled": 330,
+        "dep_scheduled": 335,
+        "action": "HALT",
+        "arr_actual_rtis": 339,
+        "dep_actual_rtis": 344,
+        "arr_time_str": "05:30",
+        "dep_time_str": "05:35"
+      },
+      {
+        "station_code": "AST",
+        "arr_scheduled": 355,
+        "dep_scheduled": 360,
+        "action": "HALT",
+        "arr_actual_rtis": 364,
+        "dep_actual_rtis": 369,
+        "arr_time_str": "05:55",
+        "dep_time_str": "06:00"
+      },
+      {
+        "station_code": "BVH",
+        "arr_scheduled": 384,
+        "dep_scheduled": 388,
+        "action": "HALT",
+        "arr_actual_rtis": 393,
+        "dep_actual_rtis": 397,
+        "arr_time_str": "06:24",
+        "dep_time_str": "06:28"
+      },
+      {
+        "station_code": "FDB",
+        "arr_scheduled": 400,
+        "dep_scheduled": 405,
+        "action": "HALT",
+        "arr_actual_rtis": 409,
+        "dep_actual_rtis": 414,
+        "arr_time_str": "06:40",
+        "dep_time_str": "06:45"
+      },
+      {
+        "station_code": "TKD",
+        "arr_scheduled": 422,
+        "dep_scheduled": 423,
+        "action": "HALT",
+        "arr_actual_rtis": 431,
+        "dep_actual_rtis": 432,
+        "arr_time_str": "07:02",
+        "dep_time_str": "07:03"
+      },
+      {
+        "station_code": "OKA",
+        "arr_scheduled": 434,
+        "dep_scheduled": 435,
+        "action": "HALT",
+        "arr_actual_rtis": 443,
+        "dep_actual_rtis": 444,
+        "arr_time_str": "07:14",
+        "dep_time_str": "07:15"
+      },
+      {
+        "station_code": "NZM",
+        "arr_scheduled": 441,
+        "dep_scheduled": 442,
+        "action": "HALT",
+        "arr_actual_rtis": 450,
+        "dep_actual_rtis": 451,
+        "arr_time_str": "07:21",
+        "dep_time_str": "07:22"
+      }
+    ],
+    "current_delay_minutes": 9
+  },
+  {
+    "train_no": "86350",
+    "train_name": "Suburban EMU",
+    "corridor_id": "CORR_SOUTH",
+    "track_id": "3RD_LINE",
+    "priority_rank": 3,
+    "direction": "UP",
+    "max_permissible_speed_kmph": 80,
+    "stations_trajectory": [
+      {
+        "station_code": "NZM",
+        "arr_scheduled": 370,
+        "dep_scheduled": 374,
+        "action": "HALT",
+        "arr_actual_rtis": 392,
+        "dep_actual_rtis": 396,
+        "arr_time_str": "06:10",
+        "dep_time_str": "06:14"
+      },
+      {
+        "station_code": "OKA",
+        "arr_scheduled": 380,
+        "dep_scheduled": 383,
+        "action": "HALT",
+        "arr_actual_rtis": 402,
+        "dep_actual_rtis": 405,
+        "arr_time_str": "06:20",
+        "dep_time_str": "06:23"
+      },
+      {
+        "station_code": "TKD",
+        "arr_scheduled": 394,
+        "dep_scheduled": 395,
+        "action": "HALT",
+        "arr_actual_rtis": 416,
+        "dep_actual_rtis": 417,
+        "arr_time_str": "06:34",
+        "dep_time_str": "06:35"
+      },
+      {
+        "station_code": "FDB",
+        "arr_scheduled": 412,
+        "dep_scheduled": 415,
+        "action": "HALT",
+        "arr_actual_rtis": 434,
+        "dep_actual_rtis": 437,
+        "arr_time_str": "06:52",
+        "dep_time_str": "06:55"
+      },
+      {
+        "station_code": "BVH",
+        "arr_scheduled": 427,
+        "dep_scheduled": 429,
+        "action": "HALT",
+        "arr_actual_rtis": 449,
+        "dep_actual_rtis": 451,
+        "arr_time_str": "07:07",
+        "dep_time_str": "07:09"
+      },
+      {
+        "station_code": "AST",
+        "arr_scheduled": 453,
+        "dep_scheduled": 455,
+        "action": "HALT",
+        "arr_actual_rtis": 475,
+        "dep_actual_rtis": 477,
+        "arr_time_str": "07:33",
+        "dep_time_str": "07:35"
+      },
+      {
+        "station_code": "PWL",
+        "arr_scheduled": 475,
+        "dep_scheduled": 476,
+        "action": "HALT",
+        "arr_actual_rtis": 497,
+        "dep_actual_rtis": 498,
+        "arr_time_str": "07:55",
+        "dep_time_str": "07:56"
+      }
+    ],
+    "current_delay_minutes": 22
+  },
+  {
+    "train_no": "41029",
+    "train_name": "Mail/Express",
+    "corridor_id": "CORR_SOUTH",
+    "track_id": "DN_MAIN",
+    "priority_rank": 2,
+    "direction": "DN",
+    "max_permissible_speed_kmph": 110,
+    "stations_trajectory": [
+      {
+        "station_code": "PWL",
+        "arr_scheduled": 1087,
+        "dep_scheduled": 1091,
+        "action": "HALT",
+        "arr_actual_rtis": 1094,
+        "dep_actual_rtis": 1098,
+        "arr_time_str": "18:07",
+        "dep_time_str": "18:11"
+      },
+      {
+        "station_code": "AST",
+        "arr_scheduled": 1102,
+        "dep_scheduled": 1103,
+        "action": "HALT",
+        "arr_actual_rtis": 1109,
+        "dep_actual_rtis": 1110,
+        "arr_time_str": "18:22",
+        "dep_time_str": "18:23"
+      },
+      {
+        "station_code": "BVH",
+        "arr_scheduled": 1116,
+        "dep_scheduled": 1116,
+        "action": "PASS",
+        "arr_actual_rtis": 1123,
+        "dep_actual_rtis": 1123,
+        "arr_time_str": "18:36",
+        "dep_time_str": "18:36"
+      },
+      {
+        "station_code": "FDB",
+        "arr_scheduled": 1123,
+        "dep_scheduled": 1127,
+        "action": "HALT",
+        "arr_actual_rtis": 1130,
+        "dep_actual_rtis": 1134,
+        "arr_time_str": "18:43",
+        "dep_time_str": "18:47"
+      },
+      {
+        "station_code": "TKD",
+        "arr_scheduled": 1136,
+        "dep_scheduled": 1140,
+        "action": "HALT",
+        "arr_actual_rtis": 1143,
+        "dep_actual_rtis": 1147,
+        "arr_time_str": "18:56",
+        "dep_time_str": "19:00"
+      },
+      {
+        "station_code": "OKA",
+        "arr_scheduled": 1146,
+        "dep_scheduled": 1146,
+        "action": "PASS",
+        "arr_actual_rtis": 1153,
+        "dep_actual_rtis": 1153,
+        "arr_time_str": "19:06",
+        "dep_time_str": "19:06"
+      },
+      {
+        "station_code": "NZM",
+        "arr_scheduled": 1150,
+        "dep_scheduled": 1152,
+        "action": "HALT",
+        "arr_actual_rtis": 1157,
+        "dep_actual_rtis": 1159,
+        "arr_time_str": "19:10",
+        "dep_time_str": "19:12"
+      }
+    ],
+    "current_delay_minutes": 7
+  },
+  {
+    "train_no": "62227",
+    "train_name": "Vande Bharat Express",
+    "corridor_id": "CORR_SOUTH",
+    "track_id": "UP_MAIN",
+    "priority_rank": 1,
+    "direction": "UP",
+    "max_permissible_speed_kmph": 160,
+    "stations_trajectory": [
+      {
+        "station_code": "NZM",
+        "arr_scheduled": 571,
+        "dep_scheduled": 573,
+        "action": "HALT",
+        "arr_actual_rtis": 579,
+        "dep_actual_rtis": 581,
+        "arr_time_str": "09:31",
+        "dep_time_str": "09:33"
+      },
+      {
+        "station_code": "OKA",
+        "arr_scheduled": 575,
+        "dep_scheduled": 575,
+        "action": "PASS",
+        "arr_actual_rtis": 583,
+        "dep_actual_rtis": 583,
+        "arr_time_str": "09:35",
+        "dep_time_str": "09:35"
+      },
+      {
+        "station_code": "TKD",
+        "arr_scheduled": 579,
+        "dep_scheduled": 579,
+        "action": "PASS",
+        "arr_actual_rtis": 587,
+        "dep_actual_rtis": 587,
+        "arr_time_str": "09:39",
+        "dep_time_str": "09:39"
+      },
+      {
+        "station_code": "FDB",
+        "arr_scheduled": 585,
+        "dep_scheduled": 585,
+        "action": "PASS",
+        "arr_actual_rtis": 593,
+        "dep_actual_rtis": 593,
+        "arr_time_str": "09:45",
+        "dep_time_str": "09:45"
+      },
+      {
+        "station_code": "BVH",
+        "arr_scheduled": 589,
+        "dep_scheduled": 589,
+        "action": "PASS",
+        "arr_actual_rtis": 597,
+        "dep_actual_rtis": 597,
+        "arr_time_str": "09:49",
+        "dep_time_str": "09:49"
+      },
+      {
+        "station_code": "AST",
+        "arr_scheduled": 597,
+        "dep_scheduled": 597,
+        "action": "PASS",
+        "arr_actual_rtis": 605,
+        "dep_actual_rtis": 605,
+        "arr_time_str": "09:57",
+        "dep_time_str": "09:57"
+      },
+      {
+        "station_code": "PWL",
+        "arr_scheduled": 604,
+        "dep_scheduled": 607,
+        "action": "HALT",
+        "arr_actual_rtis": 612,
+        "dep_actual_rtis": 615,
+        "arr_time_str": "10:04",
+        "dep_time_str": "10:07"
+      }
+    ],
+    "current_delay_minutes": 8
+  },
+  {
+    "train_no": "13617",
+    "train_name": "Mail/Express",
+    "corridor_id": "CORR_SOUTH",
+    "track_id": "4TH_LINE",
+    "priority_rank": 2,
+    "direction": "DN",
+    "max_permissible_speed_kmph": 110,
+    "stations_trajectory": [
+      {
+        "station_code": "PWL",
+        "arr_scheduled": 534,
+        "dep_scheduled": 537,
+        "action": "HALT",
+        "arr_actual_rtis": 547,
+        "dep_actual_rtis": 550,
+        "arr_time_str": "08:54",
+        "dep_time_str": "08:57"
+      },
+      {
+        "station_code": "AST",
+        "arr_scheduled": 548,
+        "dep_scheduled": 548,
+        "action": "PASS",
+        "arr_actual_rtis": 561,
+        "dep_actual_rtis": 561,
+        "arr_time_str": "09:08",
+        "dep_time_str": "09:08"
+      },
+      {
+        "station_code": "BVH",
+        "arr_scheduled": 561,
+        "dep_scheduled": 561,
+        "action": "PASS",
+        "arr_actual_rtis": 574,
+        "dep_actual_rtis": 574,
+        "arr_time_str": "09:21",
+        "dep_time_str": "09:21"
+      },
+      {
+        "station_code": "FDB",
+        "arr_scheduled": 568,
+        "dep_scheduled": 573,
+        "action": "HALT",
+        "arr_actual_rtis": 581,
+        "dep_actual_rtis": 586,
+        "arr_time_str": "09:28",
+        "dep_time_str": "09:33"
+      },
+      {
+        "station_code": "TKD",
+        "arr_scheduled": 582,
+        "dep_scheduled": 582,
+        "action": "PASS",
+        "arr_actual_rtis": 595,
+        "dep_actual_rtis": 595,
+        "arr_time_str": "09:42",
+        "dep_time_str": "09:42"
+      },
+      {
+        "station_code": "OKA",
+        "arr_scheduled": 588,
+        "dep_scheduled": 588,
+        "action": "PASS",
+        "arr_actual_rtis": 601,
+        "dep_actual_rtis": 601,
+        "arr_time_str": "09:48",
+        "dep_time_str": "09:48"
+      },
+      {
+        "station_code": "NZM",
+        "arr_scheduled": 592,
+        "dep_scheduled": 595,
+        "action": "HALT",
+        "arr_actual_rtis": 605,
+        "dep_actual_rtis": 608,
+        "arr_time_str": "09:52",
+        "dep_time_str": "09:55"
+      }
+    ],
+    "current_delay_minutes": 13
+  },
+  {
+    "train_no": "85574",
+    "train_name": "Mail/Express",
+    "corridor_id": "CORR_SOUTH",
+    "track_id": "3RD_LINE",
+    "priority_rank": 2,
+    "direction": "UP",
+    "max_permissible_speed_kmph": 110,
+    "stations_trajectory": [
+      {
+        "station_code": "NZM",
+        "arr_scheduled": 960,
+        "dep_scheduled": 963,
+        "action": "HALT",
+        "arr_actual_rtis": 969,
+        "dep_actual_rtis": 972,
+        "arr_time_str": "16:00",
+        "dep_time_str": "16:03"
+      },
+      {
+        "station_code": "OKA",
+        "arr_scheduled": 967,
+        "dep_scheduled": 967,
+        "action": "PASS",
+        "arr_actual_rtis": 976,
+        "dep_actual_rtis": 976,
+        "arr_time_str": "16:07",
+        "dep_time_str": "16:07"
+      },
+      {
+        "station_code": "TKD",
+        "arr_scheduled": 973,
+        "dep_scheduled": 976,
+        "action": "HALT",
+        "arr_actual_rtis": 982,
+        "dep_actual_rtis": 985,
+        "arr_time_str": "16:13",
+        "dep_time_str": "16:16"
+      },
+      {
+        "station_code": "FDB",
+        "arr_scheduled": 985,
+        "dep_scheduled": 985,
+        "action": "PASS",
+        "arr_actual_rtis": 994,
+        "dep_actual_rtis": 994,
+        "arr_time_str": "16:25",
+        "dep_time_str": "16:25"
+      },
+      {
+        "station_code": "BVH",
+        "arr_scheduled": 992,
+        "dep_scheduled": 992,
+        "action": "PASS",
+        "arr_actual_rtis": 1001,
+        "dep_actual_rtis": 1001,
+        "arr_time_str": "16:32",
+        "dep_time_str": "16:32"
+      },
+      {
+        "station_code": "AST",
+        "arr_scheduled": 1005,
+        "dep_scheduled": 1008,
+        "action": "HALT",
+        "arr_actual_rtis": 1014,
+        "dep_actual_rtis": 1017,
+        "arr_time_str": "16:45",
+        "dep_time_str": "16:48"
+      },
+      {
+        "station_code": "PWL",
+        "arr_scheduled": 1019,
+        "dep_scheduled": 1024,
+        "action": "HALT",
+        "arr_actual_rtis": 1028,
+        "dep_actual_rtis": 1033,
+        "arr_time_str": "16:59",
+        "dep_time_str": "17:04"
+      }
+    ],
+    "current_delay_minutes": 9
+  },
+  {
+    "train_no": "98777",
+    "train_name": "Mail/Express",
+    "corridor_id": "CORR_WEST",
+    "track_id": "DN_MAIN",
+    "priority_rank": 2,
+    "direction": "DN",
+    "max_permissible_speed_kmph": 110,
+    "stations_trajectory": [
+      {
+        "station_code": "ROK",
+        "arr_scheduled": 1165,
+        "dep_scheduled": 1169,
+        "action": "HALT",
+        "arr_actual_rtis": 1179,
+        "dep_actual_rtis": 1183,
+        "arr_time_str": "19:25",
+        "dep_time_str": "19:29"
+      },
+      {
+        "station_code": "SPZ",
+        "arr_scheduled": 1187,
+        "dep_scheduled": 1187,
+        "action": "PASS",
+        "arr_actual_rtis": 1201,
+        "dep_actual_rtis": 1201,
+        "arr_time_str": "19:47",
+        "dep_time_str": "19:47"
+      },
+      {
+        "station_code": "BGZ",
+        "arr_scheduled": 1202,
+        "dep_scheduled": 1202,
+        "action": "PASS",
+        "arr_actual_rtis": 1216,
+        "dep_actual_rtis": 1216,
+        "arr_time_str": "20:02",
+        "dep_time_str": "20:02"
+      },
+      {
+        "station_code": "NNO",
+        "arr_scheduled": 1213,
+        "dep_scheduled": 1213,
+        "action": "PASS",
+        "arr_actual_rtis": 1227,
+        "dep_actual_rtis": 1227,
+        "arr_time_str": "20:13",
+        "dep_time_str": "20:13"
+      },
+      {
+        "station_code": "SSB",
+        "arr_scheduled": 1218,
+        "dep_scheduled": 1223,
+        "action": "HALT",
+        "arr_actual_rtis": 1232,
+        "dep_actual_rtis": 1237,
+        "arr_time_str": "20:18",
+        "dep_time_str": "20:23"
+      },
+      {
+        "station_code": "DEE",
+        "arr_scheduled": 1229,
+        "dep_scheduled": 1229,
+        "action": "PASS",
+        "arr_actual_rtis": 1243,
+        "dep_actual_rtis": 1243,
+        "arr_time_str": "20:29",
+        "dep_time_str": "20:29"
+      },
+      {
+        "station_code": "DLI",
+        "arr_scheduled": 1233,
+        "dep_scheduled": 1236,
+        "action": "HALT",
+        "arr_actual_rtis": 1247,
+        "dep_actual_rtis": 1250,
+        "arr_time_str": "20:33",
+        "dep_time_str": "20:36"
+      }
+    ],
+    "current_delay_minutes": 14
+  },
+  {
+    "train_no": "67954",
+    "train_name": "Suburban EMU",
+    "corridor_id": "CORR_WEST",
+    "track_id": "DN_MAIN",
+    "priority_rank": 3,
+    "direction": "DN",
+    "max_permissible_speed_kmph": 80,
+    "stations_trajectory": [
+      {
+        "station_code": "ROK",
+        "arr_scheduled": 1046,
+        "dep_scheduled": 1051,
+        "action": "HALT",
+        "arr_actual_rtis": 1051,
+        "dep_actual_rtis": 1056,
+        "arr_time_str": "17:26",
+        "dep_time_str": "17:31"
+      },
+      {
+        "station_code": "SPZ",
+        "arr_scheduled": 1084,
+        "dep_scheduled": 1086,
+        "action": "HALT",
+        "arr_actual_rtis": 1089,
+        "dep_actual_rtis": 1091,
+        "arr_time_str": "18:04",
+        "dep_time_str": "18:06"
+      },
+      {
+        "station_code": "BGZ",
+        "arr_scheduled": 1113,
+        "dep_scheduled": 1114,
+        "action": "HALT",
+        "arr_actual_rtis": 1118,
+        "dep_actual_rtis": 1119,
+        "arr_time_str": "18:33",
+        "dep_time_str": "18:34"
+      },
+      {
+        "station_code": "NNO",
+        "arr_scheduled": 1135,
+        "dep_scheduled": 1138,
+        "action": "HALT",
+        "arr_actual_rtis": 1140,
+        "dep_actual_rtis": 1143,
+        "arr_time_str": "18:55",
+        "dep_time_str": "18:58"
+      },
+      {
+        "station_code": "SSB",
+        "arr_scheduled": 1147,
+        "dep_scheduled": 1152,
+        "action": "HALT",
+        "arr_actual_rtis": 1152,
+        "dep_actual_rtis": 1157,
+        "arr_time_str": "19:07",
+        "dep_time_str": "19:12"
+      },
+      {
+        "station_code": "DEE",
+        "arr_scheduled": 1163,
+        "dep_scheduled": 1168,
+        "action": "HALT",
+        "arr_actual_rtis": 1168,
+        "dep_actual_rtis": 1173,
+        "arr_time_str": "19:23",
+        "dep_time_str": "19:28"
+      },
+      {
+        "station_code": "DLI",
+        "arr_scheduled": 1174,
+        "dep_scheduled": 1177,
+        "action": "HALT",
+        "arr_actual_rtis": 1179,
+        "dep_actual_rtis": 1182,
+        "arr_time_str": "19:34",
+        "dep_time_str": "19:37"
+      }
+    ],
+    "current_delay_minutes": 5
+  },
+  {
+    "train_no": "98184",
+    "train_name": "Vande Bharat Express",
+    "corridor_id": "CORR_WEST",
+    "track_id": "UP_MAIN",
+    "priority_rank": 1,
+    "direction": "UP",
+    "max_permissible_speed_kmph": 110,
+    "stations_trajectory": [
+      {
+        "station_code": "DLI",
+        "arr_scheduled": 301,
+        "dep_scheduled": 303,
+        "action": "HALT",
+        "arr_actual_rtis": 301,
+        "dep_actual_rtis": 303,
+        "arr_time_str": "05:01",
+        "dep_time_str": "05:03"
+      },
+      {
+        "station_code": "DEE",
+        "arr_scheduled": 306,
+        "dep_scheduled": 306,
+        "action": "PASS",
+        "arr_actual_rtis": 306,
+        "dep_actual_rtis": 306,
+        "arr_time_str": "05:06",
+        "dep_time_str": "05:06"
+      },
+      {
+        "station_code": "SSB",
+        "arr_scheduled": 312,
+        "dep_scheduled": 312,
+        "action": "PASS",
+        "arr_actual_rtis": 312,
+        "dep_actual_rtis": 312,
+        "arr_time_str": "05:12",
+        "dep_time_str": "05:12"
+      },
+      {
+        "station_code": "NNO",
+        "arr_scheduled": 317,
+        "dep_scheduled": 317,
+        "action": "PASS",
+        "arr_actual_rtis": 317,
+        "dep_actual_rtis": 317,
+        "arr_time_str": "05:17",
+        "dep_time_str": "05:17"
+      },
+      {
+        "station_code": "BGZ",
+        "arr_scheduled": 328,
+        "dep_scheduled": 328,
+        "action": "PASS",
+        "arr_actual_rtis": 328,
+        "dep_actual_rtis": 328,
+        "arr_time_str": "05:28",
+        "dep_time_str": "05:28"
+      },
+      {
+        "station_code": "SPZ",
+        "arr_scheduled": 342,
+        "dep_scheduled": 342,
+        "action": "PASS",
+        "arr_actual_rtis": 342,
+        "dep_actual_rtis": 342,
+        "arr_time_str": "05:42",
+        "dep_time_str": "05:42"
+      },
+      {
+        "station_code": "ROK",
+        "arr_scheduled": 358,
+        "dep_scheduled": 359,
+        "action": "HALT",
+        "arr_actual_rtis": 358,
+        "dep_actual_rtis": 359,
+        "arr_time_str": "05:58",
+        "dep_time_str": "05:59"
+      }
+    ],
+    "current_delay_minutes": 0
+  },
+  {
+    "train_no": "72277",
+    "train_name": "Rajdhani Express",
+    "corridor_id": "CORR_WEST",
+    "track_id": "UP_MAIN",
+    "priority_rank": 1,
+    "direction": "UP",
+    "max_permissible_speed_kmph": 110,
+    "stations_trajectory": [
+      {
+        "station_code": "DLI",
+        "arr_scheduled": 1059,
+        "dep_scheduled": 1061,
+        "action": "HALT",
+        "arr_actual_rtis": 1066,
+        "dep_actual_rtis": 1068,
+        "arr_time_str": "17:39",
+        "dep_time_str": "17:41"
+      },
+      {
+        "station_code": "DEE",
+        "arr_scheduled": 1064,
+        "dep_scheduled": 1064,
+        "action": "PASS",
+        "arr_actual_rtis": 1071,
+        "dep_actual_rtis": 1071,
+        "arr_time_str": "17:44",
+        "dep_time_str": "17:44"
+      },
+      {
+        "station_code": "SSB",
+        "arr_scheduled": 1070,
+        "dep_scheduled": 1070,
+        "action": "PASS",
+        "arr_actual_rtis": 1077,
+        "dep_actual_rtis": 1077,
+        "arr_time_str": "17:50",
+        "dep_time_str": "17:50"
+      },
+      {
+        "station_code": "NNO",
+        "arr_scheduled": 1075,
+        "dep_scheduled": 1075,
+        "action": "PASS",
+        "arr_actual_rtis": 1082,
+        "dep_actual_rtis": 1082,
+        "arr_time_str": "17:55",
+        "dep_time_str": "17:55"
+      },
+      {
+        "station_code": "BGZ",
+        "arr_scheduled": 1086,
+        "dep_scheduled": 1086,
+        "action": "PASS",
+        "arr_actual_rtis": 1093,
+        "dep_actual_rtis": 1093,
+        "arr_time_str": "18:06",
+        "dep_time_str": "18:06"
+      },
+      {
+        "station_code": "SPZ",
+        "arr_scheduled": 1100,
+        "dep_scheduled": 1100,
+        "action": "PASS",
+        "arr_actual_rtis": 1107,
+        "dep_actual_rtis": 1107,
+        "arr_time_str": "18:20",
+        "dep_time_str": "18:20"
+      },
+      {
+        "station_code": "ROK",
+        "arr_scheduled": 1116,
+        "dep_scheduled": 1120,
+        "action": "HALT",
+        "arr_actual_rtis": 1123,
+        "dep_actual_rtis": 1127,
+        "arr_time_str": "18:36",
+        "dep_time_str": "18:40"
+      }
+    ],
+    "current_delay_minutes": 7
+  },
+  {
+    "train_no": "41979",
+    "train_name": "Suburban EMU",
+    "corridor_id": "CORR_WEST",
+    "track_id": "DN_MAIN",
+    "priority_rank": 3,
+    "direction": "DN",
+    "max_permissible_speed_kmph": 80,
+    "stations_trajectory": [
+      {
+        "station_code": "ROK",
+        "arr_scheduled": 1014,
+        "dep_scheduled": 1019,
+        "action": "HALT",
+        "arr_actual_rtis": 1029,
+        "dep_actual_rtis": 1034,
+        "arr_time_str": "16:54",
+        "dep_time_str": "16:59"
+      },
+      {
+        "station_code": "SPZ",
+        "arr_scheduled": 1052,
+        "dep_scheduled": 1054,
+        "action": "HALT",
+        "arr_actual_rtis": 1067,
+        "dep_actual_rtis": 1069,
+        "arr_time_str": "17:32",
+        "dep_time_str": "17:34"
+      },
+      {
+        "station_code": "BGZ",
+        "arr_scheduled": 1081,
+        "dep_scheduled": 1083,
+        "action": "HALT",
+        "arr_actual_rtis": 1096,
+        "dep_actual_rtis": 1098,
+        "arr_time_str": "18:01",
+        "dep_time_str": "18:03"
+      },
+      {
+        "station_code": "NNO",
+        "arr_scheduled": 1104,
+        "dep_scheduled": 1109,
+        "action": "HALT",
+        "arr_actual_rtis": 1119,
+        "dep_actual_rtis": 1124,
+        "arr_time_str": "18:24",
+        "dep_time_str": "18:29"
+      },
+      {
+        "station_code": "SSB",
+        "arr_scheduled": 1118,
+        "dep_scheduled": 1122,
+        "action": "HALT",
+        "arr_actual_rtis": 1133,
+        "dep_actual_rtis": 1137,
+        "arr_time_str": "18:38",
+        "dep_time_str": "18:42"
+      },
+      {
+        "station_code": "DEE",
+        "arr_scheduled": 1133,
+        "dep_scheduled": 1134,
+        "action": "HALT",
+        "arr_actual_rtis": 1148,
+        "dep_actual_rtis": 1149,
+        "arr_time_str": "18:53",
+        "dep_time_str": "18:54"
+      },
+      {
+        "station_code": "DLI",
+        "arr_scheduled": 1140,
+        "dep_scheduled": 1145,
+        "action": "HALT",
+        "arr_actual_rtis": 1155,
+        "dep_actual_rtis": 1160,
+        "arr_time_str": "19:00",
+        "dep_time_str": "19:05"
+      }
+    ],
+    "current_delay_minutes": 15
+  },
+  {
+    "train_no": "69829",
+    "train_name": "Mail/Express",
+    "corridor_id": "CORR_WEST",
+    "track_id": "UP_MAIN",
+    "priority_rank": 2,
+    "direction": "UP",
+    "max_permissible_speed_kmph": 110,
+    "stations_trajectory": [
+      {
+        "station_code": "DLI",
+        "arr_scheduled": 1087,
+        "dep_scheduled": 1091,
+        "action": "HALT",
+        "arr_actual_rtis": 1101,
+        "dep_actual_rtis": 1105,
+        "arr_time_str": "18:07",
+        "dep_time_str": "18:11"
+      },
+      {
+        "station_code": "DEE",
+        "arr_scheduled": 1095,
+        "dep_scheduled": 1095,
+        "action": "PASS",
+        "arr_actual_rtis": 1109,
+        "dep_actual_rtis": 1109,
+        "arr_time_str": "18:15",
+        "dep_time_str": "18:15"
+      },
+      {
+        "station_code": "SSB",
+        "arr_scheduled": 1101,
+        "dep_scheduled": 1101,
+        "action": "PASS",
+        "arr_actual_rtis": 1115,
+        "dep_actual_rtis": 1115,
+        "arr_time_str": "18:21",
+        "dep_time_str": "18:21"
+      },
+      {
+        "station_code": "NNO",
+        "arr_scheduled": 1106,
+        "dep_scheduled": 1106,
+        "action": "PASS",
+        "arr_actual_rtis": 1120,
+        "dep_actual_rtis": 1120,
+        "arr_time_str": "18:26",
+        "dep_time_str": "18:26"
+      },
+      {
+        "station_code": "BGZ",
+        "arr_scheduled": 1117,
+        "dep_scheduled": 1117,
+        "action": "PASS",
+        "arr_actual_rtis": 1131,
+        "dep_actual_rtis": 1131,
+        "arr_time_str": "18:37",
+        "dep_time_str": "18:37"
+      },
+      {
+        "station_code": "SPZ",
+        "arr_scheduled": 1132,
+        "dep_scheduled": 1132,
+        "action": "PASS",
+        "arr_actual_rtis": 1146,
+        "dep_actual_rtis": 1146,
+        "arr_time_str": "18:52",
+        "dep_time_str": "18:52"
+      },
+      {
+        "station_code": "ROK",
+        "arr_scheduled": 1150,
+        "dep_scheduled": 1155,
+        "action": "HALT",
+        "arr_actual_rtis": 1164,
+        "dep_actual_rtis": 1169,
+        "arr_time_str": "19:10",
+        "dep_time_str": "19:15"
+      }
+    ],
+    "current_delay_minutes": 14
+  },
+  {
+    "train_no": "72216",
+    "train_name": "Mail/Express",
+    "corridor_id": "CORR_WEST",
+    "track_id": "UP_MAIN",
+    "priority_rank": 2,
+    "direction": "UP",
+    "max_permissible_speed_kmph": 110,
+    "stations_trajectory": [
+      {
+        "station_code": "DLI",
+        "arr_scheduled": 523,
+        "dep_scheduled": 527,
+        "action": "HALT",
+        "arr_actual_rtis": 531,
+        "dep_actual_rtis": 535,
+        "arr_time_str": "08:43",
+        "dep_time_str": "08:47"
+      },
+      {
+        "station_code": "DEE",
+        "arr_scheduled": 531,
+        "dep_scheduled": 531,
+        "action": "PASS",
+        "arr_actual_rtis": 539,
+        "dep_actual_rtis": 539,
+        "arr_time_str": "08:51",
+        "dep_time_str": "08:51"
+      },
+      {
+        "station_code": "SSB",
+        "arr_scheduled": 537,
+        "dep_scheduled": 537,
+        "action": "PASS",
+        "arr_actual_rtis": 545,
+        "dep_actual_rtis": 545,
+        "arr_time_str": "08:57",
+        "dep_time_str": "08:57"
+      },
+      {
+        "station_code": "NNO",
+        "arr_scheduled": 542,
+        "dep_scheduled": 542,
+        "action": "PASS",
+        "arr_actual_rtis": 550,
+        "dep_actual_rtis": 550,
+        "arr_time_str": "09:02",
+        "dep_time_str": "09:02"
+      },
+      {
+        "station_code": "BGZ",
+        "arr_scheduled": 553,
+        "dep_scheduled": 554,
+        "action": "HALT",
+        "arr_actual_rtis": 561,
+        "dep_actual_rtis": 562,
+        "arr_time_str": "09:13",
+        "dep_time_str": "09:14"
+      },
+      {
+        "station_code": "SPZ",
+        "arr_scheduled": 569,
+        "dep_scheduled": 569,
+        "action": "PASS",
+        "arr_actual_rtis": 577,
+        "dep_actual_rtis": 577,
+        "arr_time_str": "09:29",
+        "dep_time_str": "09:29"
+      },
+      {
+        "station_code": "ROK",
+        "arr_scheduled": 587,
+        "dep_scheduled": 589,
+        "action": "HALT",
+        "arr_actual_rtis": 595,
+        "dep_actual_rtis": 597,
+        "arr_time_str": "09:47",
+        "dep_time_str": "09:49"
+      }
+    ],
+    "current_delay_minutes": 8
+  },
+  {
+    "train_no": "51904",
+    "train_name": "Suburban EMU",
+    "corridor_id": "CORR_WEST",
+    "track_id": "DN_MAIN",
+    "priority_rank": 3,
+    "direction": "DN",
+    "max_permissible_speed_kmph": 80,
+    "stations_trajectory": [
+      {
+        "station_code": "ROK",
+        "arr_scheduled": 165,
+        "dep_scheduled": 168,
+        "action": "HALT",
+        "arr_actual_rtis": 191,
+        "dep_actual_rtis": 194,
+        "arr_time_str": "02:45",
+        "dep_time_str": "02:48"
+      },
+      {
+        "station_code": "SPZ",
+        "arr_scheduled": 201,
+        "dep_scheduled": 203,
+        "action": "HALT",
+        "arr_actual_rtis": 227,
+        "dep_actual_rtis": 229,
+        "arr_time_str": "03:21",
+        "dep_time_str": "03:23"
+      },
+      {
+        "station_code": "BGZ",
+        "arr_scheduled": 230,
+        "dep_scheduled": 232,
+        "action": "HALT",
+        "arr_actual_rtis": 256,
+        "dep_actual_rtis": 258,
+        "arr_time_str": "03:50",
+        "dep_time_str": "03:52"
+      },
+      {
+        "station_code": "NNO",
+        "arr_scheduled": 253,
+        "dep_scheduled": 257,
+        "action": "HALT",
+        "arr_actual_rtis": 279,
+        "dep_actual_rtis": 283,
+        "arr_time_str": "04:13",
+        "dep_time_str": "04:17"
+      },
+      {
+        "station_code": "SSB",
+        "arr_scheduled": 266,
+        "dep_scheduled": 268,
+        "action": "HALT",
+        "arr_actual_rtis": 292,
+        "dep_actual_rtis": 294,
+        "arr_time_str": "04:26",
+        "dep_time_str": "04:28"
+      },
+      {
+        "station_code": "DEE",
+        "arr_scheduled": 279,
+        "dep_scheduled": 281,
+        "action": "HALT",
+        "arr_actual_rtis": 305,
+        "dep_actual_rtis": 307,
+        "arr_time_str": "04:39",
+        "dep_time_str": "04:41"
+      },
+      {
+        "station_code": "DLI",
+        "arr_scheduled": 287,
+        "dep_scheduled": 288,
+        "action": "HALT",
+        "arr_actual_rtis": 313,
+        "dep_actual_rtis": 314,
+        "arr_time_str": "04:47",
+        "dep_time_str": "04:48"
+      }
+    ],
+    "current_delay_minutes": 26
+  }
+]

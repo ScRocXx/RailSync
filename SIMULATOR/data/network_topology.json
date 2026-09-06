@@ -1,0 +1,663 @@
+{
+  "metadata": {
+    "division": "Delhi",
+    "zone": "Northern Railway",
+    "generated_at": "2026-09-06T00:00:00Z",
+    "seed": 42
+  },
+  "corridors": [
+    {
+      "corridor_id": "CORR_NORTH",
+      "corridor_name": "Delhi - Panipat (North)",
+      "lines": [
+        "UP_MAIN",
+        "DN_MAIN"
+      ],
+      "max_speed_kmph": 130,
+      "total_length_km": 89.0,
+      "stations": [
+        {
+          "station_code": "DLI",
+          "station_name": "Delhi Junction",
+          "km_marker": 0.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 700,
+          "siding_ids": [],
+          "crossover_switches": [
+            "XOVER-DLI-1",
+            "XOVER-DLI-2"
+          ],
+          "platforms": 3
+        },
+        {
+          "station_code": "SZM",
+          "station_name": "Sabzi Mandi",
+          "km_marker": 3.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 600,
+          "siding_ids": [],
+          "crossover_switches": [],
+          "platforms": 3
+        },
+        {
+          "station_code": "ANDI",
+          "station_name": "Azadpur",
+          "km_marker": 9.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 650,
+          "siding_ids": [],
+          "crossover_switches": [
+            "XOVER-ANDI-1",
+            "XOVER-ANDI-2"
+          ],
+          "platforms": 1
+        },
+        {
+          "station_code": "NUR",
+          "station_name": "Narela",
+          "km_marker": 26.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 600,
+          "siding_ids": [],
+          "crossover_switches": [],
+          "platforms": 1
+        },
+        {
+          "station_code": "SNP",
+          "station_name": "Sonepat",
+          "km_marker": 44.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 700,
+          "siding_ids": [],
+          "crossover_switches": [
+            "XOVER-SNP-1",
+            "XOVER-SNP-2"
+          ],
+          "platforms": 1
+        },
+        {
+          "station_code": "GNU",
+          "station_name": "Ganaur",
+          "km_marker": 60.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 700,
+          "siding_ids": [],
+          "crossover_switches": [],
+          "platforms": 3
+        },
+        {
+          "station_code": "SMK",
+          "station_name": "Samalkha",
+          "km_marker": 72.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 700,
+          "siding_ids": [],
+          "crossover_switches": [
+            "XOVER-SMK-1",
+            "XOVER-SMK-2"
+          ],
+          "platforms": 1
+        },
+        {
+          "station_code": "PNP",
+          "station_name": "Panipat",
+          "km_marker": 89.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 700,
+          "siding_ids": [
+            "SID-PNP-01",
+            "SID-PNP-02"
+          ],
+          "crossover_switches": [],
+          "platforms": 6
+        }
+      ],
+      "block_sections": [
+        {
+          "section_id": "CORR_NORTH_DLI_SZM",
+          "from_station": "DLI",
+          "to_station": "SZM",
+          "distance_km": 3.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN"
+          ]
+        },
+        {
+          "section_id": "CORR_NORTH_SZM_ANDI",
+          "from_station": "SZM",
+          "to_station": "ANDI",
+          "distance_km": 6.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN"
+          ]
+        },
+        {
+          "section_id": "CORR_NORTH_ANDI_NUR",
+          "from_station": "ANDI",
+          "to_station": "NUR",
+          "distance_km": 17.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN"
+          ]
+        },
+        {
+          "section_id": "CORR_NORTH_NUR_SNP",
+          "from_station": "NUR",
+          "to_station": "SNP",
+          "distance_km": 18.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN"
+          ]
+        },
+        {
+          "section_id": "CORR_NORTH_SNP_GNU",
+          "from_station": "SNP",
+          "to_station": "GNU",
+          "distance_km": 16.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN"
+          ]
+        },
+        {
+          "section_id": "CORR_NORTH_GNU_SMK",
+          "from_station": "GNU",
+          "to_station": "SMK",
+          "distance_km": 12.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN"
+          ]
+        },
+        {
+          "section_id": "CORR_NORTH_SMK_PNP",
+          "from_station": "SMK",
+          "to_station": "PNP",
+          "distance_km": 17.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN"
+          ]
+        }
+      ]
+    },
+    {
+      "corridor_id": "CORR_EAST",
+      "corridor_name": "Ghaziabad - Meerut City (East)",
+      "lines": [
+        "UP_MAIN",
+        "DN_MAIN"
+      ],
+      "max_speed_kmph": 110,
+      "total_length_km": 48.0,
+      "stations": [
+        {
+          "station_code": "GZB",
+          "station_name": "Ghaziabad",
+          "km_marker": 0.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 700,
+          "siding_ids": [
+            "SID-GZB-01",
+            "SID-GZB-02"
+          ],
+          "crossover_switches": [
+            "XOVER-GZB-1",
+            "XOVER-GZB-2"
+          ],
+          "platforms": 3
+        },
+        {
+          "station_code": "GZN",
+          "station_name": "Ghaziabad North",
+          "km_marker": 5.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 600,
+          "siding_ids": [],
+          "crossover_switches": [],
+          "platforms": 1
+        },
+        {
+          "station_code": "MUD",
+          "station_name": "Murad Nagar",
+          "km_marker": 18.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 600,
+          "siding_ids": [],
+          "crossover_switches": [
+            "XOVER-MUD-1",
+            "XOVER-MUD-2"
+          ],
+          "platforms": 3
+        },
+        {
+          "station_code": "MDNR",
+          "station_name": "Modinagar",
+          "km_marker": 30.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 700,
+          "siding_ids": [],
+          "crossover_switches": [],
+          "platforms": 1
+        },
+        {
+          "station_code": "MUZ",
+          "station_name": "Muzzafarnagar",
+          "km_marker": 45.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 700,
+          "siding_ids": [],
+          "crossover_switches": [
+            "XOVER-MUZ-1",
+            "XOVER-MUZ-2"
+          ],
+          "platforms": 1
+        },
+        {
+          "station_code": "MTC",
+          "station_name": "Meerut City",
+          "km_marker": 48.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 700,
+          "siding_ids": [
+            "SID-MTC-01",
+            "SID-MTC-02"
+          ],
+          "crossover_switches": [],
+          "platforms": 6
+        }
+      ],
+      "block_sections": [
+        {
+          "section_id": "CORR_EAST_GZB_GZN",
+          "from_station": "GZB",
+          "to_station": "GZN",
+          "distance_km": 5.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN"
+          ]
+        },
+        {
+          "section_id": "CORR_EAST_GZN_MUD",
+          "from_station": "GZN",
+          "to_station": "MUD",
+          "distance_km": 13.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN"
+          ]
+        },
+        {
+          "section_id": "CORR_EAST_MUD_MDNR",
+          "from_station": "MUD",
+          "to_station": "MDNR",
+          "distance_km": 12.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN"
+          ]
+        },
+        {
+          "section_id": "CORR_EAST_MDNR_MUZ",
+          "from_station": "MDNR",
+          "to_station": "MUZ",
+          "distance_km": 15.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN"
+          ]
+        },
+        {
+          "section_id": "CORR_EAST_MUZ_MTC",
+          "from_station": "MUZ",
+          "to_station": "MTC",
+          "distance_km": 3.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN"
+          ]
+        }
+      ]
+    },
+    {
+      "corridor_id": "CORR_SOUTH",
+      "corridor_name": "Hazrat Nizamuddin - Palwal (South)",
+      "lines": [
+        "UP_MAIN",
+        "DN_MAIN",
+        "3RD_LINE",
+        "4TH_LINE"
+      ],
+      "max_speed_kmph": 160,
+      "total_length_km": 59.0,
+      "stations": [
+        {
+          "station_code": "NZM",
+          "station_name": "Hazrat Nizamuddin",
+          "km_marker": 0.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 600,
+          "siding_ids": [],
+          "crossover_switches": [
+            "XOVER-NZM-1",
+            "XOVER-NZM-2"
+          ],
+          "platforms": 6
+        },
+        {
+          "station_code": "OKA",
+          "station_name": "Okhla",
+          "km_marker": 4.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 700,
+          "siding_ids": [],
+          "crossover_switches": [],
+          "platforms": 2
+        },
+        {
+          "station_code": "TKD",
+          "station_name": "Tughlakabad",
+          "km_marker": 11.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 700,
+          "siding_ids": [
+            "SID-TKD-01",
+            "SID-TKD-02"
+          ],
+          "crossover_switches": [
+            "XOVER-TKD-1",
+            "XOVER-TKD-2"
+          ],
+          "platforms": 4
+        },
+        {
+          "station_code": "FDB",
+          "station_name": "Faridabad",
+          "km_marker": 22.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 700,
+          "siding_ids": [],
+          "crossover_switches": [],
+          "platforms": 2
+        },
+        {
+          "station_code": "BVH",
+          "station_name": "Ballabgarh",
+          "km_marker": 30.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 650,
+          "siding_ids": [],
+          "crossover_switches": [
+            "XOVER-BVH-1",
+            "XOVER-BVH-2"
+          ],
+          "platforms": 2
+        },
+        {
+          "station_code": "AST",
+          "station_name": "Asaoti",
+          "km_marker": 46.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 600,
+          "siding_ids": [],
+          "crossover_switches": [],
+          "platforms": 1
+        },
+        {
+          "station_code": "PWL",
+          "station_name": "Palwal",
+          "km_marker": 59.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 650,
+          "siding_ids": [],
+          "crossover_switches": [
+            "XOVER-PWL-1",
+            "XOVER-PWL-2"
+          ],
+          "platforms": 1
+        }
+      ],
+      "block_sections": [
+        {
+          "section_id": "CORR_SOUTH_NZM_OKA",
+          "from_station": "NZM",
+          "to_station": "OKA",
+          "distance_km": 4.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN",
+            "3RD_LINE",
+            "4TH_LINE"
+          ]
+        },
+        {
+          "section_id": "CORR_SOUTH_OKA_TKD",
+          "from_station": "OKA",
+          "to_station": "TKD",
+          "distance_km": 7.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN",
+            "3RD_LINE",
+            "4TH_LINE"
+          ]
+        },
+        {
+          "section_id": "CORR_SOUTH_TKD_FDB",
+          "from_station": "TKD",
+          "to_station": "FDB",
+          "distance_km": 11.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN",
+            "3RD_LINE",
+            "4TH_LINE"
+          ]
+        },
+        {
+          "section_id": "CORR_SOUTH_FDB_BVH",
+          "from_station": "FDB",
+          "to_station": "BVH",
+          "distance_km": 8.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN",
+            "3RD_LINE",
+            "4TH_LINE"
+          ]
+        },
+        {
+          "section_id": "CORR_SOUTH_BVH_AST",
+          "from_station": "BVH",
+          "to_station": "AST",
+          "distance_km": 16.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN",
+            "3RD_LINE",
+            "4TH_LINE"
+          ]
+        },
+        {
+          "section_id": "CORR_SOUTH_AST_PWL",
+          "from_station": "AST",
+          "to_station": "PWL",
+          "distance_km": 13.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN",
+            "3RD_LINE",
+            "4TH_LINE"
+          ]
+        }
+      ]
+    },
+    {
+      "corridor_id": "CORR_WEST",
+      "corridor_name": "Delhi - Rohtak (West)",
+      "lines": [
+        "UP_MAIN",
+        "DN_MAIN"
+      ],
+      "max_speed_kmph": 110,
+      "total_length_km": 71.0,
+      "stations": [
+        {
+          "station_code": "DLI",
+          "station_name": "Delhi Junction",
+          "km_marker": 0.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 600,
+          "siding_ids": [],
+          "crossover_switches": [
+            "XOVER-DLI-1",
+            "XOVER-DLI-2"
+          ],
+          "platforms": 6
+        },
+        {
+          "station_code": "DEE",
+          "station_name": "Delhi Sarai Rohilla",
+          "km_marker": 4.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 600,
+          "siding_ids": [],
+          "crossover_switches": [],
+          "platforms": 2
+        },
+        {
+          "station_code": "SSB",
+          "station_name": "Shakurbasti",
+          "km_marker": 11.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 700,
+          "siding_ids": [
+            "SID-SSB-01",
+            "SID-SSB-02"
+          ],
+          "crossover_switches": [
+            "XOVER-SSB-1",
+            "XOVER-SSB-2"
+          ],
+          "platforms": 5
+        },
+        {
+          "station_code": "NNO",
+          "station_name": "Nangloi",
+          "km_marker": 17.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 600,
+          "siding_ids": [],
+          "crossover_switches": [],
+          "platforms": 3
+        },
+        {
+          "station_code": "BGZ",
+          "station_name": "Bahadurgarh",
+          "km_marker": 31.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 715,
+          "siding_ids": [],
+          "crossover_switches": [
+            "XOVER-BGZ-1",
+            "XOVER-BGZ-2"
+          ],
+          "platforms": 3
+        },
+        {
+          "station_code": "SPZ",
+          "station_name": "Sampla",
+          "km_marker": 49.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 600,
+          "siding_ids": [],
+          "crossover_switches": [],
+          "platforms": 2
+        },
+        {
+          "station_code": "ROK",
+          "station_name": "Rohtak",
+          "km_marker": 71.0,
+          "has_platform_loop": true,
+          "loop_csr_meters": 700,
+          "siding_ids": [
+            "SID-ROK-01",
+            "SID-ROK-02"
+          ],
+          "crossover_switches": [
+            "XOVER-ROK-1",
+            "XOVER-ROK-2"
+          ],
+          "platforms": 5
+        }
+      ],
+      "block_sections": [
+        {
+          "section_id": "CORR_WEST_DLI_DEE",
+          "from_station": "DLI",
+          "to_station": "DEE",
+          "distance_km": 4.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN"
+          ]
+        },
+        {
+          "section_id": "CORR_WEST_DEE_SSB",
+          "from_station": "DEE",
+          "to_station": "SSB",
+          "distance_km": 7.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN"
+          ]
+        },
+        {
+          "section_id": "CORR_WEST_SSB_NNO",
+          "from_station": "SSB",
+          "to_station": "NNO",
+          "distance_km": 6.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN"
+          ]
+        },
+        {
+          "section_id": "CORR_WEST_NNO_BGZ",
+          "from_station": "NNO",
+          "to_station": "BGZ",
+          "distance_km": 14.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN"
+          ]
+        },
+        {
+          "section_id": "CORR_WEST_BGZ_SPZ",
+          "from_station": "BGZ",
+          "to_station": "SPZ",
+          "distance_km": 18.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN"
+          ]
+        },
+        {
+          "section_id": "CORR_WEST_SPZ_ROK",
+          "from_station": "SPZ",
+          "to_station": "ROK",
+          "distance_km": 22.0,
+          "lines": [
+            "UP_MAIN",
+            "DN_MAIN"
+          ]
+        }
+      ]
+    }
+  ]
+}

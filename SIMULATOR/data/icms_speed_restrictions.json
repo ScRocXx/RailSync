@@ -1,0 +1,182 @@
+[
+  {
+    "caution_order_no": "TSR/DLI/2026/001",
+    "corridor_id": "CORR_NORTH",
+    "station_section": {
+      "from_station": "GNU",
+      "to_station": "SMK"
+    },
+    "chainage": {
+      "from_km": 60.76,
+      "to_km": 62.37,
+      "line": "UP_MAIN"
+    },
+    "restricted_speed_kmph": 45,
+    "normal_sectional_speed_kmph": 130,
+    "imposition_reason": "RAIL_FRACTURE_FISHPLATED",
+    "imposition_date": "2026-09-02",
+    "estimated_removal_date": "2026-09-18"
+  },
+  {
+    "caution_order_no": "TSR/DLI/2026/002",
+    "corridor_id": "CORR_NORTH",
+    "station_section": {
+      "from_station": "DLI",
+      "to_station": "SZM"
+    },
+    "chainage": {
+      "from_km": 1.05,
+      "to_km": 2.89,
+      "line": "DN_MAIN"
+    },
+    "restricted_speed_kmph": 20,
+    "normal_sectional_speed_kmph": 130,
+    "imposition_reason": "BALLAST_DEFICIENCY",
+    "imposition_date": "2026-09-01",
+    "estimated_removal_date": "2026-09-29"
+  },
+  {
+    "caution_order_no": "TSR/DLI/2026/003",
+    "corridor_id": "CORR_NORTH",
+    "station_section": {
+      "from_station": "DLI",
+      "to_station": "SZM"
+    },
+    "chainage": {
+      "from_km": 0.23,
+      "to_km": 1.08,
+      "line": "UP_MAIN"
+    },
+    "restricted_speed_kmph": 45,
+    "normal_sectional_speed_kmph": 130,
+    "imposition_reason": "DEEP_SCREENING_RECOVERY",
+    "imposition_date": "2026-09-05",
+    "estimated_removal_date": "2026-09-11"
+  },
+  {
+    "caution_order_no": "TSR/DLI/2026/004",
+    "corridor_id": "CORR_EAST",
+    "station_section": {
+      "from_station": "MUZ",
+      "to_station": "MTC"
+    },
+    "chainage": {
+      "from_km": 45.69,
+      "to_km": 46.86,
+      "line": "UP_MAIN"
+    },
+    "restricted_speed_kmph": 20,
+    "normal_sectional_speed_kmph": 110,
+    "imposition_reason": "POST_TAMPING_CONSOLIDATION",
+    "imposition_date": "2026-09-03",
+    "estimated_removal_date": "2026-10-06"
+  },
+  {
+    "caution_order_no": "TSR/DLI/2026/005",
+    "corridor_id": "CORR_EAST",
+    "station_section": {
+      "from_station": "MDNR",
+      "to_station": "MUZ"
+    },
+    "chainage": {
+      "from_km": 32.62,
+      "to_km": 33.35,
+      "line": "UP_MAIN"
+    },
+    "restricted_speed_kmph": 30,
+    "normal_sectional_speed_kmph": 110,
+    "imposition_reason": "RAIL_FRACTURE_FISHPLATED",
+    "imposition_date": "2026-09-03",
+    "estimated_removal_date": "2026-09-14"
+  },
+  {
+    "caution_order_no": "TSR/DLI/2026/006",
+    "corridor_id": "CORR_SOUTH",
+    "station_section": {
+      "from_station": "NZM",
+      "to_station": "OKA"
+    },
+    "chainage": {
+      "from_km": 0.78,
+      "to_km": 1.8,
+      "line": "UP_MAIN"
+    },
+    "restricted_speed_kmph": 45,
+    "normal_sectional_speed_kmph": 160,
+    "imposition_reason": "BALLAST_DEFICIENCY",
+    "imposition_date": "2026-09-03",
+    "estimated_removal_date": "2026-10-06"
+  },
+  {
+    "caution_order_no": "TSR/DLI/2026/007",
+    "corridor_id": "CORR_SOUTH",
+    "station_section": {
+      "from_station": "FDB",
+      "to_station": "BVH"
+    },
+    "chainage": {
+      "from_km": 24.19,
+      "to_km": 26.15,
+      "line": "3RD_LINE"
+    },
+    "restricted_speed_kmph": 45,
+    "normal_sectional_speed_kmph": 160,
+    "imposition_reason": "DEEP_SCREENING_RECOVERY",
+    "imposition_date": "2026-09-04",
+    "estimated_removal_date": "2026-09-13"
+  },
+  {
+    "caution_order_no": "TSR/DLI/2026/008",
+    "corridor_id": "CORR_SOUTH",
+    "station_section": {
+      "from_station": "BVH",
+      "to_station": "AST"
+    },
+    "chainage": {
+      "from_km": 37.1,
+      "to_km": 38.14,
+      "line": "UP_MAIN"
+    },
+    "restricted_speed_kmph": 20,
+    "normal_sectional_speed_kmph": 160,
+    "imposition_reason": "POST_TAMPING_CONSOLIDATION",
+    "imposition_date": "2026-09-02",
+    "estimated_removal_date": "2026-10-03"
+  },
+  {
+    "caution_order_no": "TSR/DLI/2026/009",
+    "corridor_id": "CORR_WEST",
+    "station_section": {
+      "from_station": "SPZ",
+      "to_station": "ROK"
+    },
+    "chainage": {
+      "from_km": 51.58,
+      "to_km": 52.51,
+      "line": "UP_MAIN"
+    },
+    "restricted_speed_kmph": 30,
+    "normal_sectional_speed_kmph": 110,
+    "imposition_reason": "RAIL_FRACTURE_FISHPLATED",
+    "imposition_date": "2026-09-01",
+    "estimated_removal_date": "2026-09-18"
+  },
+  {
+    "caution_order_no": "TSR/DLI/2026/010",
+    "corridor_id": "CORR_WEST",
+    "station_section": {
+      "from_station": "SSB",
+      "to_station": "NNO"
+    },
+    "chainage": {
+      "from_km": 12.41,
+      "to_km": 14.16,
+      "line": "DN_MAIN"
+    },
+    "restricted_speed_kmph": 20,
+    "normal_sectional_speed_kmph": 110,
+    "imposition_reason": "BALLAST_DEFICIENCY",
+    "imposition_date": "2026-09-02",
+    "estimated_removal_date": "2026-09-22"
+  }
+]

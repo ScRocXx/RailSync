@@ -1,0 +1,342 @@
+[
+  {
+    "gear_id": "POINT-101B",
+    "corridor_id": "CORR_NORTH",
+    "station_code": "SZM",
+    "station_name": "Sabzi Mandi",
+    "turnout_number": "1 in 12 Curved Switch",
+    "motor_throw_time_sec": 4.7,
+    "motor_operating_current_amp": 2.8,
+    "obstruction_test_5mm_passed": true,
+    "disconnection_notice_required": true,
+    "disconnection_memo_no": "ST-103/2026/704",
+    "interlocked_routes_affected": [
+      "R-SZM-UP-04",
+      "R-SZM-DN-01"
+    ],
+    "health_status": "HEALTHY"
+  },
+  {
+    "gear_id": "POINT-102A",
+    "corridor_id": "CORR_NORTH",
+    "station_code": "SZM",
+    "station_name": "Sabzi Mandi",
+    "turnout_number": "1 in 12 Curved Switch",
+    "motor_throw_time_sec": 4.6,
+    "motor_operating_current_amp": 2.3,
+    "obstruction_test_5mm_passed": true,
+    "disconnection_notice_required": false,
+    "disconnection_memo_no": null,
+    "interlocked_routes_affected": [
+      "R-SZM-UP-03",
+      "R-SZM-DN-01"
+    ],
+    "health_status": "HEALTHY"
+  },
+  {
+    "gear_id": "POINT-103A",
+    "corridor_id": "CORR_NORTH",
+    "station_code": "SMK",
+    "station_name": "Samalkha",
+    "turnout_number": "1 in 12 Curved Switch",
+    "motor_throw_time_sec": 5.8,
+    "motor_operating_current_amp": 3.6,
+    "obstruction_test_5mm_passed": false,
+    "disconnection_notice_required": true,
+    "disconnection_memo_no": "ST-103/2026/467",
+    "interlocked_routes_affected": [
+      "R-SMK-UP-03",
+      "R-SMK-DN-03"
+    ],
+    "health_status": "CRITICAL"
+  },
+  {
+    "gear_id": "TC-104T",
+    "corridor_id": "CORR_NORTH",
+    "station_code": "DLI",
+    "station_name": "Delhi Junction",
+    "turnout_number": "N/A",
+    "motor_throw_time_sec": 5.1,
+    "motor_operating_current_amp": 2.2,
+    "obstruction_test_5mm_passed": true,
+    "disconnection_notice_required": false,
+    "disconnection_memo_no": null,
+    "interlocked_routes_affected": [
+      "R-DLI-UP-03",
+      "R-DLI-DN-02"
+    ],
+    "health_status": "HEALTHY"
+  },
+  {
+    "gear_id": "TC-105T",
+    "corridor_id": "CORR_NORTH",
+    "station_code": "DLI",
+    "station_name": "Delhi Junction",
+    "turnout_number": "N/A",
+    "motor_throw_time_sec": 5.1,
+    "motor_operating_current_amp": 3.1,
+    "obstruction_test_5mm_passed": true,
+    "disconnection_notice_required": true,
+    "disconnection_memo_no": "ST-103/2026/489",
+    "interlocked_routes_affected": [
+      "R-DLI-UP-03",
+      "R-DLI-DN-04"
+    ],
+    "health_status": "HEALTHY"
+  },
+  {
+    "gear_id": "POINT-106A",
+    "corridor_id": "CORR_EAST",
+    "station_code": "GZN",
+    "station_name": "Ghaziabad North",
+    "turnout_number": "1 in 8.5 Turnout",
+    "motor_throw_time_sec": 4.6,
+    "motor_operating_current_amp": 1.6,
+    "obstruction_test_5mm_passed": false,
+    "disconnection_notice_required": true,
+    "disconnection_memo_no": "ST-103/2026/646",
+    "interlocked_routes_affected": [
+      "R-GZN-UP-02",
+      "R-GZN-DN-02"
+    ],
+    "health_status": "HEALTHY"
+  },
+  {
+    "gear_id": "POINT-107A",
+    "corridor_id": "CORR_EAST",
+    "station_code": "MDNR",
+    "station_name": "Modinagar",
+    "turnout_number": "1 in 8.5 Turnout",
+    "motor_throw_time_sec": 5.6,
+    "motor_operating_current_amp": 1.6,
+    "obstruction_test_5mm_passed": true,
+    "disconnection_notice_required": false,
+    "disconnection_memo_no": null,
+    "interlocked_routes_affected": [
+      "R-MDNR-UP-04",
+      "R-MDNR-DN-03"
+    ],
+    "health_status": "DEGRADED"
+  },
+  {
+    "gear_id": "SSDAC-AXLE-18",
+    "corridor_id": "CORR_EAST",
+    "station_code": "GZN",
+    "station_name": "Ghaziabad North",
+    "turnout_number": "N/A",
+    "motor_throw_time_sec": 4.6,
+    "motor_operating_current_amp": 1.9,
+    "obstruction_test_5mm_passed": true,
+    "disconnection_notice_required": false,
+    "disconnection_memo_no": null,
+    "interlocked_routes_affected": [
+      "R-GZN-UP-04",
+      "R-GZN-DN-04"
+    ],
+    "health_status": "HEALTHY"
+  },
+  {
+    "gear_id": "POINT-109B",
+    "corridor_id": "CORR_EAST",
+    "station_code": "MUD",
+    "station_name": "Murad Nagar",
+    "turnout_number": "1 in 8.5 Turnout",
+    "motor_throw_time_sec": 4.1,
+    "motor_operating_current_amp": 3.8,
+    "obstruction_test_5mm_passed": true,
+    "disconnection_notice_required": true,
+    "disconnection_memo_no": "ST-103/2026/621",
+    "interlocked_routes_affected": [
+      "R-MUD-UP-04",
+      "R-MUD-DN-01"
+    ],
+    "health_status": "DEGRADED"
+  },
+  {
+    "gear_id": "POINT-1010A",
+    "corridor_id": "CORR_EAST",
+    "station_code": "GZB",
+    "station_name": "Ghaziabad",
+    "turnout_number": "1 in 8.5 Turnout",
+    "motor_throw_time_sec": 4.1,
+    "motor_operating_current_amp": 2.6,
+    "obstruction_test_5mm_passed": true,
+    "disconnection_notice_required": false,
+    "disconnection_memo_no": null,
+    "interlocked_routes_affected": [
+      "R-GZB-UP-03",
+      "R-GZB-DN-01"
+    ],
+    "health_status": "HEALTHY"
+  },
+  {
+    "gear_id": "SSDAC-AXLE-21",
+    "corridor_id": "CORR_SOUTH",
+    "station_code": "AST",
+    "station_name": "Asaoti",
+    "turnout_number": "N/A",
+    "motor_throw_time_sec": 4.7,
+    "motor_operating_current_amp": 2.1,
+    "obstruction_test_5mm_passed": false,
+    "disconnection_notice_required": false,
+    "disconnection_memo_no": null,
+    "interlocked_routes_affected": [
+      "R-AST-UP-04",
+      "R-AST-DN-02"
+    ],
+    "health_status": "HEALTHY"
+  },
+  {
+    "gear_id": "SSDAC-AXLE-22",
+    "corridor_id": "CORR_SOUTH",
+    "station_code": "NZM",
+    "station_name": "Hazrat Nizamuddin",
+    "turnout_number": "N/A",
+    "motor_throw_time_sec": 5.1,
+    "motor_operating_current_amp": 3.8,
+    "obstruction_test_5mm_passed": true,
+    "disconnection_notice_required": true,
+    "disconnection_memo_no": "ST-103/2026/991",
+    "interlocked_routes_affected": [
+      "R-NZM-UP-03",
+      "R-NZM-DN-02"
+    ],
+    "health_status": "DEGRADED"
+  },
+  {
+    "gear_id": "TC-113T",
+    "corridor_id": "CORR_SOUTH",
+    "station_code": "TKD",
+    "station_name": "Tughlakabad",
+    "turnout_number": "N/A",
+    "motor_throw_time_sec": 4.7,
+    "motor_operating_current_amp": 2.5,
+    "obstruction_test_5mm_passed": true,
+    "disconnection_notice_required": true,
+    "disconnection_memo_no": "ST-103/2026/713",
+    "interlocked_routes_affected": [
+      "R-TKD-UP-03",
+      "R-TKD-DN-04"
+    ],
+    "health_status": "HEALTHY"
+  },
+  {
+    "gear_id": "SSDAC-AXLE-24",
+    "corridor_id": "CORR_SOUTH",
+    "station_code": "NZM",
+    "station_name": "Hazrat Nizamuddin",
+    "turnout_number": "N/A",
+    "motor_throw_time_sec": 3.9,
+    "motor_operating_current_amp": 3.6,
+    "obstruction_test_5mm_passed": true,
+    "disconnection_notice_required": true,
+    "disconnection_memo_no": "ST-103/2026/187",
+    "interlocked_routes_affected": [
+      "R-NZM-UP-04",
+      "R-NZM-DN-01"
+    ],
+    "health_status": "DEGRADED"
+  },
+  {
+    "gear_id": "TC-115T",
+    "corridor_id": "CORR_SOUTH",
+    "station_code": "OKA",
+    "station_name": "Okhla",
+    "turnout_number": "N/A",
+    "motor_throw_time_sec": 5.7,
+    "motor_operating_current_amp": 3.2,
+    "obstruction_test_5mm_passed": true,
+    "disconnection_notice_required": false,
+    "disconnection_memo_no": null,
+    "interlocked_routes_affected": [
+      "R-OKA-UP-02",
+      "R-OKA-DN-02"
+    ],
+    "health_status": "DEGRADED"
+  },
+  {
+    "gear_id": "SSDAC-AXLE-26",
+    "corridor_id": "CORR_WEST",
+    "station_code": "NNO",
+    "station_name": "Nangloi",
+    "turnout_number": "N/A",
+    "motor_throw_time_sec": 4.2,
+    "motor_operating_current_amp": 2.5,
+    "obstruction_test_5mm_passed": true,
+    "disconnection_notice_required": true,
+    "disconnection_memo_no": "ST-103/2026/353",
+    "interlocked_routes_affected": [
+      "R-NNO-UP-02",
+      "R-NNO-DN-01"
+    ],
+    "health_status": "HEALTHY"
+  },
+  {
+    "gear_id": "POINT-1017A",
+    "corridor_id": "CORR_WEST",
+    "station_code": "DLI",
+    "station_name": "Delhi Junction",
+    "turnout_number": "1 in 12 Curved Switch",
+    "motor_throw_time_sec": 4.6,
+    "motor_operating_current_amp": 1.6,
+    "obstruction_test_5mm_passed": true,
+    "disconnection_notice_required": true,
+    "disconnection_memo_no": "ST-103/2026/132",
+    "interlocked_routes_affected": [
+      "R-DLI-UP-03",
+      "R-DLI-DN-01"
+    ],
+    "health_status": "HEALTHY"
+  },
+  {
+    "gear_id": "TC-118T",
+    "corridor_id": "CORR_WEST",
+    "station_code": "SSB",
+    "station_name": "Shakurbasti",
+    "turnout_number": "N/A",
+    "motor_throw_time_sec": 3.7,
+    "motor_operating_current_amp": 3.3,
+    "obstruction_test_5mm_passed": false,
+    "disconnection_notice_required": false,
+    "disconnection_memo_no": null,
+    "interlocked_routes_affected": [
+      "R-SSB-UP-02",
+      "R-SSB-DN-04"
+    ],
+    "health_status": "HEALTHY"
+  },
+  {
+    "gear_id": "POINT-1019B",
+    "corridor_id": "CORR_WEST",
+    "station_code": "DEE",
+    "station_name": "Delhi Sarai Rohilla",
+    "turnout_number": "1 in 8.5 Turnout",
+    "motor_throw_time_sec": 4.2,
+    "motor_operating_current_amp": 2.9,
+    "obstruction_test_5mm_passed": true,
+    "disconnection_notice_required": true,
+    "disconnection_memo_no": "ST-103/2026/162",
+    "interlocked_routes_affected": [
+      "R-DEE-UP-04",
+      "R-DEE-DN-03"
+    ],
+    "health_status": "HEALTHY"
+  },
+  {
+    "gear_id": "POINT-1020B",
+    "corridor_id": "CORR_WEST",
+    "station_code": "DEE",
+    "station_name": "Delhi Sarai Rohilla",
+    "turnout_number": "1 in 12 Curved Switch",
+    "motor_throw_time_sec": 3.9,
+    "motor_operating_current_amp": 2.0,
+    "obstruction_test_5mm_passed": true,
+    "disconnection_notice_required": true,
+    "disconnection_memo_no": "ST-103/2026/553",
+    "interlocked_routes_affected": [
+      "R-DEE-UP-01",
+      "R-DEE-DN-01"
+    ],
+    "health_status": "HEALTHY"
+  }
+]

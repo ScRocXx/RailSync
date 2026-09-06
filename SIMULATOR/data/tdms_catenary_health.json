@@ -1,0 +1,627 @@
+[
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/001",
+    "corridor_id": "CORR_EAST",
+    "catenary_segment": {
+      "from_km": 25.2,
+      "to_km": 26.0,
+      "sub_division": "TDMS-GZB-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-GZB",
+      "sub_sectioning_post_id": "SSP-MDNR",
+      "elementary_section_no": "ES-GZB-UP-04",
+      "isolator_switches_to_open": [
+        "SM-104",
+        "CB-102"
+      ],
+      "adjacent_line_isolation_required": false
+    },
+    "contact_wire_diameter_mm": 8.2,
+    "stagger_deviation_mm": 45.0,
+    "sparking_severity": "HEAVY_EROSION",
+    "power_block_type": "LOCAL_ISOLATION",
+    "overdue_days": 6,
+    "priority": "CRITICAL"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/002",
+    "corridor_id": "CORR_NORTH",
+    "catenary_segment": {
+      "from_km": 55.6,
+      "to_km": 57.2,
+      "sub_division": "TDMS-SNP-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-SNP",
+      "sub_sectioning_post_id": "SSP-NUR",
+      "elementary_section_no": "ES-SNP-UP-04",
+      "isolator_switches_to_open": [
+        "SM-186",
+        "CB-194"
+      ],
+      "adjacent_line_isolation_required": true
+    },
+    "contact_wire_diameter_mm": 7.61,
+    "stagger_deviation_mm": 39.5,
+    "sparking_severity": "NONE",
+    "power_block_type": "LOCAL_ISOLATION",
+    "overdue_days": 2,
+    "priority": "CRITICAL"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/003",
+    "corridor_id": "CORR_NORTH",
+    "catenary_segment": {
+      "from_km": 19.0,
+      "to_km": 19.8,
+      "sub_division": "TDMS-DLI-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-DLI",
+      "sub_sectioning_post_id": "SSP-NUR",
+      "elementary_section_no": "ES-DLI-DN-12",
+      "isolator_switches_to_open": [
+        "SM-175",
+        "CB-135"
+      ],
+      "adjacent_line_isolation_required": true
+    },
+    "contact_wire_diameter_mm": 9.77,
+    "stagger_deviation_mm": 47.9,
+    "sparking_severity": "NONE",
+    "power_block_type": "EMERGENCY_SHUTDOWN",
+    "overdue_days": 13,
+    "priority": "AVERAGE"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/004",
+    "corridor_id": "CORR_NORTH",
+    "catenary_segment": {
+      "from_km": 29.6,
+      "to_km": 30.2,
+      "sub_division": "TDMS-GNU-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-GNU",
+      "sub_sectioning_post_id": "SSP-SZM",
+      "elementary_section_no": "ES-GNU-DN-02",
+      "isolator_switches_to_open": [
+        "SM-144",
+        "CB-177"
+      ],
+      "adjacent_line_isolation_required": false
+    },
+    "contact_wire_diameter_mm": 8.2,
+    "stagger_deviation_mm": 50.4,
+    "sparking_severity": "HEAVY_EROSION",
+    "power_block_type": "LONGITUDINAL_FEED",
+    "overdue_days": 17,
+    "priority": "CRITICAL"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/005",
+    "corridor_id": "CORR_NORTH",
+    "catenary_segment": {
+      "from_km": 10.9,
+      "to_km": 12.3,
+      "sub_division": "TDMS-SZM-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-SZM",
+      "sub_sectioning_post_id": "SSP-SNP",
+      "elementary_section_no": "ES-SZM-DN-11",
+      "isolator_switches_to_open": [
+        "SM-190",
+        "CB-108"
+      ],
+      "adjacent_line_isolation_required": true
+    },
+    "contact_wire_diameter_mm": 11.65,
+    "stagger_deviation_mm": 43.1,
+    "sparking_severity": "LIGHT",
+    "power_block_type": "LOCAL_ISOLATION",
+    "overdue_days": 27,
+    "priority": "ROUTINE"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/006",
+    "corridor_id": "CORR_NORTH",
+    "catenary_segment": {
+      "from_km": 20.3,
+      "to_km": 21.0,
+      "sub_division": "TDMS-SNP-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-SNP",
+      "sub_sectioning_post_id": "SSP-PNP",
+      "elementary_section_no": "ES-SNP-DN-11",
+      "isolator_switches_to_open": [
+        "SM-145",
+        "CB-126"
+      ],
+      "adjacent_line_isolation_required": false
+    },
+    "contact_wire_diameter_mm": 7.95,
+    "stagger_deviation_mm": 45.1,
+    "sparking_severity": "HEAVY_EROSION",
+    "power_block_type": "EMERGENCY_SHUTDOWN",
+    "overdue_days": 2,
+    "priority": "CRITICAL"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/007",
+    "corridor_id": "CORR_NORTH",
+    "catenary_segment": {
+      "from_km": 53.0,
+      "to_km": 53.9,
+      "sub_division": "TDMS-NUR-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-NUR",
+      "sub_sectioning_post_id": "SSP-ANDI",
+      "elementary_section_no": "ES-NUR-DN-08",
+      "isolator_switches_to_open": [
+        "SM-181",
+        "CB-188"
+      ],
+      "adjacent_line_isolation_required": true
+    },
+    "contact_wire_diameter_mm": 8.27,
+    "stagger_deviation_mm": 44.2,
+    "sparking_severity": "NONE",
+    "power_block_type": "LOCAL_ISOLATION",
+    "overdue_days": 26,
+    "priority": "URGENT"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/008",
+    "corridor_id": "CORR_NORTH",
+    "catenary_segment": {
+      "from_km": 2.8,
+      "to_km": 3.6,
+      "sub_division": "TDMS-SNP-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-SNP",
+      "sub_sectioning_post_id": "SSP-SZM",
+      "elementary_section_no": "ES-SNP-DN-04",
+      "isolator_switches_to_open": [
+        "SM-163",
+        "CB-150"
+      ],
+      "adjacent_line_isolation_required": false
+    },
+    "contact_wire_diameter_mm": 8.92,
+    "stagger_deviation_mm": 17.1,
+    "sparking_severity": "NONE",
+    "power_block_type": "LOCAL_ISOLATION",
+    "overdue_days": 23,
+    "priority": "URGENT"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/009",
+    "corridor_id": "CORR_EAST",
+    "catenary_segment": {
+      "from_km": 25.8,
+      "to_km": 26.8,
+      "sub_division": "TDMS-MUZ-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-MUZ",
+      "sub_sectioning_post_id": "SSP-MDNR",
+      "elementary_section_no": "ES-MUZ-DN-10",
+      "isolator_switches_to_open": [
+        "SM-117",
+        "CB-165"
+      ],
+      "adjacent_line_isolation_required": false
+    },
+    "contact_wire_diameter_mm": 8.68,
+    "stagger_deviation_mm": 14.5,
+    "sparking_severity": "NONE",
+    "power_block_type": "LOCAL_ISOLATION",
+    "overdue_days": 4,
+    "priority": "URGENT"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/010",
+    "corridor_id": "CORR_EAST",
+    "catenary_segment": {
+      "from_km": 28.9,
+      "to_km": 30.0,
+      "sub_division": "TDMS-MDNR-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-MDNR",
+      "sub_sectioning_post_id": "SSP-MUZ",
+      "elementary_section_no": "ES-MDNR-DN-02",
+      "isolator_switches_to_open": [
+        "SM-159",
+        "CB-167"
+      ],
+      "adjacent_line_isolation_required": false
+    },
+    "contact_wire_diameter_mm": 11.06,
+    "stagger_deviation_mm": 58.6,
+    "sparking_severity": "NONE",
+    "power_block_type": "EMERGENCY_SHUTDOWN",
+    "overdue_days": 23,
+    "priority": "ROUTINE"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/011",
+    "corridor_id": "CORR_EAST",
+    "catenary_segment": {
+      "from_km": 5.3,
+      "to_km": 6.2,
+      "sub_division": "TDMS-MUD-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-MUD",
+      "sub_sectioning_post_id": "SSP-MTC",
+      "elementary_section_no": "ES-MUD-UP-06",
+      "isolator_switches_to_open": [
+        "SM-120",
+        "CB-158"
+      ],
+      "adjacent_line_isolation_required": true
+    },
+    "contact_wire_diameter_mm": 11.48,
+    "stagger_deviation_mm": 57.7,
+    "sparking_severity": "HEAVY_EROSION",
+    "power_block_type": "LONGITUDINAL_FEED",
+    "overdue_days": 16,
+    "priority": "ROUTINE"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/012",
+    "corridor_id": "CORR_EAST",
+    "catenary_segment": {
+      "from_km": 35.1,
+      "to_km": 35.8,
+      "sub_division": "TDMS-GZB-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-GZB",
+      "sub_sectioning_post_id": "SSP-MTC",
+      "elementary_section_no": "ES-GZB-UP-05",
+      "isolator_switches_to_open": [
+        "SM-197",
+        "CB-120"
+      ],
+      "adjacent_line_isolation_required": true
+    },
+    "contact_wire_diameter_mm": 9.78,
+    "stagger_deviation_mm": 39.9,
+    "sparking_severity": "LIGHT",
+    "power_block_type": "LOCAL_ISOLATION",
+    "overdue_days": 3,
+    "priority": "AVERAGE"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/013",
+    "corridor_id": "CORR_EAST",
+    "catenary_segment": {
+      "from_km": 42.7,
+      "to_km": 44.5,
+      "sub_division": "TDMS-MUD-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-MUD",
+      "sub_sectioning_post_id": "SSP-GZN",
+      "elementary_section_no": "ES-MUD-UP-01",
+      "isolator_switches_to_open": [
+        "SM-110",
+        "CB-110"
+      ],
+      "adjacent_line_isolation_required": false
+    },
+    "contact_wire_diameter_mm": 11.45,
+    "stagger_deviation_mm": 50.8,
+    "sparking_severity": "HEAVY_EROSION",
+    "power_block_type": "LOCAL_ISOLATION",
+    "overdue_days": 4,
+    "priority": "ROUTINE"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/014",
+    "corridor_id": "CORR_SOUTH",
+    "catenary_segment": {
+      "from_km": 37.6,
+      "to_km": 39.5,
+      "sub_division": "TDMS-OKA-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-OKA",
+      "sub_sectioning_post_id": "SSP-TKD",
+      "elementary_section_no": "ES-OKA-DN-09",
+      "isolator_switches_to_open": [
+        "SM-169",
+        "CB-196"
+      ],
+      "adjacent_line_isolation_required": true
+    },
+    "contact_wire_diameter_mm": 11.76,
+    "stagger_deviation_mm": 45.6,
+    "sparking_severity": "LIGHT",
+    "power_block_type": "EMERGENCY_SHUTDOWN",
+    "overdue_days": 20,
+    "priority": "ROUTINE"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/015",
+    "corridor_id": "CORR_SOUTH",
+    "catenary_segment": {
+      "from_km": 21.3,
+      "to_km": 21.9,
+      "sub_division": "TDMS-FDB-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-FDB",
+      "sub_sectioning_post_id": "SSP-NZM",
+      "elementary_section_no": "ES-FDB-UP-04",
+      "isolator_switches_to_open": [
+        "SM-102",
+        "CB-175"
+      ],
+      "adjacent_line_isolation_required": true
+    },
+    "contact_wire_diameter_mm": 11.55,
+    "stagger_deviation_mm": 39.4,
+    "sparking_severity": "NONE",
+    "power_block_type": "LOCAL_ISOLATION",
+    "overdue_days": 22,
+    "priority": "ROUTINE"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/016",
+    "corridor_id": "CORR_SOUTH",
+    "catenary_segment": {
+      "from_km": 36.0,
+      "to_km": 37.3,
+      "sub_division": "TDMS-NZM-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-NZM",
+      "sub_sectioning_post_id": "SSP-PWL",
+      "elementary_section_no": "ES-NZM-UP-06",
+      "isolator_switches_to_open": [
+        "SM-135",
+        "CB-185"
+      ],
+      "adjacent_line_isolation_required": false
+    },
+    "contact_wire_diameter_mm": 8.53,
+    "stagger_deviation_mm": 20.7,
+    "sparking_severity": "NONE",
+    "power_block_type": "EMERGENCY_SHUTDOWN",
+    "overdue_days": 29,
+    "priority": "URGENT"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/017",
+    "corridor_id": "CORR_SOUTH",
+    "catenary_segment": {
+      "from_km": 50.3,
+      "to_km": 51.1,
+      "sub_division": "TDMS-OKA-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-OKA",
+      "sub_sectioning_post_id": "SSP-PWL",
+      "elementary_section_no": "ES-OKA-DN-08",
+      "isolator_switches_to_open": [
+        "SM-112",
+        "CB-184"
+      ],
+      "adjacent_line_isolation_required": false
+    },
+    "contact_wire_diameter_mm": 10.09,
+    "stagger_deviation_mm": 27.7,
+    "sparking_severity": "LIGHT",
+    "power_block_type": "LONGITUDINAL_FEED",
+    "overdue_days": 27,
+    "priority": "AVERAGE"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/018",
+    "corridor_id": "CORR_SOUTH",
+    "catenary_segment": {
+      "from_km": 41.6,
+      "to_km": 43.2,
+      "sub_division": "TDMS-AST-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-AST",
+      "sub_sectioning_post_id": "SSP-NZM",
+      "elementary_section_no": "ES-AST-DN-01",
+      "isolator_switches_to_open": [
+        "SM-113",
+        "CB-131"
+      ],
+      "adjacent_line_isolation_required": true
+    },
+    "contact_wire_diameter_mm": 10.53,
+    "stagger_deviation_mm": 19.5,
+    "sparking_severity": "LIGHT",
+    "power_block_type": "LOCAL_ISOLATION",
+    "overdue_days": 13,
+    "priority": "ROUTINE"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/019",
+    "corridor_id": "CORR_SOUTH",
+    "catenary_segment": {
+      "from_km": 10.5,
+      "to_km": 11.1,
+      "sub_division": "TDMS-PWL-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-PWL",
+      "sub_sectioning_post_id": "SSP-NZM",
+      "elementary_section_no": "ES-PWL-UP-08",
+      "isolator_switches_to_open": [
+        "SM-169",
+        "CB-101"
+      ],
+      "adjacent_line_isolation_required": true
+    },
+    "contact_wire_diameter_mm": 9.58,
+    "stagger_deviation_mm": 56.3,
+    "sparking_severity": "NONE",
+    "power_block_type": "LOCAL_ISOLATION",
+    "overdue_days": 13,
+    "priority": "AVERAGE"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/020",
+    "corridor_id": "CORR_WEST",
+    "catenary_segment": {
+      "from_km": 33.5,
+      "to_km": 34.0,
+      "sub_division": "TDMS-NNO-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-NNO",
+      "sub_sectioning_post_id": "SSP-DLI",
+      "elementary_section_no": "ES-NNO-DN-03",
+      "isolator_switches_to_open": [
+        "SM-149",
+        "CB-133"
+      ],
+      "adjacent_line_isolation_required": false
+    },
+    "contact_wire_diameter_mm": 8.46,
+    "stagger_deviation_mm": 24.3,
+    "sparking_severity": "HEAVY_EROSION",
+    "power_block_type": "EMERGENCY_SHUTDOWN",
+    "overdue_days": 25,
+    "priority": "URGENT"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/021",
+    "corridor_id": "CORR_WEST",
+    "catenary_segment": {
+      "from_km": 38.3,
+      "to_km": 40.3,
+      "sub_division": "TDMS-DEE-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-DEE",
+      "sub_sectioning_post_id": "SSP-DEE",
+      "elementary_section_no": "ES-DEE-UP-05",
+      "isolator_switches_to_open": [
+        "SM-174",
+        "CB-194"
+      ],
+      "adjacent_line_isolation_required": true
+    },
+    "contact_wire_diameter_mm": 10.73,
+    "stagger_deviation_mm": 47.4,
+    "sparking_severity": "NONE",
+    "power_block_type": "LOCAL_ISOLATION",
+    "overdue_days": 18,
+    "priority": "ROUTINE"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/022",
+    "corridor_id": "CORR_WEST",
+    "catenary_segment": {
+      "from_km": 32.9,
+      "to_km": 34.7,
+      "sub_division": "TDMS-BGZ-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-BGZ",
+      "sub_sectioning_post_id": "SSP-DEE",
+      "elementary_section_no": "ES-BGZ-UP-01",
+      "isolator_switches_to_open": [
+        "SM-108",
+        "CB-176"
+      ],
+      "adjacent_line_isolation_required": true
+    },
+    "contact_wire_diameter_mm": 11.64,
+    "stagger_deviation_mm": 43.8,
+    "sparking_severity": "NONE",
+    "power_block_type": "LONGITUDINAL_FEED",
+    "overdue_days": 3,
+    "priority": "ROUTINE"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/023",
+    "corridor_id": "CORR_WEST",
+    "catenary_segment": {
+      "from_km": 65.0,
+      "to_km": 66.1,
+      "sub_division": "TDMS-BGZ-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-BGZ",
+      "sub_sectioning_post_id": "SSP-BGZ",
+      "elementary_section_no": "ES-BGZ-UP-01",
+      "isolator_switches_to_open": [
+        "SM-174",
+        "CB-172"
+      ],
+      "adjacent_line_isolation_required": false
+    },
+    "contact_wire_diameter_mm": 10.06,
+    "stagger_deviation_mm": 56.7,
+    "sparking_severity": "NONE",
+    "power_block_type": "EMERGENCY_SHUTDOWN",
+    "overdue_days": 22,
+    "priority": "AVERAGE"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/024",
+    "corridor_id": "CORR_WEST",
+    "catenary_segment": {
+      "from_km": 21.7,
+      "to_km": 22.9,
+      "sub_division": "TDMS-DEE-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-DEE",
+      "sub_sectioning_post_id": "SSP-SPZ",
+      "elementary_section_no": "ES-DEE-DN-11",
+      "isolator_switches_to_open": [
+        "SM-196",
+        "CB-109"
+      ],
+      "adjacent_line_isolation_required": true
+    },
+    "contact_wire_diameter_mm": 8.7,
+    "stagger_deviation_mm": 32.9,
+    "sparking_severity": "HEAVY_EROSION",
+    "power_block_type": "LOCAL_ISOLATION",
+    "overdue_days": 2,
+    "priority": "URGENT"
+  },
+  {
+    "demand_id": "TDMS/DIV/TRD/2026/025",
+    "corridor_id": "CORR_WEST",
+    "catenary_segment": {
+      "from_km": 37.1,
+      "to_km": 38.2,
+      "sub_division": "TDMS-DEE-SUBDIV"
+    },
+    "electrical_topology": {
+      "feeding_post_id": "FP-DEE",
+      "sub_sectioning_post_id": "SSP-SSB",
+      "elementary_section_no": "ES-DEE-UP-02",
+      "isolator_switches_to_open": [
+        "SM-120",
+        "CB-156"
+      ],
+      "adjacent_line_isolation_required": false
+    },
+    "contact_wire_diameter_mm": 9.78,
+    "stagger_deviation_mm": 40.6,
+    "sparking_severity": "HEAVY_EROSION",
+    "power_block_type": "EMERGENCY_SHUTDOWN",
+    "overdue_days": 0,
+    "priority": "AVERAGE"
+  }
+]

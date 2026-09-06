@@ -1,0 +1,1162 @@
+[
+  {
+    "inspection_id": "TRC-2026-Q3-001",
+    "corridor_id": "CORR_EAST",
+    "track_id": "UP_MAIN",
+    "chainage": {
+      "from_km": 24.5,
+      "to_km": 27.0,
+      "from_mast": "24/9",
+      "to_mast": "27/1"
+    },
+    "track_structure": {
+      "rail_weight": "60KG",
+      "sleeper_type": "PSC_MONOBLOCK",
+      "sleeper_density": 1660,
+      "gmt_carried": 245.5
+    },
+    "tgi_breakdown": {
+      "ui": 60.0,
+      "ti": 50.0,
+      "gi": 30.0,
+      "ai": 20.0,
+      "composite_tgi": 32.0
+    },
+    "usfd_flaw": {
+      "flaw_code": "NONE",
+      "defect_type": "NONE",
+      "action_timeline_hours": 0
+    },
+    "ballast_cushion_depth_mm": 120,
+    "required_action": "CSM_TAMPING",
+    "overdue_days": 12,
+    "priority": "CRITICAL"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-002",
+    "corridor_id": "CORR_NORTH",
+    "track_id": "DN_MAIN",
+    "chainage": {
+      "from_km": 77.5,
+      "to_km": 78.5,
+      "from_mast": "77/9",
+      "to_mast": "78/9"
+    },
+    "track_structure": {
+      "rail_weight": "60KG",
+      "sleeper_type": "PSC_MONOBLOCK",
+      "sleeper_density": 1660,
+      "gmt_carried": 300.0
+    },
+    "tgi_breakdown": {
+      "ui": 120.0,
+      "ti": 50.0,
+      "gi": 50.0,
+      "ai": 30.0,
+      "composite_tgi": 52.0
+    },
+    "usfd_flaw": {
+      "flaw_code": "NONE",
+      "defect_type": "NONE",
+      "action_timeline_hours": 0
+    },
+    "ballast_cushion_depth_mm": 140,
+    "required_action": "BCM_DEEP_SCREENING",
+    "overdue_days": 5,
+    "priority": "AVERAGE"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-003",
+    "corridor_id": "CORR_SOUTH",
+    "track_id": "3RD_LINE",
+    "chainage": {
+      "from_km": 35.0,
+      "to_km": 36.5,
+      "from_mast": "35/1",
+      "to_mast": "36/9"
+    },
+    "track_structure": {
+      "rail_weight": "60KG",
+      "sleeper_type": "PSC_MONOBLOCK",
+      "sleeper_density": 1540,
+      "gmt_carried": 150.0
+    },
+    "tgi_breakdown": {
+      "ui": 150.0,
+      "ti": 80.0,
+      "gi": 70.0,
+      "ai": 50.0,
+      "composite_tgi": 75.0
+    },
+    "usfd_flaw": {
+      "flaw_code": "NONE",
+      "defect_type": "NONE",
+      "action_timeline_hours": 0
+    },
+    "ballast_cushion_depth_mm": 250,
+    "required_action": "DESTRESSING",
+    "overdue_days": 2,
+    "priority": "GOOD",
+    "preferred_time_slot": "13:00-16:00",
+    "preferred_time_slot_minutes": {
+      "start_minute": 780,
+      "end_minute": 960
+    }
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-004",
+    "corridor_id": "CORR_NORTH",
+    "track_id": "UP_MAIN",
+    "chainage": {
+      "from_km": 55.6,
+      "to_km": 57.0,
+      "from_mast": "55/10",
+      "to_mast": "57/1"
+    },
+    "track_structure": {
+      "rail_weight": "60KG",
+      "sleeper_type": "PSC_MONOBLOCK",
+      "sleeper_density": 1660,
+      "gmt_carried": 126.5
+    },
+    "tgi_breakdown": {
+      "ui": 13.5,
+      "ti": 29.3,
+      "gi": 25.6,
+      "ai": 38.1,
+      "composite_tgi": 31.1
+    },
+    "usfd_flaw": {
+      "flaw_code": "NONE",
+      "defect_type": "NONE",
+      "action_timeline_hours": 0
+    },
+    "ballast_cushion_depth_mm": 293,
+    "required_action": "BCM_DEEP_SCREENING",
+    "overdue_days": 22,
+    "priority": "CRITICAL"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-005",
+    "corridor_id": "CORR_NORTH",
+    "track_id": "UP_MAIN",
+    "chainage": {
+      "from_km": 56.5,
+      "to_km": 58.1,
+      "from_mast": "56/9",
+      "to_mast": "58/2"
+    },
+    "track_structure": {
+      "rail_weight": "60KG",
+      "sleeper_type": "STEEL_TROUGH",
+      "sleeper_density": 1540,
+      "gmt_carried": 147.3
+    },
+    "tgi_breakdown": {
+      "ui": 86.3,
+      "ti": 25.4,
+      "gi": 51.2,
+      "ai": 41.4,
+      "composite_tgi": 49.8
+    },
+    "usfd_flaw": {
+      "flaw_code": "IMRW",
+      "defect_type": "WELD_CRACK",
+      "action_timeline_hours": 0
+    },
+    "ballast_cushion_depth_mm": 173,
+    "required_action": "MANUAL_PACKING",
+    "overdue_days": 3,
+    "priority": "URGENT"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-006",
+    "corridor_id": "CORR_NORTH",
+    "track_id": "UP_MAIN",
+    "chainage": {
+      "from_km": 31.2,
+      "to_km": 33.2,
+      "from_mast": "31/4",
+      "to_mast": "33/4"
+    },
+    "track_structure": {
+      "rail_weight": "52KG",
+      "sleeper_type": "PSC_MONOBLOCK",
+      "sleeper_density": 1540,
+      "gmt_carried": 340.3
+    },
+    "tgi_breakdown": {
+      "ui": 58.2,
+      "ti": 28.5,
+      "gi": 13.0,
+      "ai": 25.7,
+      "composite_tgi": 31.2
+    },
+    "usfd_flaw": {
+      "flaw_code": "NONE",
+      "defect_type": "WELD_CRACK",
+      "action_timeline_hours": 24
+    },
+    "ballast_cushion_depth_mm": 167,
+    "required_action": "CSM_TAMPING",
+    "overdue_days": 21,
+    "priority": "CRITICAL"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-007",
+    "corridor_id": "CORR_NORTH",
+    "track_id": "DN_MAIN",
+    "chainage": {
+      "from_km": 19.8,
+      "to_km": 21.0,
+      "from_mast": "19/13",
+      "to_mast": "21/1"
+    },
+    "track_structure": {
+      "rail_weight": "52KG",
+      "sleeper_type": "PSC_MONOBLOCK",
+      "sleeper_density": 1540,
+      "gmt_carried": 174.3
+    },
+    "tgi_breakdown": {
+      "ui": 50.5,
+      "ti": 15.6,
+      "gi": 26.3,
+      "ai": 9.5,
+      "composite_tgi": 20.0
+    },
+    "usfd_flaw": {
+      "flaw_code": "OBS",
+      "defect_type": "TRANSVERSE_FATIGUE",
+      "action_timeline_hours": 24
+    },
+    "ballast_cushion_depth_mm": 286,
+    "required_action": "BCM_DEEP_SCREENING",
+    "overdue_days": 5,
+    "priority": "CRITICAL"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-008",
+    "corridor_id": "CORR_NORTH",
+    "track_id": "DN_MAIN",
+    "chainage": {
+      "from_km": 40.2,
+      "to_km": 42.0,
+      "from_mast": "40/4",
+      "to_mast": "42/1"
+    },
+    "track_structure": {
+      "rail_weight": "60KG",
+      "sleeper_type": "PSC_MONOBLOCK",
+      "sleeper_density": 1660,
+      "gmt_carried": 331.8
+    },
+    "tgi_breakdown": {
+      "ui": 47.8,
+      "ti": 74.8,
+      "gi": 58.2,
+      "ai": 14.9,
+      "composite_tgi": 31.8
+    },
+    "usfd_flaw": {
+      "flaw_code": "OBSW",
+      "defect_type": "WELD_CRACK",
+      "action_timeline_hours": 0
+    },
+    "ballast_cushion_depth_mm": 204,
+    "required_action": "DESTRESSING",
+    "overdue_days": 28,
+    "priority": "CRITICAL"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-009",
+    "corridor_id": "CORR_NORTH",
+    "track_id": "UP_MAIN",
+    "chainage": {
+      "from_km": 62.5,
+      "to_km": 63.4,
+      "from_mast": "62/9",
+      "to_mast": "63/7"
+    },
+    "track_structure": {
+      "rail_weight": "60KG",
+      "sleeper_type": "STEEL_TROUGH",
+      "sleeper_density": 1540,
+      "gmt_carried": 364.2
+    },
+    "tgi_breakdown": {
+      "ui": 39.8,
+      "ti": 44.9,
+      "gi": 71.9,
+      "ai": 33.9,
+      "composite_tgi": 40.0
+    },
+    "usfd_flaw": {
+      "flaw_code": "OBSW",
+      "defect_type": "WELD_CRACK",
+      "action_timeline_hours": 24
+    },
+    "ballast_cushion_depth_mm": 185,
+    "required_action": "DESTRESSING",
+    "overdue_days": 15,
+    "priority": "URGENT"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-010",
+    "corridor_id": "CORR_NORTH",
+    "track_id": "DN_MAIN",
+    "chainage": {
+      "from_km": 7.9,
+      "to_km": 9.3,
+      "from_mast": "7/15",
+      "to_mast": "9/5"
+    },
+    "track_structure": {
+      "rail_weight": "52KG",
+      "sleeper_type": "STEEL_TROUGH",
+      "sleeper_density": 1540,
+      "gmt_carried": 235.2
+    },
+    "tgi_breakdown": {
+      "ui": 16.6,
+      "ti": 17.7,
+      "gi": 53.9,
+      "ai": 40.6,
+      "composite_tgi": 34.8
+    },
+    "usfd_flaw": {
+      "flaw_code": "NONE",
+      "defect_type": "TRANSVERSE_FATIGUE",
+      "action_timeline_hours": 0
+    },
+    "ballast_cushion_depth_mm": 287,
+    "required_action": "TRT_RENEWAL",
+    "overdue_days": 24,
+    "priority": "CRITICAL"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-011",
+    "corridor_id": "CORR_NORTH",
+    "track_id": "DN_MAIN",
+    "chainage": {
+      "from_km": 55.8,
+      "to_km": 57.8,
+      "from_mast": "55/13",
+      "to_mast": "57/13"
+    },
+    "track_structure": {
+      "rail_weight": "60KG",
+      "sleeper_type": "PSC_MONOBLOCK",
+      "sleeper_density": 1540,
+      "gmt_carried": 344.6
+    },
+    "tgi_breakdown": {
+      "ui": 25.6,
+      "ti": 40.4,
+      "gi": 41.8,
+      "ai": 47.9,
+      "composite_tgi": 42.1
+    },
+    "usfd_flaw": {
+      "flaw_code": "NONE",
+      "defect_type": "NONE",
+      "action_timeline_hours": 24
+    },
+    "ballast_cushion_depth_mm": 189,
+    "required_action": "TRT_RENEWAL",
+    "overdue_days": 24,
+    "priority": "URGENT"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-012",
+    "corridor_id": "CORR_EAST",
+    "track_id": "DN_MAIN",
+    "chainage": {
+      "from_km": 7.4,
+      "to_km": 7.9,
+      "from_mast": "7/7",
+      "to_mast": "7/15"
+    },
+    "track_structure": {
+      "rail_weight": "52KG",
+      "sleeper_type": "STEEL_TROUGH",
+      "sleeper_density": 1660,
+      "gmt_carried": 70.3
+    },
+    "tgi_breakdown": {
+      "ui": 143.5,
+      "ti": 74.6,
+      "gi": 74.3,
+      "ai": 32.0,
+      "composite_tgi": 62.8
+    },
+    "usfd_flaw": {
+      "flaw_code": "NONE",
+      "defect_type": "TRANSVERSE_FATIGUE",
+      "action_timeline_hours": 0
+    },
+    "ballast_cushion_depth_mm": 274,
+    "required_action": "CSM_TAMPING",
+    "overdue_days": 24,
+    "priority": "AVERAGE"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-013",
+    "corridor_id": "CORR_EAST",
+    "track_id": "DN_MAIN",
+    "chainage": {
+      "from_km": 24.5,
+      "to_km": 26.4,
+      "from_mast": "24/9",
+      "to_mast": "26/7"
+    },
+    "track_structure": {
+      "rail_weight": "60KG",
+      "sleeper_type": "STEEL_TROUGH",
+      "sleeper_density": 1540,
+      "gmt_carried": 398.3
+    },
+    "tgi_breakdown": {
+      "ui": 27.6,
+      "ti": 56.2,
+      "gi": 76.3,
+      "ai": 12.4,
+      "composite_tgi": 26.2
+    },
+    "usfd_flaw": {
+      "flaw_code": "OBS",
+      "defect_type": "BOLT_HOLE_CRACK",
+      "action_timeline_hours": 72
+    },
+    "ballast_cushion_depth_mm": 180,
+    "required_action": "BCM_DEEP_SCREENING",
+    "overdue_days": 7,
+    "priority": "CRITICAL"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-014",
+    "corridor_id": "CORR_EAST",
+    "track_id": "UP_MAIN",
+    "chainage": {
+      "from_km": 2.9,
+      "to_km": 3.7,
+      "from_mast": "2/15",
+      "to_mast": "3/12"
+    },
+    "track_structure": {
+      "rail_weight": "60KG",
+      "sleeper_type": "STEEL_TROUGH",
+      "sleeper_density": 1660,
+      "gmt_carried": 230.0
+    },
+    "tgi_breakdown": {
+      "ui": 12.9,
+      "ti": 48.8,
+      "gi": 51.2,
+      "ai": 5.3,
+      "composite_tgi": 15.8
+    },
+    "usfd_flaw": {
+      "flaw_code": "OBS",
+      "defect_type": "BOLT_HOLE_CRACK",
+      "action_timeline_hours": 24
+    },
+    "ballast_cushion_depth_mm": 288,
+    "required_action": "BCM_DEEP_SCREENING",
+    "overdue_days": 23,
+    "priority": "CRITICAL"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-015",
+    "corridor_id": "CORR_EAST",
+    "track_id": "UP_MAIN",
+    "chainage": {
+      "from_km": 43.0,
+      "to_km": 43.6,
+      "from_mast": "43/1",
+      "to_mast": "43/10"
+    },
+    "track_structure": {
+      "rail_weight": "52KG",
+      "sleeper_type": "STEEL_TROUGH",
+      "sleeper_density": 1540,
+      "gmt_carried": 193.9
+    },
+    "tgi_breakdown": {
+      "ui": 89.9,
+      "ti": 43.1,
+      "gi": 64.9,
+      "ai": 41.3,
+      "composite_tgi": 53.6
+    },
+    "usfd_flaw": {
+      "flaw_code": "IMR",
+      "defect_type": "TRANSVERSE_FATIGUE",
+      "action_timeline_hours": 0
+    },
+    "ballast_cushion_depth_mm": 253,
+    "required_action": "TRT_RENEWAL",
+    "overdue_days": 25,
+    "priority": "AVERAGE"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-016",
+    "corridor_id": "CORR_EAST",
+    "track_id": "DN_MAIN",
+    "chainage": {
+      "from_km": 39.6,
+      "to_km": 40.8,
+      "from_mast": "39/10",
+      "to_mast": "40/13"
+    },
+    "track_structure": {
+      "rail_weight": "60KG",
+      "sleeper_type": "STEEL_TROUGH",
+      "sleeper_density": 1660,
+      "gmt_carried": 67.7
+    },
+    "tgi_breakdown": {
+      "ui": 44.8,
+      "ti": 23.3,
+      "gi": 41.4,
+      "ai": 24.0,
+      "composite_tgi": 29.8
+    },
+    "usfd_flaw": {
+      "flaw_code": "NONE",
+      "defect_type": "TRANSVERSE_FATIGUE",
+      "action_timeline_hours": 0
+    },
+    "ballast_cushion_depth_mm": 210,
+    "required_action": "BCM_DEEP_SCREENING",
+    "overdue_days": 13,
+    "priority": "CRITICAL"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-017",
+    "corridor_id": "CORR_EAST",
+    "track_id": "DN_MAIN",
+    "chainage": {
+      "from_km": 22.3,
+      "to_km": 23.2,
+      "from_mast": "22/5",
+      "to_mast": "23/4"
+    },
+    "track_structure": {
+      "rail_weight": "52KG",
+      "sleeper_type": "STEEL_TROUGH",
+      "sleeper_density": 1540,
+      "gmt_carried": 293.8
+    },
+    "tgi_breakdown": {
+      "ui": 39.9,
+      "ti": 38.1,
+      "gi": 14.1,
+      "ai": 22.1,
+      "composite_tgi": 26.5
+    },
+    "usfd_flaw": {
+      "flaw_code": "NONE",
+      "defect_type": "BOLT_HOLE_CRACK",
+      "action_timeline_hours": 24
+    },
+    "ballast_cushion_depth_mm": 198,
+    "required_action": "TRT_RENEWAL",
+    "overdue_days": 6,
+    "priority": "CRITICAL"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-018",
+    "corridor_id": "CORR_EAST",
+    "track_id": "DN_MAIN",
+    "chainage": {
+      "from_km": 44.6,
+      "to_km": 45.9,
+      "from_mast": "44/10",
+      "to_mast": "45/15"
+    },
+    "track_structure": {
+      "rail_weight": "60KG",
+      "sleeper_type": "PSC_MONOBLOCK",
+      "sleeper_density": 1660,
+      "gmt_carried": 348.0
+    },
+    "tgi_breakdown": {
+      "ui": 91.1,
+      "ti": 48.0,
+      "gi": 62.4,
+      "ai": 7.6,
+      "composite_tgi": 33.8
+    },
+    "usfd_flaw": {
+      "flaw_code": "IMR",
+      "defect_type": "NONE",
+      "action_timeline_hours": 0
+    },
+    "ballast_cushion_depth_mm": 210,
+    "required_action": "MANUAL_PACKING",
+    "overdue_days": 3,
+    "priority": "CRITICAL"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-019",
+    "corridor_id": "CORR_EAST",
+    "track_id": "DN_MAIN",
+    "chainage": {
+      "from_km": 43.3,
+      "to_km": 45.2,
+      "from_mast": "43/5",
+      "to_mast": "45/4"
+    },
+    "track_structure": {
+      "rail_weight": "60KG",
+      "sleeper_type": "STEEL_TROUGH",
+      "sleeper_density": 1660,
+      "gmt_carried": 143.0
+    },
+    "tgi_breakdown": {
+      "ui": 89.8,
+      "ti": 50.5,
+      "gi": 12.8,
+      "ai": 8.7,
+      "composite_tgi": 29.5
+    },
+    "usfd_flaw": {
+      "flaw_code": "IMRW",
+      "defect_type": "WELD_CRACK",
+      "action_timeline_hours": 72
+    },
+    "ballast_cushion_depth_mm": 230,
+    "required_action": "CSM_TAMPING",
+    "overdue_days": 0,
+    "priority": "CRITICAL"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-020",
+    "corridor_id": "CORR_SOUTH",
+    "track_id": "DN_MAIN",
+    "chainage": {
+      "from_km": 26.1,
+      "to_km": 26.8,
+      "from_mast": "26/2",
+      "to_mast": "26/13"
+    },
+    "track_structure": {
+      "rail_weight": "52KG",
+      "sleeper_type": "PSC_MONOBLOCK",
+      "sleeper_density": 1660,
+      "gmt_carried": 179.3
+    },
+    "tgi_breakdown": {
+      "ui": 149.8,
+      "ti": 79.7,
+      "gi": 15.1,
+      "ai": 14.6,
+      "composite_tgi": 48.2
+    },
+    "usfd_flaw": {
+      "flaw_code": "IMRW",
+      "defect_type": "BOLT_HOLE_CRACK",
+      "action_timeline_hours": 48
+    },
+    "ballast_cushion_depth_mm": 285,
+    "required_action": "CSM_TAMPING",
+    "overdue_days": 21,
+    "priority": "URGENT"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-021",
+    "corridor_id": "CORR_SOUTH",
+    "track_id": "UP_MAIN",
+    "chainage": {
+      "from_km": 46.6,
+      "to_km": 48.4,
+      "from_mast": "46/10",
+      "to_mast": "48/7"
+    },
+    "track_structure": {
+      "rail_weight": "60KG",
+      "sleeper_type": "STEEL_TROUGH",
+      "sleeper_density": 1540,
+      "gmt_carried": 261.7
+    },
+    "tgi_breakdown": {
+      "ui": 51.9,
+      "ti": 56.4,
+      "gi": 75.7,
+      "ai": 11.0,
+      "composite_tgi": 30.2
+    },
+    "usfd_flaw": {
+      "flaw_code": "OBS",
+      "defect_type": "HORIZONTAL_SPLIT",
+      "action_timeline_hours": 48
+    },
+    "ballast_cushion_depth_mm": 279,
+    "required_action": "MANUAL_PACKING",
+    "overdue_days": 8,
+    "priority": "CRITICAL"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-022",
+    "corridor_id": "CORR_SOUTH",
+    "track_id": "UP_MAIN",
+    "chainage": {
+      "from_km": 51.6,
+      "to_km": 52.6,
+      "from_mast": "51/10",
+      "to_mast": "52/10"
+    },
+    "track_structure": {
+      "rail_weight": "60KG",
+      "sleeper_type": "STEEL_TROUGH",
+      "sleeper_density": 1660,
+      "gmt_carried": 309.4
+    },
+    "tgi_breakdown": {
+      "ui": 128.5,
+      "ti": 16.5,
+      "gi": 39.7,
+      "ai": 17.5,
+      "composite_tgi": 41.8
+    },
+    "usfd_flaw": {
+      "flaw_code": "NONE",
+      "defect_type": "BOLT_HOLE_CRACK",
+      "action_timeline_hours": 0
+    },
+    "ballast_cushion_depth_mm": 178,
+    "required_action": "CSM_TAMPING",
+    "overdue_days": 30,
+    "priority": "URGENT"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-023",
+    "corridor_id": "CORR_SOUTH",
+    "track_id": "UP_MAIN",
+    "chainage": {
+      "from_km": 50.3,
+      "to_km": 51.4,
+      "from_mast": "50/5",
+      "to_mast": "51/7"
+    },
+    "track_structure": {
+      "rail_weight": "60KG",
+      "sleeper_type": "STEEL_TROUGH",
+      "sleeper_density": 1540,
+      "gmt_carried": 364.6
+    },
+    "tgi_breakdown": {
+      "ui": 136.6,
+      "ti": 48.2,
+      "gi": 68.4,
+      "ai": 31.2,
+      "composite_tgi": 57.7
+    },
+    "usfd_flaw": {
+      "flaw_code": "IMR",
+      "defect_type": "WELD_CRACK",
+      "action_timeline_hours": 24
+    },
+    "ballast_cushion_depth_mm": 213,
+    "required_action": "CSM_TAMPING",
+    "overdue_days": 11,
+    "priority": "AVERAGE"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-024",
+    "corridor_id": "CORR_SOUTH",
+    "track_id": "UP_MAIN",
+    "chainage": {
+      "from_km": 44.5,
+      "to_km": 46.3,
+      "from_mast": "44/9",
+      "to_mast": "46/5"
+    },
+    "track_structure": {
+      "rail_weight": "60KG",
+      "sleeper_type": "STEEL_TROUGH",
+      "sleeper_density": 1660,
+      "gmt_carried": 112.8
+    },
+    "tgi_breakdown": {
+      "ui": 133.8,
+      "ti": 38.4,
+      "gi": 53.4,
+      "ai": 12.0,
+      "composite_tgi": 43.1
+    },
+    "usfd_flaw": {
+      "flaw_code": "OBS",
+      "defect_type": "BOLT_HOLE_CRACK",
+      "action_timeline_hours": 24
+    },
+    "ballast_cushion_depth_mm": 218,
+    "required_action": "BCM_DEEP_SCREENING",
+    "overdue_days": 25,
+    "priority": "URGENT"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-025",
+    "corridor_id": "CORR_SOUTH",
+    "track_id": "DN_MAIN",
+    "chainage": {
+      "from_km": 40.0,
+      "to_km": 41.0,
+      "from_mast": "40/1",
+      "to_mast": "41/1"
+    },
+    "track_structure": {
+      "rail_weight": "60KG",
+      "sleeper_type": "PSC_MONOBLOCK",
+      "sleeper_density": 1660,
+      "gmt_carried": 281.0
+    },
+    "tgi_breakdown": {
+      "ui": 63.6,
+      "ti": 12.7,
+      "gi": 42.9,
+      "ai": 14.0,
+      "composite_tgi": 26.7
+    },
+    "usfd_flaw": {
+      "flaw_code": "OBSW",
+      "defect_type": "WELD_CRACK",
+      "action_timeline_hours": 48
+    },
+    "ballast_cushion_depth_mm": 167,
+    "required_action": "TRT_RENEWAL",
+    "overdue_days": 11,
+    "priority": "CRITICAL"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-026",
+    "corridor_id": "CORR_SOUTH",
+    "track_id": "UP_MAIN",
+    "chainage": {
+      "from_km": 36.6,
+      "to_km": 38.4,
+      "from_mast": "36/10",
+      "to_mast": "38/7"
+    },
+    "track_structure": {
+      "rail_weight": "52KG",
+      "sleeper_type": "PSC_MONOBLOCK",
+      "sleeper_density": 1540,
+      "gmt_carried": 63.4
+    },
+    "tgi_breakdown": {
+      "ui": 66.0,
+      "ti": 78.7,
+      "gi": 47.5,
+      "ai": 47.3,
+      "composite_tgi": 54.2
+    },
+    "usfd_flaw": {
+      "flaw_code": "NONE",
+      "defect_type": "BOLT_HOLE_CRACK",
+      "action_timeline_hours": 48
+    },
+    "ballast_cushion_depth_mm": 230,
+    "required_action": "MANUAL_PACKING",
+    "overdue_days": 19,
+    "priority": "AVERAGE"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-027",
+    "corridor_id": "CORR_SOUTH",
+    "track_id": "DN_MAIN",
+    "chainage": {
+      "from_km": 56.1,
+      "to_km": 56.6,
+      "from_mast": "56/2",
+      "to_mast": "56/10"
+    },
+    "track_structure": {
+      "rail_weight": "60KG",
+      "sleeper_type": "STEEL_TROUGH",
+      "sleeper_density": 1540,
+      "gmt_carried": 74.5
+    },
+    "tgi_breakdown": {
+      "ui": 26.2,
+      "ti": 73.0,
+      "gi": 23.3,
+      "ai": 7.0,
+      "composite_tgi": 19.1
+    },
+    "usfd_flaw": {
+      "flaw_code": "OBS",
+      "defect_type": "NONE",
+      "action_timeline_hours": 48
+    },
+    "ballast_cushion_depth_mm": 181,
+    "required_action": "TRT_RENEWAL",
+    "overdue_days": 16,
+    "priority": "CRITICAL"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-028",
+    "corridor_id": "CORR_WEST",
+    "track_id": "DN_MAIN",
+    "chainage": {
+      "from_km": 21.3,
+      "to_km": 22.8,
+      "from_mast": "21/5",
+      "to_mast": "22/13"
+    },
+    "track_structure": {
+      "rail_weight": "52KG",
+      "sleeper_type": "PSC_MONOBLOCK",
+      "sleeper_density": 1540,
+      "gmt_carried": 192.1
+    },
+    "tgi_breakdown": {
+      "ui": 67.2,
+      "ti": 38.2,
+      "gi": 30.7,
+      "ai": 10.7,
+      "composite_tgi": 26.8
+    },
+    "usfd_flaw": {
+      "flaw_code": "IMR",
+      "defect_type": "WELD_CRACK",
+      "action_timeline_hours": 48
+    },
+    "ballast_cushion_depth_mm": 203,
+    "required_action": "MANUAL_PACKING",
+    "overdue_days": 25,
+    "priority": "CRITICAL"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-029",
+    "corridor_id": "CORR_WEST",
+    "track_id": "DN_MAIN",
+    "chainage": {
+      "from_km": 40.0,
+      "to_km": 41.7,
+      "from_mast": "40/1",
+      "to_mast": "41/12"
+    },
+    "track_structure": {
+      "rail_weight": "60KG",
+      "sleeper_type": "PSC_MONOBLOCK",
+      "sleeper_density": 1540,
+      "gmt_carried": 230.4
+    },
+    "tgi_breakdown": {
+      "ui": 101.7,
+      "ti": 42.5,
+      "gi": 41.0,
+      "ai": 14.6,
+      "composite_tgi": 37.5
+    },
+    "usfd_flaw": {
+      "flaw_code": "NONE",
+      "defect_type": "WELD_CRACK",
+      "action_timeline_hours": 0
+    },
+    "ballast_cushion_depth_mm": 210,
+    "required_action": "TRT_RENEWAL",
+    "overdue_days": 7,
+    "priority": "URGENT"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-030",
+    "corridor_id": "CORR_WEST",
+    "track_id": "UP_MAIN",
+    "chainage": {
+      "from_km": 55.7,
+      "to_km": 56.9,
+      "from_mast": "55/12",
+      "to_mast": "56/15"
+    },
+    "track_structure": {
+      "rail_weight": "60KG",
+      "sleeper_type": "STEEL_TROUGH",
+      "sleeper_density": 1540,
+      "gmt_carried": 189.9
+    },
+    "tgi_breakdown": {
+      "ui": 30.6,
+      "ti": 13.2,
+      "gi": 78.9,
+      "ai": 32.5,
+      "composite_tgi": 34.8
+    },
+    "usfd_flaw": {
+      "flaw_code": "IMRW",
+      "defect_type": "TRANSVERSE_FATIGUE",
+      "action_timeline_hours": 0
+    },
+    "ballast_cushion_depth_mm": 258,
+    "required_action": "BCM_DEEP_SCREENING",
+    "overdue_days": 5,
+    "priority": "CRITICAL"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-031",
+    "corridor_id": "CORR_WEST",
+    "track_id": "UP_MAIN",
+    "chainage": {
+      "from_km": 55.5,
+      "to_km": 56.7,
+      "from_mast": "55/9",
+      "to_mast": "56/12"
+    },
+    "track_structure": {
+      "rail_weight": "52KG",
+      "sleeper_type": "STEEL_TROUGH",
+      "sleeper_density": 1540,
+      "gmt_carried": 264.4
+    },
+    "tgi_breakdown": {
+      "ui": 107.4,
+      "ti": 42.5,
+      "gi": 49.0,
+      "ai": 46.3,
+      "composite_tgi": 58.4
+    },
+    "usfd_flaw": {
+      "flaw_code": "NONE",
+      "defect_type": "BOLT_HOLE_CRACK",
+      "action_timeline_hours": 72
+    },
+    "ballast_cushion_depth_mm": 190,
+    "required_action": "MANUAL_PACKING",
+    "overdue_days": 14,
+    "priority": "AVERAGE"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-032",
+    "corridor_id": "CORR_WEST",
+    "track_id": "UP_MAIN",
+    "chainage": {
+      "from_km": 17.9,
+      "to_km": 18.8,
+      "from_mast": "17/15",
+      "to_mast": "18/13"
+    },
+    "track_structure": {
+      "rail_weight": "60KG",
+      "sleeper_type": "STEEL_TROUGH",
+      "sleeper_density": 1660,
+      "gmt_carried": 145.1
+    },
+    "tgi_breakdown": {
+      "ui": 44.6,
+      "ti": 54.6,
+      "gi": 63.6,
+      "ai": 28.5,
+      "composite_tgi": 37.8
+    },
+    "usfd_flaw": {
+      "flaw_code": "OBS",
+      "defect_type": "NONE",
+      "action_timeline_hours": 0
+    },
+    "ballast_cushion_depth_mm": 185,
+    "required_action": "BCM_DEEP_SCREENING",
+    "overdue_days": 7,
+    "priority": "URGENT"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-033",
+    "corridor_id": "CORR_WEST",
+    "track_id": "DN_MAIN",
+    "chainage": {
+      "from_km": 26.4,
+      "to_km": 27.5,
+      "from_mast": "26/7",
+      "to_mast": "27/9"
+    },
+    "track_structure": {
+      "rail_weight": "60KG",
+      "sleeper_type": "STEEL_TROUGH",
+      "sleeper_density": 1540,
+      "gmt_carried": 366.7
+    },
+    "tgi_breakdown": {
+      "ui": 31.4,
+      "ti": 25.0,
+      "gi": 39.0,
+      "ai": 19.9,
+      "composite_tgi": 24.6
+    },
+    "usfd_flaw": {
+      "flaw_code": "NONE",
+      "defect_type": "TRANSVERSE_FATIGUE",
+      "action_timeline_hours": 72
+    },
+    "ballast_cushion_depth_mm": 272,
+    "required_action": "CSM_TAMPING",
+    "overdue_days": 30,
+    "priority": "CRITICAL"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-034",
+    "corridor_id": "CORR_WEST",
+    "track_id": "UP_MAIN",
+    "chainage": {
+      "from_km": 24.3,
+      "to_km": 25.5,
+      "from_mast": "24/5",
+      "to_mast": "25/9"
+    },
+    "track_structure": {
+      "rail_weight": "52KG",
+      "sleeper_type": "STEEL_TROUGH",
+      "sleeper_density": 1540,
+      "gmt_carried": 60.2
+    },
+    "tgi_breakdown": {
+      "ui": 115.5,
+      "ti": 69.7,
+      "gi": 76.7,
+      "ai": 23.9,
+      "composite_tgi": 52.1
+    },
+    "usfd_flaw": {
+      "flaw_code": "OBS",
+      "defect_type": "BOLT_HOLE_CRACK",
+      "action_timeline_hours": 24
+    },
+    "ballast_cushion_depth_mm": 269,
+    "required_action": "BCM_DEEP_SCREENING",
+    "overdue_days": 19,
+    "priority": "AVERAGE"
+  },
+  {
+    "inspection_id": "TRC-2026-Q3-035",
+    "corridor_id": "CORR_WEST",
+    "track_id": "DN_MAIN",
+    "chainage": {
+      "from_km": 36.9,
+      "to_km": 37.6,
+      "from_mast": "36/15",
+      "to_mast": "37/10"
+    },
+    "track_structure": {
+      "rail_weight": "52KG",
+      "sleeper_type": "PSC_MONOBLOCK",
+      "sleeper_density": 1660,
+      "gmt_carried": 141.1
+    },
+    "tgi_breakdown": {
+      "ui": 137.0,
+      "ti": 51.4,
+      "gi": 56.4,
+      "ai": 8.8,
+      "composite_tgi": 43.5
+    },
+    "usfd_flaw": {
+      "flaw_code": "OBS",
+      "defect_type": "HORIZONTAL_SPLIT",
+      "action_timeline_hours": 72
+    },
+    "ballast_cushion_depth_mm": 233,
+    "required_action": "TRT_RENEWAL",
+    "overdue_days": 24,
+    "priority": "URGENT"
+  }
+]

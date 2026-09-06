@@ -1,0 +1,478 @@
+[
+  {
+    "machine_id": "CSM-01",
+    "machine_type": "CSM",
+    "machine_model": "09-32_CSM",
+    "fitness_certificate": {
+      "status": "SICK",
+      "poh_due_date": "2027-03-15",
+      "ioh_due_date": "2026-12-01"
+    },
+    "base_depot": "GZB",
+    "current_stabling_location": {
+      "station_code": "GZB",
+      "siding_id": "SID-GZB-01",
+      "has_free_runout_exit": true
+    },
+    "wear_and_consumables": {
+      "tamping_tine_wear_percent": 15.2,
+      "hsd_fuel_litres": 835.3
+    },
+    "crew_hoer_state": {
+      "crew_id": "CREW-CSM-01",
+      "continuous_duty_hours": 1.4,
+      "max_permissible_hours": 10.0,
+      "rest_status": "RESTED"
+    },
+    "max_operating_speed_kmph": 60,
+    "corridor_assignment": "CORR_EAST",
+    "kinematics": {
+      "transit_speed_kmph": 60.0,
+      "working_speed_kmph": 1.8,
+      "ramp_in_minutes": 15,
+      "ramp_out_minutes": 15
+    }
+  },
+  {
+    "machine_id": "CSM-02",
+    "machine_type": "CSM",
+    "machine_model": "09-32_CSM",
+    "fitness_certificate": {
+      "status": "FIT",
+      "poh_due_date": "2028-03-15",
+      "ioh_due_date": "2026-12-01"
+    },
+    "base_depot": "SSB",
+    "current_stabling_location": {
+      "station_code": "SSB",
+      "siding_id": "SID-SSB-01",
+      "has_free_runout_exit": true
+    },
+    "wear_and_consumables": {
+      "tamping_tine_wear_percent": 5.4,
+      "hsd_fuel_litres": 431.2
+    },
+    "crew_hoer_state": {
+      "crew_id": "CREW-CSM-02",
+      "continuous_duty_hours": 3.3,
+      "max_permissible_hours": 10.0,
+      "rest_status": "RESTED"
+    },
+    "max_operating_speed_kmph": 60,
+    "corridor_assignment": "CORR_WEST",
+    "kinematics": {
+      "transit_speed_kmph": 60.0,
+      "working_speed_kmph": 1.8,
+      "ramp_in_minutes": 15,
+      "ramp_out_minutes": 15
+    }
+  },
+  {
+    "machine_id": "CSM-03",
+    "machine_type": "CSM",
+    "machine_model": "09-32_CSM",
+    "fitness_certificate": {
+      "status": "FIT",
+      "poh_due_date": "2027-03-15",
+      "ioh_due_date": "2026-12-01"
+    },
+    "base_depot": "TKD",
+    "current_stabling_location": {
+      "station_code": "TKD",
+      "siding_id": "SID-TKD-01",
+      "has_free_runout_exit": true
+    },
+    "wear_and_consumables": {
+      "tamping_tine_wear_percent": 15.7,
+      "hsd_fuel_litres": 720.8
+    },
+    "crew_hoer_state": {
+      "crew_id": "CREW-CSM-03",
+      "continuous_duty_hours": 2.9,
+      "max_permissible_hours": 10.0,
+      "rest_status": "RESTED"
+    },
+    "max_operating_speed_kmph": 60,
+    "corridor_assignment": "CORR_SOUTH",
+    "kinematics": {
+      "transit_speed_kmph": 60.0,
+      "working_speed_kmph": 1.8,
+      "ramp_in_minutes": 15,
+      "ramp_out_minutes": 15
+    }
+  },
+  {
+    "machine_id": "CSM-04",
+    "machine_type": "CSM",
+    "machine_model": "09-32_CSM",
+    "fitness_certificate": {
+      "status": "FIT",
+      "poh_due_date": "2028-03-15",
+      "ioh_due_date": "2027-12-01"
+    },
+    "base_depot": "PNP",
+    "current_stabling_location": {
+      "station_code": "PNP",
+      "siding_id": "SID-PNP-01",
+      "has_free_runout_exit": true
+    },
+    "wear_and_consumables": {
+      "tamping_tine_wear_percent": 17.1,
+      "hsd_fuel_litres": 303.9
+    },
+    "crew_hoer_state": {
+      "crew_id": "CREW-CSM-04",
+      "continuous_duty_hours": 9.5,
+      "max_permissible_hours": 10.0,
+      "rest_status": "DUE_REST"
+    },
+    "max_operating_speed_kmph": 60,
+    "corridor_assignment": "CORR_NORTH",
+    "kinematics": {
+      "transit_speed_kmph": 60.0,
+      "working_speed_kmph": 1.8,
+      "ramp_in_minutes": 15,
+      "ramp_out_minutes": 15
+    }
+  },
+  {
+    "machine_id": "BCM-01",
+    "machine_type": "BCM",
+    "machine_model": "RM-80_BCM",
+    "fitness_certificate": {
+      "status": "FIT",
+      "poh_due_date": "2029-03-15",
+      "ioh_due_date": "2027-12-01"
+    },
+    "base_depot": "GZB",
+    "current_stabling_location": {
+      "station_code": "GZB",
+      "siding_id": "SID-GZB-01",
+      "has_free_runout_exit": true
+    },
+    "wear_and_consumables": {
+      "tamping_tine_wear_percent": 10.1,
+      "hsd_fuel_litres": 393.3
+    },
+    "crew_hoer_state": {
+      "crew_id": "CREW-BCM-01",
+      "continuous_duty_hours": 5.3,
+      "max_permissible_hours": 10.0,
+      "rest_status": "RESTED"
+    },
+    "max_operating_speed_kmph": 40,
+    "corridor_assignment": "CORR_EAST",
+    "kinematics": {
+      "transit_speed_kmph": 30.0,
+      "working_speed_kmph": 1.5,
+      "ramp_in_minutes": 20,
+      "ramp_out_minutes": 20
+    }
+  },
+  {
+    "machine_id": "BCM-02",
+    "machine_type": "BCM",
+    "machine_model": "RM-80_BCM",
+    "fitness_certificate": {
+      "status": "FIT",
+      "poh_due_date": "2028-03-15",
+      "ioh_due_date": "2026-12-01"
+    },
+    "base_depot": "TKD",
+    "current_stabling_location": {
+      "station_code": "TKD",
+      "siding_id": "SID-TKD-01",
+      "has_free_runout_exit": true
+    },
+    "wear_and_consumables": {
+      "tamping_tine_wear_percent": 6.4,
+      "hsd_fuel_litres": 358.0
+    },
+    "crew_hoer_state": {
+      "crew_id": "CREW-BCM-02",
+      "continuous_duty_hours": 4.8,
+      "max_permissible_hours": 10.0,
+      "rest_status": "RESTED"
+    },
+    "max_operating_speed_kmph": 40,
+    "corridor_assignment": "CORR_SOUTH",
+    "kinematics": {
+      "transit_speed_kmph": 30.0,
+      "working_speed_kmph": 1.5,
+      "ramp_in_minutes": 20,
+      "ramp_out_minutes": 20
+    }
+  },
+  {
+    "machine_id": "BCM-03",
+    "machine_type": "BCM",
+    "machine_model": "RM-80_BCM",
+    "fitness_certificate": {
+      "status": "FIT",
+      "poh_due_date": "2029-03-15",
+      "ioh_due_date": "2027-12-01"
+    },
+    "base_depot": "ROK",
+    "current_stabling_location": {
+      "station_code": "ROK",
+      "siding_id": "SID-ROK-01",
+      "has_free_runout_exit": true
+    },
+    "wear_and_consumables": {
+      "tamping_tine_wear_percent": 17.1,
+      "hsd_fuel_litres": 737.8
+    },
+    "crew_hoer_state": {
+      "crew_id": "CREW-BCM-03",
+      "continuous_duty_hours": 3.4,
+      "max_permissible_hours": 10.0,
+      "rest_status": "RESTED"
+    },
+    "max_operating_speed_kmph": 40,
+    "corridor_assignment": "CORR_WEST",
+    "kinematics": {
+      "transit_speed_kmph": 30.0,
+      "working_speed_kmph": 1.5,
+      "ramp_in_minutes": 20,
+      "ramp_out_minutes": 20
+    }
+  },
+  {
+    "machine_id": "TW-01",
+    "machine_type": "TW",
+    "machine_model": "4_WHEELER_TW",
+    "fitness_certificate": {
+      "status": "SICK",
+      "poh_due_date": "2028-03-15",
+      "ioh_due_date": "2026-12-01"
+    },
+    "base_depot": "GZB",
+    "current_stabling_location": {
+      "station_code": "GZB",
+      "siding_id": "SID-GZB-01",
+      "has_free_runout_exit": true
+    },
+    "wear_and_consumables": {
+      "tamping_tine_wear_percent": 13.3,
+      "hsd_fuel_litres": 797.6
+    },
+    "crew_hoer_state": {
+      "crew_id": "CREW-TW-01",
+      "continuous_duty_hours": 3.8,
+      "max_permissible_hours": 10.0,
+      "rest_status": "RESTED"
+    },
+    "max_operating_speed_kmph": 50,
+    "corridor_assignment": "CORR_EAST",
+    "kinematics": {
+      "transit_speed_kmph": 50.0,
+      "working_speed_kmph": 5.0,
+      "ramp_in_minutes": 10,
+      "ramp_out_minutes": 10
+    }
+  },
+  {
+    "machine_id": "TW-02",
+    "machine_type": "TW",
+    "machine_model": "4_WHEELER_TW",
+    "fitness_certificate": {
+      "status": "FIT",
+      "poh_due_date": "2028-03-15",
+      "ioh_due_date": "2026-12-01"
+    },
+    "base_depot": "TKD",
+    "current_stabling_location": {
+      "station_code": "TKD",
+      "siding_id": "SID-TKD-01",
+      "has_free_runout_exit": true
+    },
+    "wear_and_consumables": {
+      "tamping_tine_wear_percent": 15.6,
+      "hsd_fuel_litres": 327.5
+    },
+    "crew_hoer_state": {
+      "crew_id": "CREW-TW-02",
+      "continuous_duty_hours": 2.0,
+      "max_permissible_hours": 10.0,
+      "rest_status": "RESTED"
+    },
+    "max_operating_speed_kmph": 50,
+    "corridor_assignment": "CORR_SOUTH",
+    "kinematics": {
+      "transit_speed_kmph": 50.0,
+      "working_speed_kmph": 5.0,
+      "ramp_in_minutes": 10,
+      "ramp_out_minutes": 10
+    }
+  },
+  {
+    "machine_id": "TW-03",
+    "machine_type": "TW",
+    "machine_model": "8_WHEELER_TW",
+    "fitness_certificate": {
+      "status": "FIT",
+      "poh_due_date": "2028-03-15",
+      "ioh_due_date": "2026-12-01"
+    },
+    "base_depot": "MTC",
+    "current_stabling_location": {
+      "station_code": "MTC",
+      "siding_id": "SID-MTC-01",
+      "has_free_runout_exit": true
+    },
+    "wear_and_consumables": {
+      "tamping_tine_wear_percent": 17.8,
+      "hsd_fuel_litres": 819.9
+    },
+    "crew_hoer_state": {
+      "crew_id": "CREW-TW-03",
+      "continuous_duty_hours": 2.7,
+      "max_permissible_hours": 10.0,
+      "rest_status": "RESTED"
+    },
+    "max_operating_speed_kmph": 50,
+    "corridor_assignment": "CORR_EAST",
+    "kinematics": {
+      "transit_speed_kmph": 50.0,
+      "working_speed_kmph": 5.0,
+      "ramp_in_minutes": 10,
+      "ramp_out_minutes": 10
+    }
+  },
+  {
+    "machine_id": "UNIMAT-01",
+    "machine_type": "UNIMAT",
+    "machine_model": "UNIMAT_08-475",
+    "fitness_certificate": {
+      "status": "FIT",
+      "poh_due_date": "2028-03-15",
+      "ioh_due_date": "2027-12-01"
+    },
+    "base_depot": "SSB",
+    "current_stabling_location": {
+      "station_code": "SSB",
+      "siding_id": "SID-SSB-01",
+      "has_free_runout_exit": true
+    },
+    "wear_and_consumables": {
+      "tamping_tine_wear_percent": 7.4,
+      "hsd_fuel_litres": 513.2
+    },
+    "crew_hoer_state": {
+      "crew_id": "CREW-UNIMAT-01",
+      "continuous_duty_hours": 4.0,
+      "max_permissible_hours": 10.0,
+      "rest_status": "RESTED"
+    },
+    "max_operating_speed_kmph": 50,
+    "corridor_assignment": "CORR_WEST",
+    "kinematics": {
+      "transit_speed_kmph": 50.0,
+      "working_speed_kmph": 1.2,
+      "ramp_in_minutes": 15,
+      "ramp_out_minutes": 15
+    }
+  },
+  {
+    "machine_id": "UNIMAT-02",
+    "machine_type": "UNIMAT",
+    "machine_model": "UNIMAT_08-475",
+    "fitness_certificate": {
+      "status": "FIT",
+      "poh_due_date": "2029-03-15",
+      "ioh_due_date": "2026-12-01"
+    },
+    "base_depot": "MTC",
+    "current_stabling_location": {
+      "station_code": "MTC",
+      "siding_id": "SID-MTC-01",
+      "has_free_runout_exit": true
+    },
+    "wear_and_consumables": {
+      "tamping_tine_wear_percent": 14.1,
+      "hsd_fuel_litres": 402.7
+    },
+    "crew_hoer_state": {
+      "crew_id": "CREW-UNIMAT-02",
+      "continuous_duty_hours": 4.3,
+      "max_permissible_hours": 10.0,
+      "rest_status": "RESTED"
+    },
+    "max_operating_speed_kmph": 50,
+    "corridor_assignment": "CORR_EAST",
+    "kinematics": {
+      "transit_speed_kmph": 50.0,
+      "working_speed_kmph": 1.2,
+      "ramp_in_minutes": 15,
+      "ramp_out_minutes": 15
+    }
+  },
+  {
+    "machine_id": "PQRS-01",
+    "machine_type": "PQRS",
+    "machine_model": "PQRS",
+    "fitness_certificate": {
+      "status": "FIT",
+      "poh_due_date": "2027-03-15",
+      "ioh_due_date": "2027-12-01"
+    },
+    "base_depot": "PNP",
+    "current_stabling_location": {
+      "station_code": "PNP",
+      "siding_id": "SID-PNP-01",
+      "has_free_runout_exit": true
+    },
+    "wear_and_consumables": {
+      "tamping_tine_wear_percent": 10.7,
+      "hsd_fuel_litres": 893.7
+    },
+    "crew_hoer_state": {
+      "crew_id": "CREW-PQRS-01",
+      "continuous_duty_hours": 3.9,
+      "max_permissible_hours": 10.0,
+      "rest_status": "RESTED"
+    },
+    "max_operating_speed_kmph": 30,
+    "corridor_assignment": "CORR_NORTH",
+    "kinematics": {
+      "transit_speed_kmph": 30.0,
+      "working_speed_kmph": 0.3,
+      "ramp_in_minutes": 30,
+      "ramp_out_minutes": 30
+    }
+  },
+  {
+    "machine_id": "PQRS-02",
+    "machine_type": "PQRS",
+    "machine_model": "PQRS",
+    "fitness_certificate": {
+      "status": "FIT",
+      "poh_due_date": "2029-03-15",
+      "ioh_due_date": "2026-12-01"
+    },
+    "base_depot": "ROK",
+    "current_stabling_location": {
+      "station_code": "ROK",
+      "siding_id": "SID-ROK-01",
+      "has_free_runout_exit": true
+    },
+    "wear_and_consumables": {
+      "tamping_tine_wear_percent": 15.3,
+      "hsd_fuel_litres": 805.7
+    },
+    "crew_hoer_state": {
+      "crew_id": "CREW-PQRS-02",
+      "continuous_duty_hours": 4.5,
+      "max_permissible_hours": 10.0,
+      "rest_status": "RESTED"
+    },
+    "max_operating_speed_kmph": 30,
+    "corridor_assignment": "CORR_WEST",
+    "kinematics": {
+      "transit_speed_kmph": 30.0,
+      "working_speed_kmph": 0.3,
+      "ramp_in_minutes": 30,
+      "ramp_out_minutes": 30
+    }
+  }
+]
