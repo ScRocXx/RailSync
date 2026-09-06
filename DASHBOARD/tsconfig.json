@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "module": "none",
+    "outFile": "js/dashboard.js",
+    "lib": ["ES2017", "DOM", "DOM.Iterable"],
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "forceConsistentCasingInFileNames": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "declaration": false,
+    "skipLibCheck": true
+  },
+  "files": [
+    "src/types.ts",
+    "src/core.ts",
+    "src/marey.ts",
+    "src/network.ts",
+    "src/queue.ts",
+    "src/drawer.ts",
+    "src/analytics.ts",
+    "src/app.ts"
+  ]
+}

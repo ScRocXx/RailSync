@@ -1,0 +1,15 @@
+{
+  "name": "railsync-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Delhi Division Section Controller dashboard for RailSync",
+  "scripts": {
+    "data": "python build_data.py",
+    "build": "tsc -p tsconfig.json",
+    "watch": "tsc -p tsconfig.json --watch",
+    "serve": "python -m http.server 8080"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}

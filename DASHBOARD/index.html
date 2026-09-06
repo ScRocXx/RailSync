@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RailSync — Delhi Division Section Control</title>
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<!-- ================================ LIVE TELEMETRY RIBBON (v) -->
+<header id="banner">
+  <div class="brand">
+    <div class="brand-mark">RS</div>
+    <div class="brand-txt">
+      <b>RailSync Control</b>
+      <span id="brand-div">Delhi Division</span>
+    </div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-k">Punctuality Index</div>
+    <div class="stat-v" id="s-punct">--</div>
+    <div class="stat-sub" id="s-punct-sub">--</div>
+  </div>
+
+  <div class="stat clock-box">
+    <div class="stat-k">Division Clock</div>
+    <div class="clock-row">
+      <div class="clock-time" id="s-clock">00:00</div>
+      <div class="clock-ctrl">
+        <button id="c-play" title="Play / Pause">&#9654;</button>
+        <button id="c-x1" class="on" title="Real time">1&times;</button>
+        <button id="c-x8" title="8&times;">8&times;</button>
+        <button id="c-x60" title="60&times;">60&times;</button>
+        <button id="c-rst" title="Reset to 00:00">&#8635;</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-k">Rail T<sub>r</sub> / t<sub>d</sub></div>
+    <div class="stat-v" id="s-temp">--</div>
+    <div class="stat-sub" id="s-temp-sub">--</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-k">Trains On Section</div>
+    <div class="stat-v" id="s-running">--</div>
+    <div class="stat-sub" id="s-running-sub">--</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-k">Backlog Demands</div>
+    <div class="stat-v" id="s-backlog">--</div>
+    <div class="stat-sub" id="s-backlog-sub">--</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-k">Blocks Approved</div>
+    <div class="stat-v" id="s-approved">--</div>
+    <div class="stat-sub" id="s-approved-sub">--</div>
+  </div>
+
+  <div class="banner-spacer"></div>
+
+  <div class="tsr-chip" id="tsr-chip" title="Active TSR / caution orders">
+    <span class="dot"></span>
+    <div>
+      <div class="stat-k" style="color:#ff8a8c">Active TSR</div>
+      <div class="mono" style="font-size:15px;font-weight:700" id="s-tsr">--</div>
+    </div>
+  </div>
+</header>
+
+<div id="shell">
+  <nav id="rail">
+    <button class="rail-btn on" data-view="ops">&#9636;<span class="tip">Operations Control</span></button>
+    <button class="rail-btn" data-view="reports">&#9638;<span class="tip">Reports &amp; Analytics</span></button>
+    <button class="rail-btn" data-view="logs">&#9776;<span class="tip">Logs &amp; History</span></button>
+  </nav>
+
+  <main id="main">
+
+    <!-- ============================ VIEW: OPERATIONS -->
+    <section class="view on" id="view-ops">
+
+      <!-- ---------- PRIMARY OPERATIONAL WORKSPACE ---------- -->
+      <div class="ops-left">
+        <div class="ws-bar">
+          <div class="seg" id="ws-tabs">
+            <button data-ws="chart" class="on">Time&ndash;Distance Chart</button>
+            <button data-ws="map">Corridor Track Map</button>
+            <button data-ws="fleet">Fleet &amp; Crew HOER</button>
+          </div>
+          <div class="grow"></div>
+          <div class="seg" id="corr-tabs"></div>
+        </div>
+
+        <!-- Tab 1: string chart above, synchronised schematic below -->
+        <div class="ws-pane on" id="ws-chart">
+          <div class="panel" id="p-marey">
+            <div class="panel-hd">
+              <h2>Master String Chart</h2>
+              <span class="sub" id="mk-sub">&mdash;</span>
+              <div class="grow"></div>
+              <div class="legend">
+                <i><b style="background:var(--t-premium)"></b>Premium</i>
+                <i><b style="background:var(--t-express)"></b>Mail/Exp</i>
+                <i><b style="background:var(--t-suburban)"></b>EMU</i>
+                <i><b style="background:var(--t-freight)"></b>Freight</i>
+                <i><b style="background:var(--amber);height:8px;width:8px;border-radius:2px"></b>Block</i>
+              </div>
+              <div class="seg" id="mk-zoom">
+                <button data-z="24" class="on">24h</button>
+                <button data-z="8">8h</button>
+                <button data-z="4">4h</button>
+              </div>
+            </div>
+            <div class="panel-bd" style="overflow:hidden">
+              <div id="marey-wrap"><svg id="marey-svg"></svg></div>
+            </div>
+          </div>
+
+          <div class="panel" id="p-network">
+            <div class="panel-hd">
+              <h2>Schematic Track Network</h2>
+              <span class="sub">cursor-synced with the chart</span>
+              <div class="grow"></div>
+              <div class="legend">
+                <i><b style="background:#2b6b47"></b>Clear</i>
+                <i><b style="background:var(--red)"></b>Occupied</i>
+                <i><b style="background:var(--amber)"></b>Block</i>
+                <i><b style="background:var(--cyan)"></b>Loop</i>
+                <i><b style="background:var(--violet);height:8px;width:8px;border-radius:2px"></b>Depot</i>
+              </div>
+            </div>
+            <div class="panel-bd" style="overflow:hidden" id="net-host-chart">
+              <div id="net-wrap"><svg id="net-svg"></svg></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: the schematic at full height — loops, sidings, depots -->
+        <div class="ws-pane" id="ws-map">
+          <div class="panel" style="flex:1">
+            <div class="panel-hd">
+              <h2>Corridor Track Map</h2>
+              <span class="sub">main running lines vs loop stabling</span>
+              <div class="grow"></div>
+              <div class="legend">
+                <i><b style="background:#2b6b47"></b>Clear</i>
+                <i><b style="background:var(--red)"></b>Occupied</i>
+                <i><b style="background:var(--amber)"></b>Block</i>
+                <i><b style="background:var(--cyan)"></b>Loop line</i>
+                <i><b style="background:var(--t-freight)"></b>Rake held</i>
+                <i><b style="background:var(--violet);height:8px;width:8px;border-radius:2px"></b>Depot</i>
+              </div>
+            </div>
+            <div class="panel-bd" style="overflow:hidden" id="net-wrap-2"></div>
+          </div>
+        </div>
+
+        <!-- Tab 3: mobile resources (vi) -->
+        <div class="ws-pane" id="ws-fleet">
+          <div class="panel" style="flex:1">
+            <div class="panel-bd" id="fleet-root"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------- DECISION & INTERVENTION PANEL ---------- -->
+      <div class="ops-right">
+        <div class="panel" style="flex:0 0 auto;max-height:40%">
+          <div class="panel-hd">
+            <h2>Recommended Blocks</h2>
+            <span class="sub" id="prop-sub">&mdash;</span>
+            <div class="grow"></div>
+            <span class="chip" id="prop-pending">&mdash;</span>
+          </div>
+          <div class="panel-bd" id="prop-list"></div>
+        </div>
+
+        <div class="panel" style="flex:1">
+          <div class="panel-hd">
+            <div class="seg" id="panel-tabs">
+              <button data-pt="feed" class="on">Ingestion Feed</button>
+              <button data-pt="audit">Rejection Audit</button>
+            </div>
+            <div class="grow"></div>
+            <span class="sub" id="q-count">&mdash;</span>
+            <span class="sub" id="audit-sub" style="display:none">&mdash;</span>
+          </div>
+
+          <div class="pt-pane on" id="pt-feed">
+            <div class="filters" id="q-filters"></div>
+            <div class="panel-bd">
+              <table class="grid" id="q-table">
+                <thead>
+                  <tr>
+                    <th>Requisition</th>
+                    <th>Dept</th>
+                    <th>Section / Track</th>
+                    <th>Chainage</th>
+                    <th>Telemetry</th>
+                    <th style="text-align:right">O/D</th>
+                    <th style="width:96px">Urgency</th>
+                  </tr>
+                </thead>
+                <tbody id="q-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="pt-pane" id="pt-audit">
+            <div class="panel-bd" id="audit-list"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ VIEW: REPORTS -->
+    <section class="view" id="view-reports">
+      <div style="flex:1;overflow:auto">
+        <div class="rep-grid" id="rep-grid"></div>
+      </div>
+    </section>
+
+    <!-- ============================ VIEW: LOGS -->
+    <section class="view" id="view-logs">
+      <div style="flex:1;overflow:auto" id="log-root"></div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ================================ APPROVAL DRAWER (iv) -->
+<aside id="drawer">
+  <div class="dw-hd">
+    <div class="row">
+      <h2 id="dw-id">&mdash;</h2>
+      <span class="chip" id="dw-status">PENDING</span>
+      <button class="close" id="dw-close">&times;</button>
+    </div>
+    <div class="dw-sub" id="dw-sub">&mdash;</div>
+  </div>
+  <div class="dw-bd" id="dw-bd"></div>
+  <div class="dw-ft" id="dw-ft"></div>
+</aside>
+
+<div id="tip"></div>
+<div id="toast-wrap"></div>
+
+<!-- Data bundle compiled from ../SIMULATOR by build_data.py -->
+<script src="js/railsync-data.js"></script>
+<!-- Dashboard compiled from src/*.ts by `npm run build` -->
+<script src="js/dashboard.js"></script>
+</body>
+</html>
