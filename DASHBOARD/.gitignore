@@ -1,3 +1,7 @@
 node_modules/
+dist/
+.vite/
 *.js.map
+*.tsbuildinfo
 __pycache__/
+*.pyc

@@ -1207,21 +1207,27 @@ def build_metrics(trains, queue, machines, tsr):
 
 # ------------------------------------------------------------------ main
 
-def main():
-    topo = load("network_topology.json")
+def generate_bundle(sim_dir=None):
+    base_sim = sim_dir if sim_dir else SIM
+    
+    def _load(name):
+        with open(os.path.join(base_sim, name), "r", encoding="utf-8") as fh:
+            return json.load(fh)
+
+    topo = _load("network_topology.json")
     corridors = build_corridors(topo)
     kmx = km_index(corridors)
 
-    coa = load("coa_passenger_streams.json")
-    fois = load("fois_freight_manifests.json")
+    coa = _load("coa_passenger_streams.json")
+    fois = _load("fois_freight_manifests.json")
     trains = build_passenger(coa, kmx) + build_freight(fois, kmx, corridors)
 
-    tms = load("tms_track_defects.json")
-    tdms = load("tdms_catenary_health.json")
-    smms = load("smms_signalling_gears.json")
-    tmms = load("tmms_machine_inventory.json")
-    icms = load("icms_speed_restrictions.json")
-    crt = load("crt_weather_telemetry.json")
+    tms = _load("tms_track_defects.json")
+    tdms = _load("tdms_catenary_health.json")
+    smms = _load("smms_signalling_gears.json")
+    tmms = _load("tmms_machine_inventory.json")
+    icms = _load("icms_speed_restrictions.json")
+    crt = _load("crt_weather_telemetry.json")
 
     machines = build_machines(tmms, kmx, corridors)
     queue = build_queue(tms, tdms, smms, kmx, trains)
@@ -1230,7 +1236,7 @@ def main():
     tsr = build_tsr(icms, kmx)
     metrics = build_metrics(trains, queue, machines, tsr)
 
-    bundle = {
+    return {
         "meta": {
             "division": topo["metadata"]["division"],
             "zone": topo["metadata"]["zone"],
@@ -1247,6 +1253,10 @@ def main():
         "weather": weather,
         "metrics": metrics,
     }
+
+
+def main():
+    bundle = generate_bundle()
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     payload = json.dumps(bundle, separators=(",", ":"))

@@ -1,29 +1,23 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "module": "none",
-    "outFile": "js/dashboard.js",
-    "lib": ["ES2017", "DOM", "DOM.Iterable"],
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "isolatedModules": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "noImplicitReturns": true,
     "forceConsistentCasingInFileNames": true,
-    "removeComments": false,
-    "sourceMap": true,
-    "declaration": false,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "sourceMap": true
   },
-  "files": [
-    "src/types.ts",
-    "src/core.ts",
-    "src/marey.ts",
-    "src/network.ts",
-    "src/queue.ts",
-    "src/drawer.ts",
-    "src/analytics.ts",
-    "src/app.ts"
-  ]
+  "include": ["src"]
 }
