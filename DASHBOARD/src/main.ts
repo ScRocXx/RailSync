@@ -37,7 +37,7 @@ function renderBanner(): void {
   setText('s-punct', pu.toFixed(1) + '%');
   const pn = byId('s-punct');
   if (pn) pn.className = 'stat-v ' + (pu >= 90 ? 'v-good' : pu >= 75 ? 'v-warn' : 'v-bad');
-  setText('s-punct-sub', m.trainsOnTime + '/' + m.trainsRun + ' RT · avg +' + m.avgDelay.toFixed(1) + 'm');
+  setText('s-punct-sub', m.trainsOnTime + '/' + m.trainsRun + ' RT (+ ' + m.avgDelay.toFixed(0) + 'm)');
 
   const t = railTemp(s.clock, s.corridor);
   if (t) {
@@ -45,8 +45,7 @@ function renderBanner(): void {
     setText('s-temp', t.rail.toFixed(1) + '° / ' + t.dest.toFixed(0) + '°');
     const tn = byId('s-temp');
     if (tn) tn.className = 'stat-v ' + (t.rail > t.max ? 'v-bad' : over > 0 ? 'v-warn' : 'v-good');
-    setText('s-temp-sub', 'amb ' + t.amb + '° · ' + t.probe + ' · ' +
-      (t.safeTamp ? 'tamping OK' : 'OUTSIDE ENVELOPE') + (t.buckle ? ' · BUCKLE' : ''));
+    setText('s-temp-sub', 'amb ' + t.amb + '° · ' + (t.safeTamp ? 'Tamp OK' : 'No Tamp') + (t.buckle ? ' · BUCKLE' : ''));
     const chip = byId('tsr-chip');
     if (chip) {
       chip.onmousemove = (e) => { tip(tsrTip(), e as MouseEvent); };
@@ -58,17 +57,17 @@ function renderBanner(): void {
   const run = runningAt(s.clock, null);
   const pax = run.filter((r) => r.train.kind === 'PASSENGER').length;
   setText('s-running', String(run.length));
-  setText('s-running-sub', pax + ' pax · ' + (run.length - pax) + ' freight');
+  setText('s-running-sub', pax + ' pax · ' + (run.length - pax) + ' goods');
 
   const approved = s.proposals.filter((p) => p.status === 'APPROVED');
   const cleared = approved.reduce((a, p) => a + p.items.length + p.added.length, 0);
   const crit = data.queue.filter((q) => q.band === 'CRITICAL').length;
   setText('s-backlog', String(data.queue.length - cleared));
-  setText('s-backlog-sub', crit + ' critical · ' + cleared + ' cleared');
+  setText('s-backlog-sub', crit + ' crit · ' + cleared + ' done');
 
   const induced = approved.reduce((a, p) => a + p.impact.paxDelayMin, 0);
   setText('s-approved', approved.length + '/' + s.proposals.length);
-  setText('s-approved-sub', induced + ' min delay induced');
+  setText('s-approved-sub', induced + 'm delay induced');
 
   setText('s-tsr', String(data.tsr.length));
 }

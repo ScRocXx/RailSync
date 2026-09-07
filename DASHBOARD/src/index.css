@@ -40,9 +40,9 @@
   --mono: 'Consolas', 'Roboto Mono', 'SF Mono', ui-monospace, Menlo, monospace;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
-  --h-banner: 52px;
-  --h-nav: 38px;
-  --h-footer: 58px;
+  --h-banner: 56px;
+  --h-nav: 36px;
+  --h-footer: 48px;
 }
 
 * {
@@ -53,12 +53,14 @@
 }
 
 html, body {
-  margin: 0; padding: 0; height: 100%;
+  margin: 0; padding: 0;
+  width: 100vw; height: 100vh;
   background: var(--bg);
   color: var(--text);
   font-family: var(--mono);
   font-size: 12px;
   overflow: hidden;
+  display: flex; flex-direction: column;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -73,7 +75,7 @@ button { font-family: inherit; color: inherit; cursor: pointer; border-radius: 0
 /* ============================================================ TOP TRICOLOR RIBBON */
 
 #tricolor-ribbon {
-  height: 3px;
+  height: 3px; min-height: 3px;
   background: linear-gradient(90deg, #ff9933 0%, #ff9933 33.3%, #ffffff 33.3%, #ffffff 66.6%, #138808 66.6%, #138808 100%);
   position: relative; z-index: 50; flex-shrink: 0;
 }
@@ -81,7 +83,7 @@ button { font-family: inherit; color: inherit; cursor: pointer; border-radius: 0
 /* ============================================================ OFFICIAL HEADER */
 
 #banner {
-  height: var(--h-banner);
+  height: var(--h-banner); min-height: var(--h-banner); max-height: var(--h-banner);
   display: flex; align-items: stretch;
   background: var(--navy-header);
   border-bottom: 1px solid #001a33;
@@ -90,54 +92,56 @@ button { font-family: inherit; color: inherit; cursor: pointer; border-radius: 0
 }
 
 .gov-brand {
-  display: flex; align-items: center; gap: 12px;
-  padding: 0 16px; border-right: 1px solid rgba(255, 255, 255, 0.12);
-  flex: 0 1 auto; min-width: 0; background: #0a1b33;
+  display: flex; align-items: center; gap: 10px;
+  padding: 0 14px; border-right: 1px solid rgba(255, 255, 255, 0.14);
+  flex: 0 0 auto; background: #0a1b33;
 }
 .emblem-box {
-  width: 36px; height: 44px;
+  width: 36px; height: 46px;
   display: grid; place-items: center; flex-shrink: 0;
 }
-.ashoka-emblem {
-  color: #f8fafc; filter: drop-shadow(0 1px 1px rgba(0,0,0,0.3));
+.ashoka-emblem-img {
+  height: 42px; width: auto; object-fit: contain;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4));
 }
-.gov-titles { min-width: 0; display: flex; flex-direction: column; justify-content: center; }
+.gov-titles { min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 1px; }
 .gov-line-1 {
-  font-size: 9.5px; color: #cbd5e1; letter-spacing: .04em;
-  text-transform: uppercase; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  font-size: 8.5px; color: #cbd5e1; letter-spacing: .05em;
+  text-transform: uppercase; font-weight: 600; white-space: nowrap; line-height: 1.1;
 }
 .gov-line-2 {
-  font-size: 11px; color: #f8fafc; font-weight: 700; letter-spacing: .05em;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  font-size: 10.5px; color: #f8fafc; font-weight: 700; letter-spacing: .04em;
+  white-space: nowrap; line-height: 1.15;
 }
 .gov-line-3 {
-  font-size: 13px; color: #fbbf24; font-weight: 800; letter-spacing: .04em;
-  display: flex; align-items: center; gap: 8px; margin-top: 1px;
+  font-size: 12px; color: #fbbf24; font-weight: 800; letter-spacing: .04em;
+  display: flex; align-items: center; gap: 8px; line-height: 1.2;
 }
+.portal-main-name { font-weight: 800; color: #fbbf24; }
 .sub-portal-tag {
-  font-size: 10px; color: #93c5fd; background: rgba(56, 189, 248, 0.15);
-  border: 1px solid rgba(56, 189, 248, 0.3); padding: 1px 6px; font-weight: 600;
+  font-size: 9px; color: #93c5fd; background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.35); padding: 1px 5px; font-weight: 700;
   text-transform: uppercase; letter-spacing: .06em;
 }
 
 .stat {
   display: flex; flex-direction: column; justify-content: center;
-  padding: 0 12px; border-right: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2px 10px; border-right: 1px solid rgba(255, 255, 255, 0.1);
   min-width: 0; flex: 0 1 auto; overflow: hidden;
   background: var(--navy-header);
 }
 .stat-k {
-  font-size: 10.5px; color: #93c5fd;
-  text-transform: uppercase; letter-spacing: .08em; white-space: nowrap;
-  font-weight: 600; overflow: hidden; text-overflow: ellipsis;
+  font-size: 9px; color: #93c5fd;
+  text-transform: uppercase; letter-spacing: .06em; white-space: nowrap;
+  font-weight: 700; overflow: hidden; text-overflow: ellipsis; line-height: 1.2;
 }
 .stat-v {
-  font-family: var(--mono); font-size: 14.5px; font-weight: 700;
+  font-family: var(--mono); font-size: 13.5px; font-weight: 800;
   font-variant-numeric: tabular-nums;
-  line-height: 1.1; margin-top: 1px; color: #ffffff;
+  line-height: 1.2; margin-top: 1px; color: #ffffff;
 }
 .stat-sub {
-  font-size: 10.5px; color: #cbd5e1; margin-top: 1px;
+  font-size: 9.5px; color: #cbd5e1; margin-top: 1px; line-height: 1.15;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   font-variant-numeric: tabular-nums;
 }
@@ -146,29 +150,29 @@ button { font-family: inherit; color: inherit; cursor: pointer; border-radius: 0
 .v-bad  { color: #f87171 !important; }
 
 /* Master Division Clock */
-.clock-box { padding-right: 14px; background: #081d33; }
+.clock-box { padding: 2px 12px; background: #081d33; border-right: 1px solid rgba(255, 255, 255, 0.14); }
 .clock-row { display: flex; align-items: center; gap: 8px; margin-top: 2px; }
 .clock-time {
-  font-family: var(--mono); font-size: 16px; font-weight: 800;
-  color: #fbbf24; line-height: 1; letter-spacing: 1px;
+  font-family: var(--mono); font-size: 15px; font-weight: 800;
+  color: #fbbf24; line-height: 1; letter-spacing: 0.5px;
   font-variant-numeric: tabular-nums;
 }
 .clock-chips { display: flex; gap: 4px; }
 .chip-gps {
-  font-size: 9.5px; font-weight: 700; color: #4ade80;
+  font-size: 9px; font-weight: 700; color: #4ade80;
   background: rgba(34, 197, 94, 0.18); border: 1px solid rgba(34, 197, 94, 0.4);
-  padding: 1px 5px; letter-spacing: .04em;
+  padding: 1px 4px; letter-spacing: .04em;
 }
 .chip-shift {
-  font-size: 9.5px; font-weight: 700; color: #fbbf24;
+  font-size: 9px; font-weight: 700; color: #fbbf24;
   background: rgba(245, 158, 11, 0.18); border: 1px solid rgba(245, 158, 11, 0.4);
-  padding: 1px 5px; letter-spacing: .04em;
+  padding: 1px 4px; letter-spacing: .04em;
 }
 
-.clock-ctrl { display: flex; gap: 2px; align-items: center; margin-left: 4px; }
+.clock-ctrl { display: flex; gap: 2px; align-items: center; margin-left: 2px; }
 .clock-ctrl button {
   padding: 2px 5px; border: 1px solid rgba(255, 255, 255, 0.2); background: #0f294a;
-  font-size: 10.5px; color: #cbd5e1;
+  font-size: 10px; color: #cbd5e1;
   font-family: var(--mono); font-weight: 600; transition: .1s;
 }
 .clock-ctrl button:hover { background: #1e3a8a; color: #fff; }
@@ -242,8 +246,9 @@ button { font-family: inherit; color: inherit; cursor: pointer; border-radius: 0
 /* ============================================================ MAIN WORKSPACES (CRISP LIGHT) */
 
 #main {
-  flex: 1; display: flex; flex-direction: column;
-  overflow: hidden; height: calc(100vh - 3px - var(--h-banner) - var(--h-nav) - var(--h-footer));
+  flex: 1 1 0%; min-height: 0;
+  display: flex; flex-direction: column;
+  overflow: hidden;
   background: var(--bg);
 }
 
@@ -290,15 +295,32 @@ button { font-family: inherit; color: inherit; cursor: pointer; border-radius: 0
   width: 100%; height: 100%; display: block;
 }
 
-/* Light theme Marey styles */
-.mk-st-line { stroke: #e2e8f0; stroke-width: 1; }
-.mk-st-lbl { font-size: 10px; font-weight: 700; fill: #334155; font-family: var(--mono); }
-.mk-hr-line { stroke: #e2e8f0; stroke-width: 1; }
-.mk-hr-lbl { font-size: 9.5px; fill: #64748b; font-family: var(--mono); font-weight: 600; }
-.mk-night { fill: rgba(241, 245, 249, 0.7); }
-.mk-now { stroke: #dc2626; stroke-width: 1.8; stroke-dasharray: 4,2; }
+/* Authentic Indian Railways COA Marey Styles */
+.mk-grid { stroke: #f1f5f9; stroke-width: 0.8px; stroke-dasharray: 2, 2; }
+.mk-grid-hr { stroke: #cbd5e1; stroke-width: 1.2px; }
+.mk-axis-txt { fill: #334155; font-size: 10px; font-family: var(--mono); font-weight: 600; }
+
+.mk-stn-line { stroke: #e2e8f0; stroke-width: 1px; }
+.mk-stn-txt { font-size: 10.5px; font-weight: 800; fill: #002b49; font-family: var(--mono); }
+.mk-stn-km { font-size: 9px; fill: #64748b; font-family: var(--mono); font-weight: 500; }
+
+.mk-night { fill: rgba(241, 245, 249, 0.75); }
+.mk-now { stroke: #dc2626; stroke-width: 1.8px; stroke-dasharray: 4, 2; }
 .mk-now-head { fill: #dc2626; }
-.mk-hit { stroke: transparent; stroke-width: 12; fill: none; cursor: crosshair; }
+.mk-hit { stroke: transparent; stroke-width: 14; fill: none; cursor: crosshair; }
+
+.mk-tsr { fill: rgba(245, 158, 11, 0.14); stroke: rgba(217, 119, 6, 0.45); stroke-width: 1px; }
+.mk-block { stroke: #d97706; stroke-width: 1.6px; cursor: pointer; }
+.mk-block.approved { stroke: #16a34a; stroke-width: 2px; }
+.mk-block.sel { stroke: #002b49; stroke-width: 2.5px; filter: drop-shadow(0 0 2px rgba(0,0,0,0.3)); }
+.mk-block.hot { stroke: #b45309; stroke-width: 2.2px; }
+.mk-block-txt { fill: #92400e; font-size: 9.5px; font-family: var(--mono); font-weight: 800; }
+
+.mk-path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.mk-train.PREMIUM { stroke-width: 2.5px; }
+.mk-train.EXPRESS { stroke-width: 2px; }
+.mk-train.SUBURBAN { stroke-width: 1.8px; }
+.mk-train.FREIGHT { stroke-width: 1.6px; stroke-dasharray: 6, 3; }
 
 /* Hover isolation for Marey string chart */
 .mk-isolated .mk-train {
@@ -307,7 +329,7 @@ button { font-family: inherit; color: inherit; cursor: pointer; border-radius: 0
 }
 .mk-isolated .mk-train.hot {
   opacity: 1 !important;
-  stroke-width: 3px !important;
+  stroke-width: 3.2px !important;
   filter: drop-shadow(0 0 3px currentColor);
 }
 .mk-isolated text {
@@ -347,6 +369,33 @@ button { font-family: inherit; color: inherit; cursor: pointer; border-radius: 0
 .ctc-yard-matrix {
   flex: 1; overflow: auto; background: #ffffff;
 }
+
+/* Authentic Indian Railways CTC Mimic Vectors */
+.nw-line-lbl { font-family: var(--mono); font-size: 10px; font-weight: 800; fill: #002b49; }
+.nw-bed { stroke: #e2e8f0; stroke-width: 5px; stroke-linecap: square; }
+.nw-sync { stroke: #fbbf24; stroke-width: 7px; opacity: 0.55; }
+.nw-track { stroke-width: 3.5px; stroke-linecap: square; transition: stroke 0.15s; }
+.nw-track.clear { stroke: #16a34a; }
+.nw-track.occupied { stroke: #dc2626; }
+.nw-track.blocked { stroke-width: 4.5px; }
+
+.nw-sig-post { stroke: #334155; stroke-width: 1.8px; }
+.nw-sig-head { fill: #1e293b; stroke: #475569; stroke-width: 0.8px; }
+
+.nw-loop { stroke: #1d4ed8; stroke-width: 3px; fill: none; stroke-linecap: round; }
+.nw-loop.held { stroke: #dc2626; stroke-width: 3.5px; }
+.nw-csr { font-family: var(--mono); font-size: 9.5px; fill: #1e40af; font-weight: 800; }
+
+.nw-siding { stroke: #64748b; stroke-width: 2.2px; stroke-dasharray: 4, 2; fill: none; }
+.nw-stn { fill: #ffffff; stroke: #002b49; stroke-width: 2px; }
+.nw-stn.loop { fill: #ffffff; stroke: #1d4ed8; stroke-width: 2.5px; }
+.nw-stn-txt { font-family: var(--mono); font-size: 11px; font-weight: 800; fill: #002b49; }
+.nw-km-txt { font-family: var(--mono); font-size: 9.5px; fill: #64748b; }
+.nw-corridor-hdr { font-family: var(--mono); font-size: 10.5px; font-weight: 800; fill: #002b49; }
+
+.nw-train { cursor: pointer; }
+.nw-train-body { filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3)); }
+.nw-sync-ring { fill: none; stroke: #fbbf24; stroke-width: 2px; stroke-dasharray: 3, 2; }
 
 /* ============================================================ 3. BLOCK PLANNER (CORE) DESK */
 
@@ -391,7 +440,7 @@ button { font-family: inherit; color: inherit; cursor: pointer; border-radius: 0
 .f-sep { width: 1px; height: 16px; background: #cbd5e1; margin: 0 4px; }
 
 .table-container {
-  flex: 1; overflow: auto; background: #ffffff;
+  flex: 1; overflow: auto; padding-bottom: 30px; background: #ffffff;
 }
 
 /* Light SCADA Tables */
@@ -456,7 +505,7 @@ button { font-family: inherit; color: inherit; cursor: pointer; border-radius: 0
 .bb-desc { margin-top: 6px; font-size: 11px; color: var(--text-dim); font-family: var(--mono); }
 
 .proposals-container {
-  flex: 1; overflow-y: auto; padding: 10px 12px;
+  flex: 1; overflow-y: auto; padding: 10px 12px 36px;
   display: flex; flex-direction: column; gap: 10px;
 }
 
@@ -568,35 +617,47 @@ button { font-family: inherit; color: inherit; cursor: pointer; border-radius: 0
 /* ============================================================ INSTITUTIONAL TRUST FOOTER */
 
 #site-footer {
-  height: var(--h-footer); min-height: var(--h-footer);
+  height: var(--h-footer); min-height: var(--h-footer); max-height: var(--h-footer);
   background: #ffffff; border-top: 2px solid #cbd5e1;
-  display: flex; flex-direction: column; justify-content: space-between;
+  display: flex; align-items: center;
   flex-shrink: 0; z-index: 30;
 }
 
 .footer-emblems-row {
-  display: flex; align-items: center; justify-content: space-around;
-  padding: 6px 20px; flex: 1;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 16px; width: 100%; height: 100%;
 }
 
 .trust-badge {
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center; gap: 10px; flex-shrink: 0;
 }
-.trust-icon { flex-shrink: 0; }
-.trust-text { display: flex; flex-direction: column; }
+.trust-badge-railway { min-width: 260px; }
+.trust-badge-cris { min-width: 140px; justify-content: flex-end; }
+
+.trust-logo-img {
+  width: 36px; height: 36px; object-fit: contain; flex-shrink: 0;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.15));
+}
+.trust-logo-img-cris {
+  height: 32px; max-width: 150px; object-fit: contain; flex-shrink: 0;
+}
+
+.trust-text { display: flex; flex-direction: column; justify-content: center; }
 .trust-text b { font-size: 11px; color: var(--navy); font-family: var(--sans); font-weight: 800; letter-spacing: .04em; }
 .trust-text span { font-size: 9.5px; color: var(--text-mute); font-family: var(--sans); }
 
-.footer-divider {
-  width: 1px; height: 28px; background: #e2e8f0;
+.footer-center-meta {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; flex: 1; min-width: 0; padding: 0 12px;
 }
-
-.footer-meta-bar {
-  background: #f1f5f9; border-top: 1px solid #e2e8f0;
-  padding: 2px 16px; font-size: 10px; color: var(--text-mute);
-  display: flex; align-items: center; font-family: var(--sans);
+.sec-badge {
+  font-family: var(--sans); font-size: 10.5px; font-weight: 800; color: var(--navy);
+  letter-spacing: .06em; text-transform: uppercase;
 }
-.footer-meta-bar .grow { flex: 1; }
+.sec-sub {
+  font-family: var(--mono); font-size: 9.5px; color: var(--text-mute);
+  margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
 
 /* ============================================================ FORMAL MODALS (LIGHT) */
 
