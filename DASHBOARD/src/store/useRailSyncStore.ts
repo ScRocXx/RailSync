@@ -61,14 +61,14 @@ export const store = createStore<RailSyncStore>()((set) => ({
   data: null,
 
   /* ---- app state defaults ---- */
-  clock: 0,
+  clock: 450,
   wallClock: '07:30:00 IST',
   shift: 'MORNING 06:00–14:00',
   playing: false,
   speed: 1,
   corridor: '',
   zoom: 8,
-  zoomAt: 0,
+  zoomAt: 210,
   filters: {
     dept: { TMS: true, TDMS: true, SMMS: true },
     band: { CRITICAL: true, URGENT: true, ROUTINE: true },

@@ -8,7 +8,7 @@ import './index.css';
 import { store } from './store/useRailSyncStore.ts';
 import type { Bundle, Workspace } from './types/index.ts';
 import {
-  D, S, DAY, hhmm, pad2, shortCorr, runningAt, railTemp,
+  D, S, DAY, hhmm, hhmmss, pad2, shortCorr, runningAt, railTemp,
   tip, tipOff, tipRows, logEvent, byId, initProposals, setPlaying,
 } from './lib/core.ts';
 import * as Marey from './components/MareyChart.ts';
@@ -86,28 +86,16 @@ function tsrTip(): string {
 /* ------------------------------------------------------- wall clock & shift */
 
 function updateWallClock(): void {
-  const now = new Date();
-  // Format Indian Standard Time (IST)
-  const options: Intl.DateTimeFormatOptions = {
-    timeZone: 'Asia/Kolkata',
-    hour: '2-digit', minute: '2-digit', second: '2-digit',
-    hour12: false,
-  };
-  const istTime = now.toLocaleTimeString('en-GB', options) + ' IST';
   const s = store.getState();
+  const timeStr = hhmmss(s.clock);
+  const statusStr = s.playing ? ' SIM' : ' IST';
+  setText('s-clock', timeStr + statusStr);
 
-  // If simulation is not playing, use formatted current IST clock or division clock
-  if (!s.playing) {
-    setText('s-clock', istTime);
-  } else {
-    setText('s-clock', hhmm(s.clock) + ' SIM');
-  }
-
-  // Calculate shift
-  const hrs = now.getHours();
+  // Calculate shift based on simulation clock
+  const hr = Math.floor((((s.clock % DAY) + DAY) % DAY) / 60);
   let shiftName = 'MORNING 06:00–14:00';
-  if (hrs >= 14 && hrs < 22) shiftName = 'EVENING 14:00–22:00';
-  else if (hrs >= 22 || hrs < 6) shiftName = 'NIGHT 22:00–06:00';
+  if (hr >= 14 && hr < 22) shiftName = 'EVENING 14:00–22:00';
+  else if (hr >= 22 || hr < 6) shiftName = 'NIGHT 22:00–06:00';
 
   setText('s-shift-chip', 'SHIFT: ' + shiftName);
 }
@@ -194,6 +182,11 @@ function bindClock(): void {
   if (rst) {
     rst.addEventListener('click', () => {
       store.getState().setClock(450); // 07:30 AM
+      updateWallClock();
+      Marey.updateNeedle();
+      if (store.getState().workspace === 'ctc') {
+        Schematic.render();
+      }
     });
   }
 }
@@ -242,9 +235,6 @@ function connectSSE(): void {
       try {
         const payload = JSON.parse(event.data);
         if (payload.type === 'telemetry_tick') {
-          if (typeof payload.clock === 'number' && store.getState().playing) {
-            store.getState().setClock(payload.clock);
-          }
 
           // Live Telemetry status chip in header ribbon
           const dot = byId('sim-live-dot');
@@ -320,8 +310,9 @@ async function boot(): Promise<void> {
   store.getState().setData(data);
   initProposals();
 
-  // Open on morning peak shift (07:30 AM = 450 min)
+  // Open on morning peak shift (07:30 AM = 450 min, center 8h window)
   store.getState().setClock(450);
+  store.getState().setZoom(8, Math.max(0, 450 - 240));
 
   // Setup UI bindings
   Schematic.bindTabs();
@@ -349,6 +340,7 @@ async function boot(): Promise<void> {
   // 2. Clock updates
   store.subscribe((state, prev) => {
     if (state.clock !== prev.clock) {
+      updateWallClock();
       Marey.updateNeedle();
 
       if (state.zoom < 24) {
@@ -365,7 +357,9 @@ async function boot(): Promise<void> {
       if (state.workspace === 'ctc') {
         Schematic.render();
       } else if (state.workspace === 'reports') {
-        Ribbon.renderReports();
+        if (Math.floor(state.clock) !== Math.floor(prev.clock)) {
+          Ribbon.renderReports();
+        }
       }
     }
   });
@@ -373,6 +367,7 @@ async function boot(): Promise<void> {
   // 3. Play/pause toggle
   store.subscribe((state, prev) => {
     if (state.playing !== prev.playing) {
+      updateWallClock();
       const play = byId<HTMLButtonElement>('c-play');
       if (play) {
         play.innerHTML = state.playing ? '&#10073;&#10073;' : '&#9654;';

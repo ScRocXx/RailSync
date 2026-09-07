@@ -45,6 +45,14 @@ export function hhmm(m: number): string {
   return pad2(Math.floor(m / 60)) + ':' + pad2(m % 60);
 }
 
+export function hhmmss(m: number): string {
+  const totalSec = Math.floor((((m % DAY) + DAY) % DAY) * 60);
+  const hh = Math.floor(totalSec / 3600);
+  const mm = Math.floor((totalSec % 3600) / 60);
+  const ss = totalSec % 60;
+  return pad2(hh) + ':' + pad2(mm) + ':' + pad2(ss);
+}
+
 export function shortCorr(id: string): string { return id.replace('CORR_', ''); }
 
 export function corridorById(id: string): Corridor {
@@ -301,20 +309,34 @@ export function mergeImpact(p: LiveProposal, fresh: WindowScore): Impact {
 /* ---- Clock ---- */
 
 let tickHandle: number | null = null;
+let lastTickTime = 0;
 
 function tick(): void {
+  const now = performance.now();
+  if (lastTickTime === 0) {
+    lastTickTime = now;
+    return;
+  }
+  const elapsedSec = (now - lastTickTime) / 1000;
+  lastTickTime = now;
+
+  // Guard against background tab freezing / huge skips
+  const dt = Math.min(elapsedSec, 2.0);
   const s = store.getState();
-  store.getState().setClock((s.clock + s.speed / 60) % DAY);
+  const advanceMinutes = (s.speed * dt) / 60;
+  store.getState().setClock((s.clock + advanceMinutes) % DAY);
 }
 
 export function startClock(): void {
   if (tickHandle !== null) clearInterval(tickHandle);
-  tickHandle = setInterval(tick, 1000) as unknown as number;
+  lastTickTime = performance.now();
+  tickHandle = setInterval(tick, 200) as unknown as number;
   store.getState().setPlaying(true);
 }
 
 export function stopClock(): void {
   if (tickHandle !== null) { clearInterval(tickHandle); tickHandle = null; }
+  lastTickTime = 0;
   store.getState().setPlaying(false);
 }
 
