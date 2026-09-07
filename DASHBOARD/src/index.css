@@ -711,3 +711,261 @@ button { font-family: inherit; color: inherit; cursor: pointer; border-radius: 0
 .shift-ctrl-wrap { padding: 10px 0; }
 .shift-row { display: flex; align-items: center; gap: 10px; }
 .recalc { font-size: 11.5px; font-family: var(--mono); font-weight: 600; }
+
+/* Responsive Navigation Label Display Defaults */
+.ws-name-full { display: inline; }
+.ws-name-short { display: none; }
+
+/* ============================================================
+   RESPONSIVE DESIGN BREAKPOINTS SYSTEM
+   ============================================================ */
+
+/* 1. Large Screen / Laptop Adjustments (<= 1280px) */
+@media (max-width: 1280px) {
+  .ws-name-full { display: none; }
+  .ws-name-short { display: inline; }
+  .gov-line-1 { font-size: 8.5px; }
+  .stat { padding: 0 8px; }
+  .stat-k { font-size: 9.5px; }
+  .stat-v { font-size: 13px; }
+  .clock-time { font-size: 14px; }
+}
+
+/* 2. Tablet & Medium Screens (<= 1024px) */
+@media (max-width: 1024px) {
+  html, body {
+    overflow-y: auto;
+  }
+  
+  #main {
+    height: auto;
+    min-height: calc(100vh - 3px - var(--h-banner) - var(--h-nav) - var(--h-footer));
+    overflow: visible;
+  }
+
+  .ws-pane {
+    height: auto;
+    min-height: 600px;
+    overflow: visible;
+  }
+
+  /* Header banner scrollable on touch / responsive wrap */
+  #banner {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Navigation Bar Touch Horizontal Scroll */
+  #ws-nav-bar {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  #ws-nav-bar::-webkit-scrollbar { display: none; }
+  .ws-nav-btn {
+    flex: 0 0 auto;
+    min-width: max-content;
+    padding: 0 14px;
+  }
+
+  /* Block Planner Split Layout -> Stacked Columns */
+  .planner-split {
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+  .planner-left {
+    border-right: none;
+    border-bottom: 2px solid #cbd5e1;
+    height: 480px;
+    flex: none;
+  }
+  .planner-right {
+    height: auto;
+    min-height: 500px;
+    flex: none;
+  }
+  #q-table-wrap {
+    max-height: 380px;
+    overflow: auto;
+  }
+  #prop-list {
+    max-height: 520px;
+    overflow-y: auto;
+  }
+
+  /* CTC Layout Stack */
+  .ctc-layout {
+    height: auto;
+    min-height: 650px;
+  }
+  .ctc-canvas-wrap {
+    height: 360px;
+    flex: none;
+  }
+  .ctc-yard-matrix-wrap {
+    height: 300px;
+    flex: none;
+    max-height: 350px;
+  }
+
+  /* Marey Canvas */
+  .ws-canvas-host {
+    min-height: 480px;
+  }
+
+  /* Analytical Reports Grid (2-column layout) */
+  .rep-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .rep-grid .span4 {
+    grid-column: span 2;
+  }
+}
+
+/* 3. Mobile & Small Tablet Screens (<= 768px) */
+@media (max-width: 768px) {
+  #banner {
+    height: auto;
+    flex-wrap: wrap;
+    padding: 6px 0;
+    gap: 0;
+    overflow-x: visible;
+  }
+
+  .gov-brand {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 6px 12px;
+  }
+
+  .clock-box {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 6px 12px;
+  }
+  .clock-row {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .clock-ctrl {
+    margin-left: 0;
+    margin-top: 4px;
+    width: 100%;
+  }
+
+  .stat {
+    flex: 1 1 45%;
+    min-width: 140px;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 6px 10px;
+  }
+
+  .banner-spacer {
+    display: none;
+  }
+
+  .tsr-chip, .scada-chip {
+    flex: 1 1 45%;
+    border-left: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 6px 10px;
+  }
+
+  .ws-toolbar {
+    height: auto;
+    min-height: 38px;
+    flex-wrap: wrap;
+    padding: 6px 10px;
+    gap: 6px;
+  }
+  .toolbar-sep { display: none; }
+
+  /* Analytical Reports Grid (Single column layout) */
+  .rep-grid {
+    grid-template-columns: 1fr;
+  }
+  .rep-grid .span2, .rep-grid .span4 {
+    grid-column: span 1;
+  }
+
+  /* Modals Layout Stack */
+  .modal-overlay {
+    padding: 10px;
+  }
+  .modal-box {
+    max-width: 100%;
+    max-height: 95vh;
+  }
+  .pn-display-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .prop-chips-row {
+    flex-wrap: wrap;
+  }
+  .prop-actions {
+    flex-wrap: wrap;
+  }
+  .prop-actions .btn {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  /* Footer Layout Stack */
+  #site-footer {
+    height: auto;
+    min-height: auto;
+  }
+  .footer-emblems-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 14px;
+  }
+  .footer-divider {
+    display: none;
+  }
+  .footer-meta-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 6px 14px;
+  }
+}
+
+/* 4. Ultra Compact Mobile Screens (<= 480px) */
+@media (max-width: 480px) {
+  .gov-line-1 { font-size: 8px; letter-spacing: 0; }
+  .gov-line-2 { font-size: 10px; }
+  .gov-line-3 { font-size: 11.5px; }
+
+  .stat {
+    flex: 1 1 100%;
+  }
+  .tsr-chip, .scada-chip {
+    flex: 1 1 100%;
+  }
+
+  .f-btn {
+    padding: 2px 5px;
+    font-size: 10px;
+  }
+  .desk-title {
+    font-size: 10.5px;
+  }
+  .scroll-hint {
+    display: none;
+  }
+
+  .bb-controls {
+    flex-wrap: wrap;
+  }
+  .bb-btn {
+    flex: 1 1 45%;
+  }
+}
+
