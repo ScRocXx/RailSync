@@ -300,7 +300,7 @@ export function render(): void {
     root.appendChild(g);
   });
 
-  const hdr = svgEl('text', { x: M.l, y: 14, class: 'nw-km-txt' });
+  const hdr = svgEl('text', { x: M.l, y: 14, class: 'nw-corridor-hdr' });
   hdr.textContent = corr.name + '  ·  ' + maxKm.toFixed(0) + ' km  ·  MPS ' + corr.maxSpeed +
     ' km/h  ·  ' + running.length + ' on section  ·  ' + blocks.length + ' block(s) in force';
   root.appendChild(hdr);
