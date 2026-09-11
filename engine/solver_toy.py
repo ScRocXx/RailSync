@@ -6,7 +6,7 @@ try:
     # pyrefly: ignore [missing-import]
     from ortools.sat.python import cp_model
 except ImportError:
-    print("Missing ortools! Just run: pip install ortools")
+    print("run: pip install ortools")
     sys.exit(1)
 
 
@@ -93,7 +93,7 @@ def solve_tc1_bundle():
         print(f"Traffic Gap  : Caught gap between 14041 (dep 02:05) and 12056 Jan Shatabdi (arr 05:10)")
         print(f"Bundled Tasks: P-Way CSM Tamping + TRD OHE Wire Replacement")
         
-        # quick math for judges on why this matters
+        # quick math for why this matters
         solo_time = (job1_tamping["work"] + job1_tamping["ramp"]) + (job2_ohe["work"] + job2_ohe["ramp"])
         saved = solo_time - block_duration
         print(f"Line Saved   : {saved} mins of track possession saved vs booking separately")
